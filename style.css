@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
 *{
     margin: 0;
     padding: 0;
 }
 
 .container{
-    background: url(Copacabana.png);
+    background: #148caa;
     height: 100vh;
     background-size:100% 100%;
 }
@@ -44,4 +45,62 @@
     text-decoration: none;
     font-size: 20px;
     padding: 6px 13 px;
+    font-family: Sen;
+    transition: .5s;
+}
+
+.navbar ul li a.active,
+.navbar ul li a:hover{
+    background:#ff6e00;
+    border-radius: 2px; 
+}
+.container .center{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-family: Sen;
+    user-select: none;
+}
+
+.center h1{
+    margin: auto;
+    color: black;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.center h2{
+
+    margin: auto;
+    color: green;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.center .buttons{
+    margin: 35px 280px;
+}
+
+.buttons button{
+    height: 50px;
+    width: 150px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: Sen;
+    color:#f3f3f3;
+    background: rgb(163, 24, 31);
+    border: solid 1px red;
+    cursor: pointer;
+    outline: none;
+    transition: .5s;
+    text-align: center;
+    border-radius: 25px
+
+}
+
+.buttons button:hover{
+    background:#ffff;
 }
