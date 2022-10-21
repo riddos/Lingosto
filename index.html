@@ -1,60 +1,109 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Lingosto</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <a href="#">LOGO</a>
-            </div>
-            <ul>
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Languages</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Feedback</a></li>
-            </ul>
-        </div>
-        <div class="center">   
-            <h1>Lingosto</h1>
-            <h2>Welcome</h2>
-            <div class="buttons">
-                <button>More</button>
-                <button>Sign Up</button>
-            </div>
-        </div>
-    </div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Lingosto - A different way of learning languages</title>
+  </head>
+  <link rel="stylesheet" href="styles/style.css" class="css" />
+  <body>
+
+    <!--! header section start  -->
+    <header class="header">
+      <a href="#" class="logo"> <img src="images/logo.png" alt="logo" /></a>
+      <nav class="navbar">
+        <a href="#" class="active">Home</a>
+        <a href="#">Languages</a>
+        <a href="#">Podcasts</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </nav>
+      <div class="buttons">
+        <button>
+          <i class="fas fa-search"></i>
+        </button>
+        <button>
+          <i class="fas fa-shopping-cart"></i>
+        </button>
+        <button>
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </header>
+    <!--! header section end  -->
+
+    <!--! home section start  -->
+    <section class="home">
+      <div class="content">
+        <h3>LINGOSTO</h3>
+        <p>A different way of learning languages</p>
+        <a href="#" class="btn">Start now!</a>
+      </div>
     </section>
     <!--! home section end  -->
-
-    <!--! languages section start  -->
-    <section><h1>languages</h1></section>
-    <div class="box-container"></div>
-    <div class="=box"></div>
-    <div class="box-head">
-        <img src="images/turkish.png">
-        <h3>TÜRKÇE</h3>
-      <div class="=box bottom"><div>
-        <a href="#" class="btn">ÖĞREN!</a>    <div class="=box"></div>
-    <div class="box-head">
-        <img src="images/german.png">
-        <h3>DEUTSCH</h3>
-      <div class="=box bottom"><div>
-        <a href="#" class="btn">LERN!</a>    <div class="=box"></div>
-    <div class="box-head">
-        <img src="images/english.png">
-        <h3>ENGLISH</h3>
-      <div class="=box bottom"><div>
-        <a href="#" class="btn">LEARN!</a>    <div class="=box"></div>
-    <div class="box-head">
-        <img src="images/spanish.png">
-        <h3></h3>
-      <div class="=box bottom"><div>
-        <a href="#" class="btn">APRENDE!</a>
-    <!--! languages section end  -->
-
-</body>
-        
+    <!--! menu section start  -->
+    <section class="menu">
+      <h1 class="heading">our <span>languages</span></h1>
+      <div class="box-container">
+        <div class="box">
+          <div class="box-head">
+            <img src="images/turkish.png"
+            alt="menu" />
+            <span class="menu-category">TÜRKÇE</span>
+            <h3>TÜRKÇE</h3>
+            <div class="price">104 <span>119</span></div>
+          </div>
+          <div class="box-bottom">
+            <a href="#" class="btn">ÖĞREN!
+            </a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="box-head">
+            <img src="images/german.png"
+            alt="menu" />
+            <span class="menu-category">DEUTSCH</span>
+            <h3>DEUTSCH</h3>
+            <div class="price">104 <span>119</span></div>
+          </div>
+          <div class="box-bottom">
+            <a href="#" class="btn">LERN!</a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="box-head">
+            <img src="images/english.png"
+            alt="menu" />
+            <span class="menu-category">ENGLISH</span>
+            <h3>ENGLISH</h3>
+            <div class="price">104 <span>119</span></div>
+          </div>
+          <div class="box-bottom">
+            <a href="#" class="btn">LEARN!</a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="box-head">
+            <img src="images/spanish.png"
+            alt="menu" />
+            <span class="menu-category">ESPAÑOL</span>
+            <h3>ESPAÑOL</h3>
+            <div class="price">104 <span>119</span></div>
+          </div>
+          <div class="box-bottom">
+            <a href="#" class="btn">APRENDE!</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--! menu section end  -->
+  </body>
+</html>
