@@ -22,35 +22,26 @@
             max-width: 800px;
             margin: 0 auto;
         }
-        .button {
-            display: inline-block;
-            margin: 10px 0;
-            padding: 10px 20px;
-            background-color: #30d5c8;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .button:hover {
-            background-color: #25b2a7;
+        p {
+            margin-bottom: 20px;
         }
         .flashcards {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
             gap: 20px;
+            justify-items: center;
+            margin-top: 20px;
         }
         .card {
-            width: 150px;
-            height: 100px;
+            width: 100px;
+            height: 60px;
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 5px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2em;
+            font-size: 1em;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             perspective: 1000px;
@@ -88,10 +79,11 @@
         <h1>İstanbul'un Kedileri</h1>
     </header>
     <div class="container">
-        <p>İstanbul sokakları, dünya çapında ünlü kedilere ev sahipliği yapar. Her köşede bir kedi bulabilirsiniz. Kediler, İstanbul'un tarihinin ve kültürünün bir parçasıdır. İnsanlar onlara yiyecek verir ve sokaklarda onlara ev yapar. İstanbul'un kedileri, şehirde huzur ve sevgi sembolüdür.</p>
-        <a href="#" class="button" id="learn-words">Kelimeleri Öğren</a>
-        <a href="#" class="button" id="read-text">Metni Oku</a>
-        <div id="flashcards-container" class="flashcards" style="display:none;">
+        <p>İstanbul, sadece tarihi ve kültürel zenginlikleriyle değil, aynı zamanda sokak kedileriyle de ünlüdür. Şehrin her köşesinde bir kediyle karşılaşmak mümkündür. Kediler, bu büyük metropolün sakinleri kadar eski ve değerlidir. İnsanlar, sokak kedilerine yiyecek verir ve onlara yuva yapar. Bazı kediler deniz kenarında balıkçılarla vakit geçirirken, diğerleri parkların huzurlu köşelerinde dinlenir.</p>
+        <p>İstanbul'daki kediler, turistlerin ve yerel halkın ilgisini çeker. Şehrin tarihi mekanlarında dolaşırken, bir kedinin yanınıza oturması çok normaldir. Kediler, İstanbul'un sıcak ve misafirperver ruhunu yansıtır. Onlar için özel yemek istasyonları ve barınaklar yapılmıştır. Ayrıca, kediler İstanbul'da sanatın ve edebiyatın da bir parçası olmuştur. Çeşitli kitaplarda, resimlerde ve filmlerde İstanbul kedileri konu edilmiştir.</p>
+        <p>İstanbul'un kedileri, bu eşsiz şehrin simgesi haline gelmiştir. Onlar, insanların sevgisi ve şefkati ile büyür. Kediler, İstanbul'da yaşayan herkesin hayatını daha anlamlı kılar. Bu kediler, aynı zamanda bir şehir kültürünün ayrılmaz bir parçasıdır.</p>
+
+        <div id="flashcards-container" class="flashcards">
             <div class="card">
                 <div class="side front">Kedi</div>
                 <div class="side back">Cat</div>
@@ -104,20 +96,74 @@
                 <div class="side front">Deniz</div>
                 <div class="side back">Sea</div>
             </div>
+            <div class="card">
+                <div class="side front">Yemek</div>
+                <div class="side back">Food</div>
+            </div>
+            <div class="card">
+                <div class="side front">Halk</div>
+                <div class="side back">People</div>
+            </div>
+            <div class="card">
+                <div class="side front">Balık</div>
+                <div class="side back">Fish</div>
+            </div>
+            <div class="card">
+                <div class="side front">Park</div>
+                <div class="side back">Park</div>
+            </div>
+            <div class="card">
+                <div class="side front">Tarih</div>
+                <div class="side back">History</div>
+            </div>
+            <div class="card">
+                <div class="side front">Sanat</div>
+                <div class="side back">Art</div>
+            </div>
+            <div class="card">
+                <div class="side front">Kültür</div>
+                <div class="side back">Culture</div>
+            </div>
+            <div class="card">
+                <div class="side front">Misafirperver</div>
+                <div class="side back">Hospitable</div>
+            </div>
+            <div class="card">
+                <div class="side front">Barınak</div>
+                <div class="side back">Shelter</div>
+            </div>
+            <div class="card">
+                <div class="side front">Mekan</div>
+                <div class="side back">Place</div>
+            </div>
+            <div class="card">
+                <div class="side front">Turist</div>
+                <div class="side back">Tourist</div>
+            </div>
+            <div class="card">
+                <div class="side front">İstasyon</div>
+                <div class="side back">Station</div>
+            </div>
+            <div class="card">
+                <div class="side front">Kitap</div>
+                <div class="side back">Book</div>
+            </div>
+            <div class="card">
+                <div class="side front">Resim</div>
+                <div class="side back">Painting</div>
+            </div>
+            <div class="card">
+                <div class="side front">Film</div>
+                <div class="side back">Movie</div>
+            </div>
+            <div class="card">
+                <div class="side front">Simge</div>
+                <div class="side back">Symbol</div>
+            </div>
         </div>
     </div>
 
     <script>
-        // Flashcard'ları göster
-        const learnWordsButton = document.getElementById('learn-words');
-        const flashcardsContainer = document.getElementById('flashcards-container');
-
-        learnWordsButton.addEventListener('click', function(event) {
-            event.preventDefault();
-            flashcardsContainer.style.display = 'flex';
-        });
-
-        // Flashcard'ları döndür
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
             card.addEventListener('click', () => {
