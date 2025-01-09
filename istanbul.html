@@ -21,7 +21,6 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
-            position: relative;
         }
         p {
             margin-bottom: 20px;
@@ -46,6 +45,30 @@
             display: none;
             transition: opacity 0.3s ease;
         }
+        .flashcards {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            justify-items: center;
+        }
+        .flashcard {
+            width: 120px;
+            height: 80px;
+            background-color: #30d5c8;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .flashcard:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -55,28 +78,46 @@
     <div class="container">
         <p>
             İstanbul, sadece tarihi ve kültürel zenginlikleriyle değil, aynı zamanda sokak kedileriyle de ünlüdür.
-            <span class="translate-trigger" data-translation="Istanbul is famous not only for its historical and cultural riches but also for its street cats.">*</span>
-        </p>
-        <p>
+            <span class="translate-trigger" data-translation="Istanbul is famous not only for its historical and cultural riches but also for its street cats.">*</span> 
             Şehrin her köşesinde bir kediyle karşılaşmak mümkündür.
-            <span class="translate-trigger" data-translation="It is possible to encounter a cat in every corner of the city.">*</span>
-        </p>
-        <p>
+            <span class="translate-trigger" data-translation="It is possible to encounter a cat in every corner of the city.">*</span> 
             Kediler, bu büyük metropolün sakinleri kadar eski ve değerlidir.
-            <span class="translate-trigger" data-translation="Cats are as old and valuable as the residents of this big metropolis.">*</span>
-        </p>
-        <p>
+            <span class="translate-trigger" data-translation="Cats are as old and valuable as the residents of this big metropolis.">*</span> 
             İnsanlar, sokak kedilerine yiyecek verir ve onlara yuva yapar.
-            <span class="translate-trigger" data-translation="People feed street cats and provide them with shelter.">*</span>
-        </p>
-        <p>
+            <span class="translate-trigger" data-translation="People feed street cats and provide them with shelter.">*</span> 
             İstanbul'daki kediler, turistlerin ve yerel halkın ilgisini çeker.
-            <span class="translate-trigger" data-translation="Cats in Istanbul attract the attention of tourists and locals.">*</span>
+            <span class="translate-trigger" data-translation="Cats in Istanbul attract the attention of tourists and locals.">*</span> 
+            Bu kediler, birçok sanatçıya ilham kaynağı olmuştur ve sayısız hikayeye konu olmuştur.
+            <span class="translate-trigger" data-translation="These cats have inspired many artists and have been the subject of countless stories.">*</span>
         </p>
+
+        <!-- Flashcards -->
+        <div class="flashcards">
+            <div class="flashcard" onclick="this.innerText=this.innerText==='kedi' ? 'cat' : 'kedi';">kedi</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='sokak' ? 'street' : 'sokak';">sokak</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='deniz' ? 'sea' : 'deniz';">deniz</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='şehir' ? 'city' : 'şehir';">şehir</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='ilham' ? 'inspiration' : 'ilham';">ilham</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='sanatçı' ? 'artist' : 'sanatçı';">sanatçı</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='yiyecek' ? 'food' : 'yiyecek';">yiyecek</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='yuva' ? 'shelter' : 'yuva';">yuva</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='turist' ? 'tourist' : 'turist';">turist</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='halk' ? 'public' : 'halk';">halk</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='eski' ? 'old' : 'eski';">eski</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='değerli' ? 'valuable' : 'değerli';">değerli</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='metropol' ? 'metropolis' : 'metropol';">metropol</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='ünlü' ? 'famous' : 'ünlü';">ünlü</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='kültürel' ? 'cultural' : 'kültürel';">kültürel</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='zenginlik' ? 'richness' : 'zenginlik';">zenginlik</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='hikaye' ? 'story' : 'hikaye';">hikaye</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='konu' ? 'subject' : 'konu';">konu</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='ilgi' ? 'interest' : 'ilgi';">ilgi</div>
+            <div class="flashcard" onclick="this.innerText=this.innerText==='birçok' ? 'many' : 'birçok';">birçok</div>
+        </div>
     </div>
 
     <script>
-        // Function to handle translation popups
+        // Translation popups
         const triggers = document.querySelectorAll('.translate-trigger');
         let activePopup = null;
 
@@ -84,14 +125,12 @@
             trigger.addEventListener('click', (event) => {
                 const translation = event.target.dataset.translation;
 
-                // Close the active popup if it exists and is not the same trigger
                 if (activePopup && activePopup !== event.target.nextElementSibling) {
                     activePopup.style.display = 'none';
                 }
 
                 let popup = event.target.nextElementSibling;
 
-                // If no popup exists, create one
                 if (!popup) {
                     popup = document.createElement('div');
                     popup.className = 'translation-popup';
@@ -99,13 +138,11 @@
                     event.target.parentNode.appendChild(popup);
                 }
 
-                // Toggle the popup visibility
                 popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
                 activePopup = popup.style.display === 'block' ? popup : null;
             });
         });
 
-        // Close the popup when clicking anywhere else
         document.addEventListener('click', (event) => {
             if (!event.target.classList.contains('translate-trigger') && activePopup) {
                 activePopup.style.display = 'none';
