@@ -21,56 +21,30 @@
         .container {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
         }
         p {
             margin-bottom: 20px;
+            position: relative;
         }
-        .flashcards {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 20px;
-            justify-items: center;
-            margin-top: 20px;
+        .translate-trigger {
+            color: #30d5c8;
+            cursor: pointer;
+            margin-left: 5px;
+            font-weight: bold;
         }
-        .card {
-            width: 100px;
-            height: 60px;
-            background-color: #fff;
+        .translation-popup {
+            position: absolute;
+            background: #fff;
+            color: #333;
             border: 1px solid #ddd;
             border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1em;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            perspective: 1000px;
-        }
-        .card.flip .front {
-            transform: rotateY(180deg);
-        }
-        .card.flip .back {
-            transform: rotateY(0deg);
-        }
-        .card .side {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.6s;
-        }
-        .card .front {
-            background-color: #30d5c8;
-            color: white;
-            transform: rotateY(0deg);
-        }
-        .card .back {
-            background-color: #f0f9f9;
-            color: #333;
-            transform: rotateY(180deg);
+            padding: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+            max-width: 400px;
+            display: none;
+            transition: opacity 0.3s ease;
         }
     </style>
 </head>
@@ -79,96 +53,64 @@
         <h1>İstanbul'un Kedileri</h1>
     </header>
     <div class="container">
-        <p>İstanbul, sadece tarihi ve kültürel zenginlikleriyle değil, aynı zamanda sokak kedileriyle de ünlüdür. Şehrin her köşesinde bir kediyle karşılaşmak mümkündür. Kediler, bu büyük metropolün sakinleri kadar eski ve değerlidir. İnsanlar, sokak kedilerine yiyecek verir ve onlara yuva yapar. Bazı kediler deniz kenarında balıkçılarla vakit geçirirken, diğerleri parkların huzurlu köşelerinde dinlenir.</p>
-        <p>İstanbul'daki kediler, turistlerin ve yerel halkın ilgisini çeker. Şehrin tarihi mekanlarında dolaşırken, bir kedinin yanınıza oturması çok normaldir. Kediler, İstanbul'un sıcak ve misafirperver ruhunu yansıtır. Onlar için özel yemek istasyonları ve barınaklar yapılmıştır. Ayrıca, kediler İstanbul'da sanatın ve edebiyatın da bir parçası olmuştur. Çeşitli kitaplarda, resimlerde ve filmlerde İstanbul kedileri konu edilmiştir.</p>
-        <p>İstanbul'un kedileri, bu eşsiz şehrin simgesi haline gelmiştir. Onlar, insanların sevgisi ve şefkati ile büyür. Kediler, İstanbul'da yaşayan herkesin hayatını daha anlamlı kılar. Bu kediler, aynı zamanda bir şehir kültürünün ayrılmaz bir parçasıdır.</p>
-
-        <div id="flashcards-container" class="flashcards">
-            <div class="card">
-                <div class="side front">Kedi</div>
-                <div class="side back">Cat</div>
-            </div>
-            <div class="card">
-                <div class="side front">Sokak</div>
-                <div class="side back">Street</div>
-            </div>
-            <div class="card">
-                <div class="side front">Deniz</div>
-                <div class="side back">Sea</div>
-            </div>
-            <div class="card">
-                <div class="side front">Yemek</div>
-                <div class="side back">Food</div>
-            </div>
-            <div class="card">
-                <div class="side front">Halk</div>
-                <div class="side back">People</div>
-            </div>
-            <div class="card">
-                <div class="side front">Balık</div>
-                <div class="side back">Fish</div>
-            </div>
-            <div class="card">
-                <div class="side front">Park</div>
-                <div class="side back">Park</div>
-            </div>
-            <div class="card">
-                <div class="side front">Tarih</div>
-                <div class="side back">History</div>
-            </div>
-            <div class="card">
-                <div class="side front">Sanat</div>
-                <div class="side back">Art</div>
-            </div>
-            <div class="card">
-                <div class="side front">Kültür</div>
-                <div class="side back">Culture</div>
-            </div>
-            <div class="card">
-                <div class="side front">Misafirperver</div>
-                <div class="side back">Hospitable</div>
-            </div>
-            <div class="card">
-                <div class="side front">Barınak</div>
-                <div class="side back">Shelter</div>
-            </div>
-            <div class="card">
-                <div class="side front">Mekan</div>
-                <div class="side back">Place</div>
-            </div>
-            <div class="card">
-                <div class="side front">Turist</div>
-                <div class="side back">Tourist</div>
-            </div>
-            <div class="card">
-                <div class="side front">İstasyon</div>
-                <div class="side back">Station</div>
-            </div>
-            <div class="card">
-                <div class="side front">Kitap</div>
-                <div class="side back">Book</div>
-            </div>
-            <div class="card">
-                <div class="side front">Resim</div>
-                <div class="side back">Painting</div>
-            </div>
-            <div class="card">
-                <div class="side front">Film</div>
-                <div class="side back">Movie</div>
-            </div>
-            <div class="card">
-                <div class="side front">Simge</div>
-                <div class="side back">Symbol</div>
-            </div>
-        </div>
+        <p>
+            İstanbul, sadece tarihi ve kültürel zenginlikleriyle değil, aynı zamanda sokak kedileriyle de ünlüdür.
+            <span class="translate-trigger" data-translation="Istanbul is famous not only for its historical and cultural riches but also for its street cats.">*</span>
+        </p>
+        <p>
+            Şehrin her köşesinde bir kediyle karşılaşmak mümkündür.
+            <span class="translate-trigger" data-translation="It is possible to encounter a cat in every corner of the city.">*</span>
+        </p>
+        <p>
+            Kediler, bu büyük metropolün sakinleri kadar eski ve değerlidir.
+            <span class="translate-trigger" data-translation="Cats are as old and valuable as the residents of this big metropolis.">*</span>
+        </p>
+        <p>
+            İnsanlar, sokak kedilerine yiyecek verir ve onlara yuva yapar.
+            <span class="translate-trigger" data-translation="People feed street cats and provide them with shelter.">*</span>
+        </p>
+        <p>
+            İstanbul'daki kediler, turistlerin ve yerel halkın ilgisini çeker.
+            <span class="translate-trigger" data-translation="Cats in Istanbul attract the attention of tourists and locals.">*</span>
+        </p>
     </div>
 
     <script>
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('flip');
+        // Function to handle translation popups
+        const triggers = document.querySelectorAll('.translate-trigger');
+        let activePopup = null;
+
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', (event) => {
+                const translation = event.target.dataset.translation;
+
+                // Close the active popup if it exists and is not the same trigger
+                if (activePopup && activePopup !== event.target.nextElementSibling) {
+                    activePopup.style.display = 'none';
+                }
+
+                let popup = event.target.nextElementSibling;
+
+                // If no popup exists, create one
+                if (!popup) {
+                    popup = document.createElement('div');
+                    popup.className = 'translation-popup';
+                    popup.textContent = translation;
+                    event.target.parentNode.appendChild(popup);
+                }
+
+                // Toggle the popup visibility
+                popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+                activePopup = popup.style.display === 'block' ? popup : null;
             });
+        });
+
+        // Close the popup when clicking anywhere else
+        document.addEventListener('click', (event) => {
+            if (!event.target.classList.contains('translate-trigger') && activePopup) {
+                activePopup.style.display = 'none';
+                activePopup = null;
+            }
         });
     </script>
 </body>
