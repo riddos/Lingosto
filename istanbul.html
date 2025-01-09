@@ -27,10 +27,18 @@
             position: relative;
         }
         .translate-trigger {
-            color: #30d5c8;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #30d5c8;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
             cursor: pointer;
             margin-left: 5px;
-            font-weight: bold;
         }
         .translation-popup {
             position: absolute;
@@ -66,7 +74,6 @@
             text-align: center;
             transition: transform 0.6s ease;
             transform-style: preserve-3d;
-            perspective: 1000px;
             position: relative;
         }
         .flashcard .front,
@@ -89,7 +96,7 @@
             color: #333;
             transform: rotateY(180deg);
         }
-        .flashcard:hover {
+        .flashcard.flip {
             transform: rotateY(180deg);
         }
     </style>
@@ -101,21 +108,19 @@
     <div class="container">
         <p>
             İstanbul, sadece tarihi ve kültürel zenginlikleriyle değil, aynı zamanda sokak kedileriyle de ünlüdür.
-            <span class="translate-trigger" data-translation="Istanbul is famous not only for its historical and cultural riches but also for its street cats.">*</span> 
+            <span class="translate-trigger" data-translation="Istanbul is famous not only for its historical and cultural riches but also for its street cats.">?</span> 
             Şehrin her köşesinde bir kediyle karşılaşmak mümkündür.
-            <span class="translate-trigger" data-translation="It is possible to encounter a cat in every corner of the city.">*</span> 
+            <span class="translate-trigger" data-translation="It is possible to encounter a cat in every corner of the city.">?</span> 
             Kediler, bu büyük metropolün sakinleri kadar eski ve değerlidir.
-            <span class="translate-trigger" data-translation="Cats are as old and valuable as the residents of this big metropolis.">*</span> 
+            <span class="translate-trigger" data-translation="Cats are as old and valuable as the residents of this big metropolis.">?</span> 
             İnsanlar, sokak kedilerine yiyecek verir ve onlara yuva yapar.
-            <span class="translate-trigger" data-translation="People feed street cats and provide them with shelter.">*</span> 
+            <span class="translate-trigger" data-translation="People feed street cats and provide them with shelter.">?</span> 
             İstanbul'daki kediler, turistlerin ve yerel halkın ilgisini çeker.
-            <span class="translate-trigger" data-translation="Cats in Istanbul attract the attention of tourists and locals.">*</span> 
+            <span class="translate-trigger" data-translation="Cats in Istanbul attract the attention of tourists and locals.">?</span> 
             Bu kediler, birçok sanatçıya ilham kaynağı olmuştur ve sayısız hikayeye konu olmuştur.
-            <span class="translate-trigger" data-translation="These cats have inspired many artists and have been the subject of countless stories.">*</span> 
+            <span class="translate-trigger" data-translation="These cats have inspired many artists and have been the subject of countless stories.">?</span> 
             Şehrin dokusuna katkıda bulunur, eşsiz bir atmosfer yaratırlar.
-            <span class="translate-trigger" data-translation="They contribute to the city's fabric and create a unique atmosphere.">*</span> 
-            Özellikle Galata Kulesi ve Sultanahmet gibi yerlerde kediler, turistler için ilginç bir detaydır.
-            <span class="translate-trigger" data-translation="Especially in places like Galata Tower and Sultanahmet, cats are an interesting detail for tourists.">*</span> 
+            <span class="translate-trigger" data-translation="They contribute to the city's fabric and create a unique atmosphere.">?</span> 
         </p>
 
         <!-- Flashcards -->
@@ -144,66 +149,11 @@
                 <div class="front">Sanatçı</div>
                 <div class="back">Artist</div>
             </div>
-            <div class="flashcard">
-                <div class="front">Yiyecek</div>
-                <div class="back">Food</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">Yuva</div>
-                <div class="back">Shelter</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">Turist</div>
-                <div class="back">Tourist</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">Halk</div>
-                <div class="back">Public</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">Eski</div>
-                <div class="back">Old</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">Değerli</div>
-                <div class="back">Valuable</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">Metropol</div>
-                <div class="back">Metropolis</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">Ünlü</div>
-                <div class="back">Famous</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">Kültürel</div>
-                <div class="back">Cultural</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">Zenginlik</div>
-                <div class="back">Richness</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">Hikaye</div>
-                <div class="back">Story</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">Konu</div>
-                <div class="back">Subject</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">İlgi</div>
-                <div class="back">Interest</div>
-            </div>
-            <div class="flashcard">
-                <div class="front">Birçok</div>
-                <div class="back">Many</div>
-            </div>
         </div>
     </div>
 
     <script>
+        // Çeviri baloncukları
         const triggers = document.querySelectorAll('.translate-trigger');
         let activePopup = null;
 
@@ -211,29 +161,33 @@
             trigger.addEventListener('click', (event) => {
                 const translation = event.target.dataset.translation;
 
-                if (activePopup && activePopup !== event.target.nextElementSibling) {
-                    activePopup.style.display = 'none';
-                }
+                if (activePopup) activePopup.remove();
 
-                let popup = event.target.nextElementSibling;
+                let popup = document.createElement('div');
+                popup.className = 'translation-popup';
+                popup.textContent = translation;
 
-                if (!popup) {
-                    popup = document.createElement('div');
-                    popup.className = 'translation-popup';
-                    popup.textContent = translation;
-                    event.target.parentNode.appendChild(popup);
-                }
+                event.target.parentNode.appendChild(popup);
+                activePopup = popup;
 
-                popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-                activePopup = popup.style.display === 'block' ? popup : null;
+                popup.style.display = 'block';
             });
         });
 
         document.addEventListener('click', (event) => {
             if (!event.target.classList.contains('translate-trigger') && activePopup) {
-                activePopup.style.display = 'none';
+                activePopup.remove();
                 activePopup = null;
             }
+        });
+
+        // Flashcardların dönüşü
+        const flashcards = document.querySelectorAll('.flashcard');
+
+        flashcards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flip');
+            });
         });
     </script>
 </body>
