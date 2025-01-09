@@ -28,21 +28,17 @@
             margin-bottom: 20px;
         }
         .languages {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
+            justify-items: center;
         }
         .language {
             text-align: center;
-            width: 120px;
-            margin: 10px;
         }
         .language img {
             width: 100px;
             height: auto;
-            border-radius: 50%;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .language p {
             margin-top: 10px;
