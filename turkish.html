@@ -40,23 +40,38 @@
             gap: 20px;
             justify-items: center;
         }
+      
+      @media (max-width: 900px) { /* 900px ve altındaki ekranlar için */
+    .stories {
+        grid-template-columns: repeat(2, 1fr); /* 2 sütun */
+    }
+}
+
+@media (max-width: 600px) { /* 600px ve altındaki ekranlar için (telefonlar) */
+    .stories {
+        grid-template-columns: 1fr; /* 1 sütun (alt alta) */
+    }
+}
         .story {
+      		position: relative;
             background-color: white;
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 15px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 250px; /* Sabit bir genişlik */
-            height: 150px;
+            width: 200px; /* Sabit bir genişlik */
+            height: 120px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+      		overflow: hidden;
         }
         .story h3 {
             margin-bottom: 10px;
             color: #30d5c8;
+     
         }
         a {
             text-decoration: none;
