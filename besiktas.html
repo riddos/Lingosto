@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beşiktaş Semti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f0f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #000;
+            padding: 15px;
+            text-align: center;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        p {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .translate-trigger {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #000;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        .translation-popup {
+            position: absolute;
+            background: #fff;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+            max-width: 400px;
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+        .flashcards {
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            justify-items: center;
+        }
+        .flashcard {
+            width: 100px;
+            height: 70px;
+            background-color: #000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.6s ease;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+        .flashcard .front,
+        .flashcard .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+        .flashcard .front {
+            background-color: #000;
+            color: white;
+        }
+        .flashcard .back {
+            background-color: white;
+            color: #333;
+            transform: rotateY(180deg);
+        }
+        .flashcard.flip {
+            transform: rotateY(180deg);
+        }
+        @media (max-width: 768px) {
+            .flashcards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .flashcard {
+                width: 80px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Beşiktaş Semti</h1>
+    </header>
+    <div class="container">
+        <p>
+            Beşiktaş, İstanbul'un Avrupa yakasında yer alan, tarihî dokusu, hareketli yaşamı ve sahil şeridiyle ünlü bir semttir. Semt, Osmanlı döneminden günümüze kadar birçok önemli olaya tanıklık etmiştir. Beşiktaş sahilinde yer alan Dolmabahçe Sarayı, Osmanlı'nın son dönemine ışık tutan önemli bir yapıdır. Bunun yanı sıra Beşiktaş, modern İstanbul'un kültür, sanat ve spor merkezi olarak öne çıkar. 
+            <span class="translate-trigger" data-translation="Beşiktaş is a prominent cultural, artistic, and sports hub of modern Istanbul.">?</span>
+        </p>
+        <p>
+            Beşiktaş, aynı zamanda adını taşıyan futbol kulübüyle de bilinir. 1903 yılında kurulan Beşiktaş JK, Türkiye'nin en köklü spor kulüplerinden biridir. Siyah-beyaz renkleriyle tanınan kulüp, “Kara Kartallar” lakabıyla anılır. Beşiktaş taraftarları, hem tutkulu hem de yaratıcı tezahüratlarıyla ün kazanmıştır. Maç günlerinde Vodafone Park stadyumu, coşkulu bir atmosfere sahne olur.
+            <span class="translate-trigger" data-translation="On match days, Vodafone Park becomes a scene of lively atmosphere.">?</span>
+        </p>
+        <p>
+            Semtin bir diğer özelliği ise yerel pazarları ve çarşılarıdır. Özellikle Beşiktaş Çarşısı, hem alışveriş yapmak hem de semtin enerjisini hissetmek isteyenler için mükemmel bir yerdir. Kafeleri, restoranları ve sahil boyunca uzanan parklarıyla Beşiktaş, her yaştan insan için keyifli bir deneyim sunar. Ayrıca, Beşiktaş'ın deniz ulaşımı açısından önemli bir merkez olduğunu da unutmamak gerekir.
+            <span class="translate-trigger" data-translation="Beşiktaş is an important hub for sea transportation.">?</span>
+        </p>
+
+        <!-- Flashcards -->
+        <div class="flashcards">
+            <div class="flashcard">
+                <div class="front">Beşiktaş</div>
+                <div class="back">Besiktas</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Sahil</div>
+                <div class="back">Coast</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Çarşı</div>
+                <div class="back">Bazaar</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Kara Kartallar</div>
+                <div class="back">Black Eagles</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Stadyum</div>
+                <div class="back">Stadium</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Tarihî</div>
+                <div class="back">Historical</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Maç</div>
+                <div class="back">Match</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Spor</div>
+                <div class="back">Sport</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Kültür</div>
+                <div class="back">Culture</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Taraftar</div>
+                <div class="back">Fan</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Deniz</div>
+                <div class="back">Sea</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Kulüp</div>
+                <div class="back">Club</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Enerji</div>
+                <div class="back">Energy</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Sanat</div>
+                <div class="back">Art</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Park</div>
+                <div class="back">Park</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Futbol</div>
+                <div class="back">Football</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Tarih</div>
+                <div class="back">History</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Modern</div>
+                <div class="back">Modern</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Restoran</div>
+                <div class="back">Restaurant</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Pazar</div>
+                <div class="back">Market</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Osmanlı</div>
+                <div class="back">Ottoman</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Tezahürat</div>
+                <div class="back">Chant</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Sporcu</div>
+                <div class="back">Athlete</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Dolmabahçe</div>
+                <div class="back">Dolmabahce</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">Yaşam</div>
+                <div class="back">Life</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const flashcards = document.querySelectorAll('.flashcard');
+        flashcards.forEach(card => {
+            card.addEventListener('click', () => card.classList.toggle('flip'));
+        });
+    </script>
+</body>
+</html>
