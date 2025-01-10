@@ -8,7 +8,6 @@
     <link rel="icon" sizes="32x32" href="images/logo.png" type="image/png">
     <link rel="icon" sizes="48x48" href="images/logo.png" type="image/png">
     <link rel="icon" href="images/logo.png" type="image/x-icon">
-</html>
     <style>
         body {
             margin: 0;
@@ -21,7 +20,8 @@
             color: white;
             padding: 15px;
             text-align: center;
-            border-radius: 15px;
+            border-radius: 15px; /* Köşeleri yuvarlatma */
+            margin: 5px; /* Kenarlardan küçültme */
         }
         .container {
             max-width: 1200px;
@@ -112,47 +112,12 @@
             margin-top: 10px;
             font-size: 1em;
         }
-    </style>
-</head>
-<body>
-    <>
-        <h1>Lingosto</h1>
-      <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f9f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-
-         {
-            padding: 20px;
-            background-color: #30d5c8;
-            color: white;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-
-        p {
-            margin: 10px 0 20px;
-            font-size: 1.2em;
-        }
-
         .flags {
-            flex-wrap: wrap;
-            gap: 10px;
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            border: none;
+            gap: 10px;
+            flex-wrap: wrap;
         }
-
         .flag {
             width: 40px;
             height: 25px;
@@ -160,25 +125,23 @@
             border-radius: 3px;
             overflow: hidden;
             display: inline-block;
-            border: none;
         }
-
         .flag img {
             display: block;
-            max-width: 30px; /* Bayrakların genişliği maksimum 20px olacak */
+            max-width: 100%;
             height: auto;
-            border: none;
         }
     </style>
 </head>
 <body>
     <header>
+        <h1>Lingosto</h1>
         <div class="flags">
             <!-- Bayraklar -->
             <div class="flag"><img src="images/turkish.png" alt="Turkish"></div>
             <div class="flag"><img src="images/english.png" alt="English"></div>
             <div class="flag"><img src="images/german.png" alt="German"></div>
-          	<div class="flag"><img src="images/spanish.png" alt="Spanish"></div>
+            <div class="flag"><img src="images/spanish.png" alt="Spanish"></div>
             <div class="flag"><img src="images/portuguese.png" alt="Portuguese"></div>
             <div class="flag"><img src="images/french.png" alt="French"></div>
             <div class="flag"><img src="images/italian.png" alt="Italian"></div>
@@ -186,7 +149,6 @@
             <div class="flag"><img src="images/dutch.png" alt="Dutch"></div>
             <div class="flag"><img src="images/swedish.png" alt="Swedish"></div>
         </div>
-    </header>
         <p>Your journey to mastering languages starts here.</p>
     </header>
 
@@ -221,3 +183,6 @@
     </footer>
 </body>
 </html>
+```
+
+Bu kodda, bayrakların yan yana sıralanması için `.flags` ve `.flag` sınıflarını güncelledik. Başka bir konuda yardımcı olabilir miyim?
