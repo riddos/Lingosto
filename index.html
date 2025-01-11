@@ -133,10 +133,96 @@
             height: auto;
             border: none;
         }
+        nav {
+        background-color: #30d5c8;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+    }
+    nav .logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+    }
+    nav .logo img {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+    nav ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul li {
+        position: relative;
+        margin: 0 15px;
+    }
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+    nav ul li:hover > a {
+        background-color: #26b2a5;
+        border-radius: 5px;
+    }
+    nav ul li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        list-style: none;
+        margin: 0;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    nav ul li ul li {
+        margin: 0;
+    }
+    nav ul li ul li a {
+        color: #333;
+        padding: 10px 20px;
+        display: block;
+        white-space: nowrap;
+    }
+    nav ul li:hover ul {
+        display: block;
+    }
     </style>
 </head>
 <body>
     <header>
+         <nav>
+        <a href="index.html" class="logo">
+            <img src="images/home-icon.png" alt="Home Icon">
+            Home
+        </a>
+        <ul>
+            <li>
+                <a href="#">Languages</a>
+                <ul>
+                    <li><a href="#">Turkish</a></li>
+                    <li><a href="#">English</a></li>
+                    <li><a href="#">German</a></li>
+                    <li><a href="#">French</a></li>
+                    <li><a href="#">Portuguese</a></li>
+                    <li><a href="#">Italian</a></li>
+                    <li><a href="#">Spanish</a></li>
+                    <li><a href="#">Czech</a></li>
+                    <li><a href="#">Dutch</a></li>
+                    <li><a href="#">Swedish</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#how-to-read">How to read?</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
         <h1>Lingosto</h1>
         <div class="flags">
             <!-- Bayraklar -->
