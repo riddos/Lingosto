@@ -139,6 +139,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 10px 20px;
+        flex-wrap: wrap; /* Mobil uyum için */
     }
     nav .logo {
         display: flex;
@@ -156,6 +157,7 @@
         display: flex;
         margin: 0;
         padding: 0;
+        flex-wrap: wrap; /* Mobil uyum için */
     }
     nav ul li {
         position: relative;
@@ -166,11 +168,13 @@
         color: white;
         font-size: 16px;
         padding: 5px 10px;
+        border-radius: 5px; /* Oval köşe */
+        transition: background-color 0.3s ease;
     }
     nav ul li:hover > a {
         background-color: #26b2a5;
-        border-radius: 5px;
     }
+    /* Açılır Menü */
     nav ul li ul {
         display: none;
         position: absolute;
@@ -181,18 +185,37 @@
         margin: 0;
         padding: 10px 0;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    nav ul li ul li {
-        margin: 0;
+        border-radius: 10px; /* Oval köşe */
+        z-index: 10;
     }
     nav ul li ul li a {
         color: #333;
         padding: 10px 20px;
         display: block;
         white-space: nowrap;
+        border-radius: 5px; /* Oval köşe */
+    }
+    nav ul li ul li a:hover {
+        background-color: #f0f0f0;
     }
     nav ul li:hover ul {
         display: block;
+    }
+
+    /* Responsive Navbar */
+    @media (max-width: 768px) {
+        nav ul {
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+        nav ul li {
+            margin: 5px 0;
+        }
+        nav ul li ul {
+            position: static; /* Mobilde açılır menü düzgün görünmesi için */
+            box-shadow: none;
+        }
     }
     </style>
 </head>
