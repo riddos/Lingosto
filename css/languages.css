@@ -34,41 +34,42 @@ header {
 }
 
 .language-box {
-    background-color: transparent; /* Şeffaf kutu arka planı */
-    border: 5px solid rgba(48, 213, 200, 0.8); /* 5px kalınlıkta çerçeve */
-    border-radius: 10px; /* Yuvarlatılmış köşeler */
-    padding: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover efekti */
     display: flex;
-    flex-direction: column; /* İçeriği dikey hizala */
-    align-items: center; /* Ortala */
-    justify-content: center; /* İçeriği merkezde tut */
-    height: 180px; /* Sabit kutu yüksekliği */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 5px solid rgba(48, 213, 200, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    height: 180px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .language-box:hover {
-    transform: translateY(-5px); /* Hover efekti: yukarı taşıma */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hafif gölge efekti */
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .language img {
-    width: 80px; /* Bayrağın genişliği */
-    height: auto; /* Oran koruma */
-    border-radius: 5px; /* Bayrağın köşeleri */
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
 }
 
 .language p {
-    margin-top: 10px; /* Bayrak ve yazı arası boşluk */
-    font-size: 1em; /* Yazı boyutu */
-    color: #333; /* Yazı rengi */
-    font-weight: bold; /* Yazı kalınlığı */
-    text-transform: capitalize; /* Yazıyı düzenle (Baş harf büyük) */
+    margin-top: 10px;
+    font-size: 1em;
+    color: #333;
+    font-weight: normal; /* Yazılar kalın değil */
+    text-transform: capitalize; /* Sadece ilk harf büyük */
+    text-align: center;
 }
 
 /* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
     .languages {
-        flex-direction: column; /* Dikey hizala */
+        flex-direction: column;
         align-items: center;
     }
 
