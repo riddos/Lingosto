@@ -70,6 +70,14 @@ header {
     text-align: center;
 }
 
+a {
+    text-decoration: none;
+}
+
+.language-box a {
+    text-decoration: none; 
+}
+
 /* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
     .languages {
