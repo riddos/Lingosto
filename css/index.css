@@ -4,7 +4,6 @@ body {
     background-color: #f0f9f9;
     color: #333;
 }
-
 header {
     background-color: #30d5c8;
     color: white;
@@ -13,64 +12,8 @@ header {
     border-radius: 15px;
     margin: 5px;
 }
-
-header h1 a {
-    color: white;
-    text-decoration: none;
-}
-
-header h1 a:hover {
-    text-decoration: underline;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    text-align: center;
-}
-
-h2 {
-    color: #30d5c8;
-    margin-bottom: 20px;
-}
-
-.languages {
-    display: grid;
-    gap: 30px;
-    justify-items: center;
-}
-
-.languages.single {
-    grid-template-columns: 1fr;
-    margin-bottom: 30px;
-}
-
-.languages.multi {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.language {
-    text-align: center;
-}
-
-.language img {
-    width: 100px;
-    height: auto;
-}
-
-.language p {
-    margin-top: 10px;
-    font-size: 1em;
-    font-weight: bold;
-}
-
-a {
-    text-decoration: none;
-    color: #333;
-}
-
-a:hover {
-    color: #30d5c8;
-}
 }
