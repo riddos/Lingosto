@@ -10,65 +10,63 @@ header {
     color: white;
     padding: 15px;
     text-align: center;
-}
-
-header h1 a {
-    color: white;
-    text-decoration: none;
-}
-
-header h1 a:hover {
-    text-decoration: underline;
+    border-radius: 15px;
+    margin: 15px; 
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    text-align: center;
-}
-
-h2 {
-    color: #30d5c8;
-    margin-bottom: 20px;
 }
 
 .languages {
-    display: grid;
-    gap: 30px;
-    justify-items: center;
-}
-
-.languages.single {
-    grid-template-columns: 1fr;
-    margin-bottom: 30px;
-}
-
-.languages.multi {
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
 .language {
+    flex: 1 1 30%;
+    max-width: 200px;
     text-align: center;
+}
+
+.language-box {
+    background-color: transparent;
+    border: 5px solid rgba(48, 213, 200, 0.8); /* Gri renk */
+    border-radius: 10px;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.language-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .language img {
     width: 100px;
     height: auto;
+    border-radius: 5px;
 }
 
 .language p {
     margin-top: 10px;
     font-size: 1em;
-    font-weight: bold;
-}
-
-a {
-    text-decoration: none;
     color: #333;
 }
 
-a:hover {
-    color: #30d5c8;
-}
+/* Mobil cihazlar için medya sorguları */
+@media (max-width: 768px) {
+    .languages {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .language {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }
