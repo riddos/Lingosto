@@ -1,10 +1,11 @@
 /* Genel Ayarlar */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
+    margin: 1rem;
     padding: 0;
     background-color: #f9f9f9;
     color: #333;
+    border-radius: 10px;
 }
 
 header {
@@ -12,6 +13,7 @@ header {
     background-color: #00bfbf; /* Turkuaz renk */
     color: #fff;
     padding: 1rem;
+    border-radius: 10px;
 }
 
 nav {
@@ -21,16 +23,20 @@ nav {
     padding: 0.5rem 1rem;
     background-color: #009999; /* Daha koyu turkuaz */
     color: white;
+    border-radius: 10px;
 }
 
 nav .logo {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    text-decoration: none;
+    color: white;
 }
 
 nav .logo img {
     height: 40px;
+    text-decoration: none;
 }
 
 nav .menu {
@@ -46,12 +52,13 @@ nav .menu li {
 nav .menu li a {
     text-decoration: none;
     color: white;
-    font-weight: bold;
+    font-weight: normal;
     transition: color 0.3s;
 }
 
 nav .menu li a:hover {
     color: #00ffff; /* Parlayan açık turkuaz */
+    text-decoration: none;
 }
 
 nav .menu li ul {
