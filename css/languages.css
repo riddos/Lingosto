@@ -11,7 +11,7 @@ header {
     padding: 15px;
     text-align: center;
     border-radius: 15px;
-    margin: 15px; 
+    margin: 15px;
 }
 
 .container {
@@ -25,6 +25,10 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+}
+
+.single {
+    justify-content: center;
 }
 
 .language {
@@ -61,8 +65,8 @@ header {
     margin-top: 10px;
     font-size: 1em;
     color: #333;
-    font-weight: normal; /* Yazılar kalın değil */
-    text-transform: capitalize; /* Sadece ilk harf büyük */
+    font-weight: normal;
+    text-transform: capitalize;
     text-align: center;
 }
 
