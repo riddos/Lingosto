@@ -2,13 +2,13 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f0f9f9;
-    color: #333;
+    color: ;
 }
 
 header {
     text-align: center;
-    background-color: #00bfbf;
-    color: white;
+    background-color: #00bfbf; /* Turkuaz renk */
+    color: #fff;
     padding: 1rem;
     border-radius: 10px;
     margin: 1rem;
@@ -38,6 +38,10 @@ header {
 }
 
 .language-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: transparent;
     border: 5px solid rgba(48, 213, 200, 0.8);
     border-radius: 10px;
@@ -62,11 +66,21 @@ header {
     margin-top: 10px;
     font-size: 1em;
     color: #333;
+    font-weight: normal;
+    text-align: center;
 }
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: ffffff;
+}
+
+h2 {
+  text-align: center; 
+}
+
+.language-box a {
+    text-decoration: none; 
 }
 
 nav {
@@ -74,7 +88,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1rem;
-    background-color: #009999;
+    background-color: #009999; /* Daha koyu turkuaz */
     color: white;
     border-radius: 10px;
 }
@@ -82,19 +96,19 @@ nav {
 nav .logo {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
     color: white;
-    font-weight: bold;
 }
 
 nav .logo img {
     height: 40px;
-    margin-right: 0.5rem;
+    text-decoration: none;
 }
 
 nav .menu {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     list-style: none;
 }
 
@@ -110,13 +124,14 @@ nav .menu li a {
 }
 
 nav .menu li a:hover {
-    color: #00ffff;
+    color: #00ffff; /* Parlayan açık turkuaz */
+    text-decoration: none;
 }
 
 nav .menu li ul {
     display: none;
     position: absolute;
-    background-color: #007373;
+    background-color: #007373; /* Menünün altı için daha koyu bir turkuaz */
     list-style: none;
     padding: 0.5rem;
     border-radius: 5px;
@@ -126,38 +141,23 @@ nav .menu li:hover ul {
     display: block;
 }
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 0.3rem;
-    cursor: pointer;
+nav .menu li ul li {
+    margin: 0;
 }
 
-.hamburger span {
-    background-color: white;
-    height: 3px;
-    width: 25px;
-    border-radius: 5px;
+nav .menu li ul li a {
+    color: white;
 }
 
-/* Mobil uyum için */
+/* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
-    .menu {
-        display: none;
+    .languages {
         flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: #009999;
-        padding: 1rem;
+        align-items: center;
     }
 
-    .menu.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: flex;
+    .language {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
 }
