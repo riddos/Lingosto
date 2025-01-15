@@ -125,13 +125,12 @@ nav .menu li a {
 
 nav .menu li a:hover {
     color: #00ffff; /* Parlayan açık turkuaz */
-    text-decoration: none;
 }
 
 nav .menu li ul {
     display: none;
     position: absolute;
-    background-color: #007373; /* Menünün altı için daha koyu bir turkuaz */
+    background-color: #007373; /* Alt menü için daha koyu turkuaz */
     list-style: none;
     padding: 0.5rem;
     border-radius: 5px;
@@ -149,15 +148,38 @@ nav .menu li ul li a {
     color: white;
 }
 
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
 /* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
-    .languages {
+    nav .menu {
+        display: none;
         flex-direction: column;
-        align-items: center;
+        gap: 0;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: #009999;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    .language {
-        flex: 1 1 100%;
-        max-width: 100%;
+    nav .menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .flags .flag img {
+        width: 40px;
     }
 }
