@@ -29,6 +29,8 @@ header .feature-card-inner {
     height: 100%;
     transform-style: preserve-3d;
     transition: transform 0.6s ease-in-out;
+    backface-visibility: hidden;
+    transform-origin: center center;
 }
 
 header .card-front,
@@ -55,6 +57,12 @@ header .card-back {
     background-color: white;
     color: #00bfbf;
     transform: rotateY(180deg);
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
 }
 
 nav {
@@ -147,11 +155,9 @@ nav .menu li ul li a {
     gap: 40px;
     justify-content: center;
     margin: 40px 0 80px;
+    align-items: center;
 }
 
-.feature-card:hover .feature-card-inner {
-    transform: rotateY(180deg);
-}
 
 .card-front, .card-back {
     border: 1px solid #ddd;
@@ -179,7 +185,7 @@ nav .menu li ul li a {
     height: 30px;
     border: none;
     border-radius: 50%;
-    font-size: 18px;
+    font-size: 15px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -258,6 +264,18 @@ footer {
     transform: scale(1.1);
 }
 
+header .feature-card-inner {
+    cursor: pointer;
+    transform: rotateY(0);
+    transition: transform 0.6s ease-in-out;
+    transform-origin: center center;
+    backface-visibility: hidden;
+}
+
+header .feature-card-inner.clicked {
+    transform: rotateY(180deg);
+}
+
 @media (max-width: 768px) {
     nav .menu {
         display: none;
@@ -285,4 +303,5 @@ footer {
         margin-bottom: 1rem; /* Alt alta dizilmesi için margin eklendi */
         display: block; /* Alt alta dizilmesi için display özelliği eklendi */
     }
+  
 }
