@@ -6,21 +6,22 @@
     <title>Select Your Language - Lingosto</title>
     <link rel="icon" sizes="16x16" href="images/logo.png" type="image/png">
     <link rel="icon" sizes="32x32" href="images/logo.png" type="image/png">
-    <link rel="icon" sizes="48x48" href="images/logo.png" type="image/png">
-    <link rel="icon" href="../images/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/languages.css">
 </head>
 <body>
     <header>
-      <nav>
+        <nav>
             <a href="index.html" class="logo">
                 <img src="images/icon.png" alt="Home Icon">
-                Home
+                Lingosto
             </a>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                ☰
+            <button class="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             <ul class="menu">
+                <li><a href="index.html">Home</a></li>
                 <li>
                     <a href="pages/languages.html">Languages</a>
                     <ul>
@@ -39,19 +40,13 @@
                 <li><a href="index.html#how-to-read">How to read?</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-          <button class="hamburger" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
         </nav>
-        <h1><a href="#">Languages</a></h1>
+        <h1>Languages</h1>
         <p>Select the language you want to learn.</p>
     </header>
 
     <div class="container">
         <h2>Choose Your Language</h2>
-        
         <!-- Türkçe tek satırda -->
         <div class="languages single">
             <div class="language">
@@ -63,8 +58,8 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Diğer diller 3'erli gruplar halinde -->
+
+        <!-- Diğer diller -->
         <div class="languages multi">
             <div class="language">
                 <div class="language-box">
@@ -91,70 +86,16 @@
                 </div>
             </div>
         </div>
-        
-        <div class="languages multi">
-            <div class="language">
-                <div class="language-box">
-                    <a href="../pages/portuguese.html">
-                        <img src="../images/portuguese.png" alt="Portuguese Flag">
-                        <p>Vamos aprender português</p>
-                    </a>
-                </div>
-            </div>
-            <div class="language">
-                <div class="language-box">
-                    <a href="../pages/french.html">
-                        <img src="../images/french.png" alt="French Flag">
-                        <p>Apprenons le français</p>
-                    </a>
-                </div>
-            </div>
-            <div class="language">
-                <div class="language-box">
-                    <a href="../pages/italian.html">
-                        <img src="../images/italian.png" alt="Italian Flag">
-                        <p>Impariamo l'italiano</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="languages multi">
-            <div class="language">
-                <div class="language-box">
-                    <a href="../pages/czech.html">
-                        <img src="../images/czech.png" alt="Czech Flag">
-                        <p>Pojďme se učit česky</p>
-                    </a>
-                </div>
-            </div>
-            <div class="language">
-                <div class="language-box">
-                    <a href="../pages/dutch.html">
-                        <img src="../images/dutch.png" alt="Dutch Flag">
-                        <p>Laten we nederlands leren</p>
-                    </a>
-                </div>
-            </div>
-            <div class="language">
-                <div class="language-box">
-                    <a href="../pages/swedish.html">
-                        <img src="../images/swedish.png" alt="Swedish Flag">
-                        <p>Låt oss lära oss svenska</p>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const menu = document.querySelector("nav ul.menu");
 
-    menuToggle.addEventListener("click", () => {
-        menu.classList.toggle("active");
-    });
-});
-</script>
+    <script>
+        // Hamburger menü için JS kodu
+        const hamburger = document.querySelector(".hamburger");
+        const menu = document.querySelector(".menu");
+
+        hamburger.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+    </script>
 </body>
 </html>
