@@ -10,10 +10,51 @@ body {
 
 header {
     text-align: center;
-    background-color: #00bfbf; /* Turkuaz renk */
+    background-color: #00bfbf;
     color: #fff;
     padding: 1rem;
     border-radius: 10px;
+}
+
+header .feature-card {
+    position: relative;
+    width: 200px;
+    height: 120px;
+    perspective: 1000px;
+}
+
+header .feature-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+header .card-front,
+header .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .card-front {
+    background-color: #00bfbf;
+    color: white;
+}
+
+header .card-back {
+    background-color: white;
+    color: #00bfbf;
+    transform: rotateY(180deg);
 }
 
 nav {
@@ -21,7 +62,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1rem;
-    background-color: #009999; /* Daha koyu turkuaz */
+    background-color: #009999;
     color: white;
     border-radius: 10px;
 }
@@ -36,7 +77,6 @@ nav .logo {
 
 nav .logo img {
     height: 40px;
-    text-decoration: none;
 }
 
 nav .menu {
@@ -57,14 +97,13 @@ nav .menu li a {
 }
 
 nav .menu li a:hover {
-    color: #00ffff; /* Parlayan açık turkuaz */
-    text-decoration: none;
+    color: #00ffff;
 }
 
 nav .menu li ul {
     display: none;
     position: absolute;
-    background-color: #007373; /* Menünün altı için daha koyu bir turkuaz */
+    background-color: #007373;
     list-style: none;
     padding: 0.5rem;
     border-radius: 5px;
@@ -72,10 +111,6 @@ nav .menu li ul {
 
 nav .menu li:hover ul {
     display: block;
-}
-
-nav .menu li ul li {
-    margin: 0;
 }
 
 nav .menu li ul li a {
@@ -91,16 +126,15 @@ nav .menu li ul li a {
     color: white;
 }
 
-/* Hero Bölümü */
 .hero {
-    background-color: #e0f7f7; /* Açık turkuaz arka plan */
+    background-color: #e0f7f7;
     padding: 2rem;
     text-align: center;
     border-bottom: 3px solid #00bfbf;
 }
 
 .hero h1 {
-    color: #007373; /* Daha koyu turkuaz */
+    color: #007373;
 }
 
 .hero p {
@@ -108,35 +142,76 @@ nav .menu li ul li a {
     font-size: 1.1rem;
 }
 
-/* Özellikler */
 .features {
     display: flex;
+    gap: 40px;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 2rem;
-    background-color: #f4fefe;
+    margin: 40px 0 80px;
 }
 
-.features .feature {
+.feature-card:hover .feature-card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
     text-align: center;
-    padding: 1rem;
-    background: #00bfbf;
-    color: white;
-    border-radius: 10px;
-    max-width: 300px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.features .feature h3 {
-    margin-bottom: 0.5rem;
+.card-back {
+    transform: rotateY(180deg);
+    background-color: #f9f9f9;
+    color: #00bfbf;
 }
 
-.features .feature p {
-    font-size: 0.9rem;
+.flip-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
 }
 
-/* CTA Butonu */
+.flip-button:focus {
+    outline: none;
+}
+
+.section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.section-divider {
+    border-bottom: 3px solid #00bfbf;
+    margin: 30px 0;
+}
+
+.section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.section p {
+    font-size: 1rem;
+    color: #333;
+}
+
 .cta {
     text-align: center;
     margin: 2rem 0;
@@ -156,7 +231,6 @@ nav .menu li ul li a {
     background-color: #00bfbf;
 }
 
-/* Footer */
 footer {
     background-color: #009999;
     color: white;
@@ -165,7 +239,6 @@ footer {
     border-radius: 5px;
 }
 
-/* Bayraklar */
 .flags {
     display: flex;
     flex-wrap: wrap;
@@ -176,7 +249,6 @@ footer {
 
 .flags .flag img {
     width: 40px;
-    height: auto;
     border: 2px solid #00bfbf;
     border-radius: 5px;
     transition: transform 0.3s;
@@ -186,12 +258,10 @@ footer {
     transform: scale(1.1);
 }
 
-/* Mobil Görünüm */
 @media (max-width: 768px) {
     nav .menu {
         display: none;
         flex-direction: column;
-        gap: 0;
         position: absolute;
         top: 60px;
         right: 10px;
@@ -207,8 +277,12 @@ footer {
     .menu-toggle {
         display: block;
     }
-
-    .flags .flag img {
-        width: 40px;
+    .features {
+        flex-direction: column; /* Mobil uyumluluk için flex yönü değiştirildi */
+        align-items: center;
+    }
+    header .feature-card {
+        margin-bottom: 1rem; /* Alt alta dizilmesi için margin eklendi */
+        display: block; /* Alt alta dizilmesi için display özelliği eklendi */
     }
 }
