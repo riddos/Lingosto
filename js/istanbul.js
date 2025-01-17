@@ -1,36 +1,21 @@
-// Çeviri baloncukları
+// Translation popups
 const triggers = document.querySelectorAll('.translate-trigger');
-let activePopup = null;
 
 triggers.forEach(trigger => {
-    trigger.addEventListener('click', (event) => {
+    trigger.addEventListener('mouseenter', (event) => {
         const translation = event.target.dataset.translation;
 
-        if (activePopup) activePopup.remove();
-
+        // Create and display popup
         let popup = document.createElement('div');
         popup.className = 'translation-popup';
         popup.textContent = translation;
-
-        event.target.parentNode.appendChild(popup);
-        activePopup = popup;
+        event.target.appendChild(popup);
 
         popup.style.display = 'block';
     });
-});
 
-document.addEventListener('click', (event) => {
-    if (!event.target.classList.contains('translate-trigger') && activePopup) {
-        activePopup.remove();
-        activePopup = null;
-    }
-});
-
-// Flashcardların dönüşü
-const flashcards = document.querySelectorAll('.flashcard');
-
-flashcards.forEach(card => {
-    card.addEventListener('click', () => {
-        card.classList.toggle('flip');
+    trigger.addEventListener('mouseleave', (event) => {
+        const popup = event.target.querySelector('.translation-popup');
+        if (popup) popup.remove();
     });
 });
