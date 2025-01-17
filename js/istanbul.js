@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Handle translation popup toggle
     const triggers = document.querySelectorAll('.translate-trigger');
 
     triggers.forEach(trigger => {
         trigger.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent event bubbling
             const popup = event.target.nextElementSibling;
             if (popup) {
                 popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
@@ -10,14 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Optional: Close any open popups when clicking outside
-    document.addEventListener('click', (event) => {
-        if (!event.target.matches('.translate-trigger')) {
-            const openPopups = document.querySelectorAll('.translation-popup');
-            openPopups.forEach(popup => (popup.style.display = 'none'));
-        }
+    // Close all popups when clicking outside
+    document.addEventListener('click', () => {
+        const openPopups = document.querySelectorAll('.translation-popup');
+        openPopups.forEach(popup => (popup.style.display = 'none'));
     });
 });
+
 
     document.addEventListener('DOMContentLoaded', () => {
     const flashcards = document.querySelectorAll('.flashcard');
