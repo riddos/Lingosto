@@ -9,7 +9,7 @@ body {
 }
 
 header {
-    text-align: center;
+    text-align: left;
     background-color: #00bfbf;
     color: #fff;
     padding: 1rem;
@@ -63,6 +63,13 @@ header .card-back {
     width: 100%;
     height: 100%;
     transform-origin: center center;
+}
+
+header .header-photo {
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 nav {
@@ -137,23 +144,26 @@ nav .menu li ul li a {
 .hero {
     background-color: #e0f7f7;
     padding: 2rem;
-    text-align: center;
+    text-align: left;
     border-bottom: 3px solid #00bfbf;
+    display: block;
 }
 
 .hero h1 {
     color: #007373;
+    text-align: center;
 }
 
 .hero p {
     color: #005f5f;
     font-size: 1.1rem;
+    text-align: center;
 }
 
 .features {
     display: flex;
     gap: 40px;
-    justify-content: center;
+    justify-content: flex;
     margin: 40px 0 80px;
     align-items: center;
 }
@@ -165,8 +175,8 @@ nav .menu li ul li a {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: flex-start;
     padding: 15px;
     text-align: center;
 }
@@ -248,7 +258,7 @@ footer {
 .flags {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 15px;
     padding: 1.5rem 0;
 }
