@@ -8,12 +8,31 @@ body {
     border-radius: 10px;
 }
 
+.hero {
+    z-index: 1;  /* Keep the text above the image */
+}
+
+.hero h1, .hero p {
+    z-index: 1; /* Ensure the text stays on top of the background image */
+}
+
 header {
+    position: relative;
     text-align: left;
     background-color: #00bfbf;
     color: #fff;
     padding: 1rem;
     border-radius: 10px;
+    text-align: left;
+    background-color: #00bfbf;
+    color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    background-image: url('path_to_your_image.jpg'); /* Your image here */
+    background-size: cover;  /* Make the image cover the entire header */
+    background-position: right center; /* Align the image to the right */
+    background-repeat: no-repeat;
+    
 }
 
 header .feature-card {
@@ -66,10 +85,13 @@ header .card-back {
 }
 
 header .header-photo {
-    max-height: 200px;
-    max-width: 200px;
-    border-radius: 50%;
-    object-fit: cover;
+    position: absolute;
+    right: 0; /* Align the image to the right side of the header */
+    top: 0; /* Ensure it's positioned at the top of the header */
+    height: 100%; /* Make sure the image covers the entire height of the header */
+    width: auto; /* Keep the aspect ratio of the image intact */
+    object-fit: cover; /* Ensure the image covers the space without stretching */
+    border-radius: 10px;
 }
 
 nav {
