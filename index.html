@@ -163,14 +163,14 @@
         <p>&copy; 2025 Lingosto. All Rights Reserved.</p>
     </footer>
     <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const menu = document.querySelector("nav ul.menu");
+document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".menu");
 
-    menuToggle.addEventListener("click", () => {
-        menu.classList.toggle("active");
+        menuToggle.addEventListener("click", function () {
+            menu.classList.toggle("visible");
+        });
     });
-});
  document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector("nav ul.menu");
