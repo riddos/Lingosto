@@ -144,3 +144,99 @@ p {
     margin: 0 auto;
     transform: translateY(-10px);
 }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #009999; /* Daha koyu turkuaz */
+    color: white;
+    border-radius: 10px;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: white;
+}
+
+nav .logo img {
+    height: 40px;
+    text-decoration: none;
+}
+
+nav .menu {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+nav .menu li {
+    position: relative;
+}
+
+nav .menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: normal;
+    transition: color 0.3s;
+}
+
+nav .menu li a:hover {
+    color: #00ffff; /* Parlayan açık turkuaz */
+}
+
+nav .menu li ul {
+    display: none;
+    position: absolute;
+    background-color: #007373; /* Alt menü için daha koyu turkuaz */
+    list-style: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+nav .menu li:hover ul {
+    display: block;
+}
+
+nav .menu li ul li {
+    margin: 0;
+}
+
+nav .menu li ul li a {
+    color: white;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+/* Mobil cihazlar için medya sorguları */
+@media (max-width: 768px) {
+    nav .menu {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: #009999;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
