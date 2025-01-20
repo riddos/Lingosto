@@ -92,6 +92,7 @@ header .header-photo {
     width: auto; /* Keep the aspect ratio of the image intact */
     object-fit: cover; /* Ensure the image covers the space without stretching */
     border-radius: 10px;
+    z-index: 1; 
 }
 
 nav {
