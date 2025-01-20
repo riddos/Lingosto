@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turkish - Choose a story</title>
+    <link rel="icon" href="../images/logo.png" type="image/png">
     <link rel="icon" sizes="16x16" href="../images/logo.png" type="image/png">
     <link rel="icon" sizes="32x32" href="../images/logo.png" type="image/png">
     <link rel="icon" sizes="48x48" href="../images/logo.png" type="image/png">
@@ -14,7 +15,7 @@
     <header>
         <h1>Turkish</h1>
         <p>Choose a story in Turkish</p>
-    <nav>
+        <nav>
             <a href="index.html" class="logo">
                 <img src="images/icon.png" alt="Home Icon">
                 Home
@@ -28,21 +29,14 @@
                     <ul>
                         <li><a href="../pages/turkish.html">Turkish</a></li>
                         <li><a href="../pages/english.html">English</a></li>
-                        <li><a href="../pages/german.html">German</a></li>
-                        <li><a href="../pages/french.html">French</a></li>
-                        <li><a href="../pages/portuguese.html">Portuguese</a></li>
-                        <li><a href="../pages/italian.html">Italian</a></li>
-                        <li><a href="../pages/spanish.html">Spanish</a></li>
-                        <li><a href="../pages/czech.html">Czech</a></li>
-                        <li><a href="../pages/dutch.html">Dutch</a></li>
-                        <li><a href="../pages/swedish.html">Swedish</a></li>
+                        <!-- Add other languages here -->
                     </ul>
                 </li>
                 <li><a href="index.html#how-to-read">How to read?</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-        </header>
+    </header>
     <div class="container">
         <h2>Hikaye Seçin</h2>
         <div class="stories">
@@ -58,31 +52,23 @@
                 <h3>Antalya - C1</h3>
                 <a href="../pages/antalya.html">Read</a>
             </div>
-            <div class="story">
-                <h3>Türk Yemekleri - A2</h3>
-                <a href="#">Hikayeyi Oku</a>
-            </div>
-            <div class="story">
-                <h3>Kapadokya - B1</h3>
-                <a href="#">Hikayeyi Oku</a>
-            </div>
-            <div class="story">
-                <h3>Pamukkale - B1</h3>
-                <a href="#">Hikayeyi Oku</a>
-            </div>
-            <div class="story">
-                <h3>Akdeniz - A2</h3>
-                <a href="#">Hikayeyi Oku</a>
-            </div>
-            <div class="story">
-                <h3>Karadeniz - A2</h3>
-                <a href="#">Hikayeyi Oku</a>
-            </div>
-            <div class="story">
-                <h3>Türk Kahvesi - B1</h3>
-                <a href="#">Hikayeyi Oku</a>
-            </div>
         </div>
     </div>
+    <script>
+        // Hamburger toggle functionality
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menu');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                menu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
