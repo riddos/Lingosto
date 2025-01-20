@@ -113,20 +113,24 @@ nav .logo {
     gap: 0.5rem;
     text-decoration: none;
     color: white;
+    z-index: 1;
 }
 
 nav .logo img {
     height: 40px;
+    z-index: 1;
 }
 
 nav .menu {
     display: flex;
     gap: 1.5rem;
     list-style: none;
+    z-index: 1;
 }
 
 nav .menu li {
     position: relative;
+    z-index: 1;
 }
 
 nav .menu li a {
@@ -134,10 +138,12 @@ nav .menu li a {
     color: white;
     font-weight: normal;
     transition: color 0.3s;
+    z-index: 1;
 }
 
 nav .menu li a:hover {
     color: #00ffff;
+    z-index: 1;
 }
 
 nav .menu li ul {
@@ -147,14 +153,17 @@ nav .menu li ul {
     list-style: none;
     padding: 0.5rem;
     border-radius: 5px;
+    z-index: 1;
 }
 
 nav .menu li:hover ul {
     display: block;
+    z-index: 1;
 }
 
 nav .menu li ul li a {
     color: white;
+    z-index: 1;
 }
 
 .menu-toggle {
@@ -164,6 +173,7 @@ nav .menu li ul li a {
     border: none;
     cursor: pointer;
     color: white;
+    z-index: 1;
 }
 
 .hero {
@@ -294,6 +304,7 @@ footer {
     border: 2px solid #00bfbf;
     border-radius: 5px;
     transition: transform 0.3s;
+    z-index: 1;
 }
 
 .flags .flag img:hover {
