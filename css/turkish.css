@@ -1,17 +1,18 @@
 body {
-            margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f9f9;
+            margin: 1rem;
+            padding: 0;
+            background-color: #f9f9f9;
             color: #333;
+            border-radius: 10px;
         }
 
         header {
             background-color: #00bfbf;
             color: white;
-            padding: 15px;
+            padding: 1rem;
             text-align: center;
-            border-radius: 15px;
-            margin: 5px;
+            border-radius: 10px;
         }
 
         nav {
