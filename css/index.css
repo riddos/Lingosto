@@ -298,6 +298,7 @@ footer {
     gap: 15px;
     padding: 1.5rem 0;
     z-index: 1;
+    position: relative;
 }
 
 .flags .flag img {
@@ -306,6 +307,7 @@ footer {
     border-radius: 5px;
     transition: transform 0.3s;
     z-index: 1;
+    position: relative;
 }
 
 .flags .flag img:hover {
