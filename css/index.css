@@ -352,7 +352,7 @@ header .feature-card-inner.clicked {
         margin-bottom: 1rem; /* Alt alta dizilmesi için margin eklendi */
         display: block; /* Alt alta dizilmesi için display özelliği eklendi */
     }
-    .header-image {
+    .header-photo {
         height: 50%; /* Reduce the height of the image on mobile */
         width: 100%; /* Make the image full-width on mobile */
         object-position: top center; /* Görselin yüksekliğini mobilde daha düşük yapabiliriz */
