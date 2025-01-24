@@ -98,18 +98,7 @@
                 </div>
             </div>
         </div>
-    <div class="slideshow">
-            <div class="slides">
-                <div class="slide" style="background-image: url('images/header-photo.jpg');"></div>
-                <div class="slide" style="background-image: url('images/photo2.jpg');"></div>
-                <div class="slide" style="background-image: url('images/photo3.jpg');"></div>
-            </div>
-            <div class="dots">
-                <div class="dot" data-index="0"></div>
-                <div class="dot" data-index="1"></div>
-                <div class="dot" data-index="2"></div>
-            </div>
-        </div>
+    <img src="images/header-photo.jpg" alt="Language Learning" class="header-photo">
 </header>
     <div class="container">
     <!-- Existing Hero Section -->
@@ -199,39 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-        document.addEventListener("DOMContentLoaded", () => {
-            const slides = document.querySelector(".slides");
-            const dots = document.querySelectorAll(".dot");
-            const totalSlides = dots.length;
-            let currentIndex = 0;
-
-            const updateSlidePosition = () => {
-                slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle("active", index === currentIndex);
-                });
-            };
-
-            const goToSlide = (index) => {
-                currentIndex = index;
-                updateSlidePosition();
-            };
-
-            dots.forEach((dot) => {
-                dot.addEventListener("click", (event) => {
-                    const index = parseInt(event.target.dataset.index);
-                    goToSlide(index);
-                });
-            });
-
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                updateSlidePosition();
-            }, 5000);
-
-            updateSlidePosition();
-        });
-
 </script>
 </body>
 </html>
