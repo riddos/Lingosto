@@ -356,4 +356,11 @@ header .feature-card-inner.clicked {
     .header-photo {
         display: none;
     }
+    h1 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
+    
 }
