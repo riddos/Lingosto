@@ -344,8 +344,6 @@ header .feature-card-inner.clicked {
         display: block; /* Alt alta dizilmesi için display özelliği eklendi */
     }
     .header-photo {
-        height: 50%; /* Reduce the height of the image on mobile */
-        width: 100%; /* Make the image full-width on mobile */
-        object-position: top center; /* Görselin yüksekliğini mobilde daha düşük yapabiliriz */
+        display: none;
     }
 }
