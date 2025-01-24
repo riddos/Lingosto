@@ -101,8 +101,6 @@
     </div>
       <img src="images/header-photo.jpg" alt="Language Learning" class="header-photo">
 </header>
-    </header>
-
     <div class="container">
     <!-- Existing Hero Section -->
    <div class="container">
@@ -161,39 +159,33 @@
         <p>&copy; 2025 Lingosto. All Rights Reserved.</p>
     </footer>
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-        const menuToggle = document.querySelector(".menu-toggle");
-        const menu = document.querySelector(".menu");
-
-        menuToggle.addEventListener("click", function () {
-            menu.classList.toggle("visible");
-        });
-    });
- document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
+    // Menu toggle logic
     const menuToggle = document.querySelector(".menu-toggle");
-    const menu = document.querySelector("nav ul.menu");
+    const menu = document.querySelector(".menu");
 
     menuToggle.addEventListener("click", () => {
-        menu.classList.toggle("active");
+        menu.classList.toggle("visible");
     });
 
-    document.addEventListener('click', function(event) {
-        const cards = document.querySelectorAll('.feature-card-inner');
-        cards.forEach(card => {
+    // Feature card click logic
+    document.addEventListener("click", (event) => {
+        const cards = document.querySelectorAll(".feature-card-inner");
+        cards.forEach((card) => {
             if (!card.contains(event.target)) {
-                card.classList.remove('clicked');
+                card.classList.remove("clicked");
             }
         });
     });
 
-    document.querySelectorAll('.feature-card-inner').forEach(card => {
-        card.addEventListener('click', function(event) {
+    document.querySelectorAll(".feature-card-inner").forEach((card) => {
+        card.addEventListener("click", (event) => {
             event.stopPropagation();
-            card.classList.toggle('clicked');
+            card.classList.toggle("clicked");
         });
     });
 });
-      
+
 </script>
 </body>
 </html>
