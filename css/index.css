@@ -258,7 +258,8 @@ nav .menu li ul li a {
 
 .cta {
     text-align: center;
-    margin: 2rem 0;
+    margin: 0 auto;
+    display: block;
 }
 
 .cta a {
