@@ -317,6 +317,14 @@ header .feature-card-inner.clicked {
     transform: rotateY(180deg);
 }
 
+.menu {
+    display: none;
+}
+
+.menu.visible {
+    display: block;
+}
+
 @media (max-width: 768px) {
     nav .menu {
         display: none;
