@@ -32,8 +32,6 @@ header {
     background-size: cover;  /* Make the image cover the entire header */
     background-position: right center; /* Align the image to the right */
     background-repeat: no-repeat;
-    z-index: -2;
-    
 }
 
 header .feature-card {
