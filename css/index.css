@@ -325,56 +325,6 @@ header .feature-card-inner.clicked {
 .menu.visible {
     display: block;
 }
-.slideshow {
-            position: relative;
-            width: 100%;
-            max-width: 1200px;
-            margin: auto;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 400%;
-        }
-
-        .slides img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .dots {
-            position: absolute;
-            bottom: 20px; /* Adjust to place the dots over the photo */
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            background-color: #ccc;
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .dot.active {
-            background-color: #00bfbf;
-        }
-
-        @media (max-width: 768px) {
-            .slideshow {
-                display: none;
-            }
-        }
-
 @media (max-width: 768px) {
     nav .menu {
         display: none;
