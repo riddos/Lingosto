@@ -104,6 +104,7 @@ nav {
     background-color: #009999;
     color: white;
     border-radius: 10px;
+    z-index: 1;
 }
 
 nav .logo {
@@ -146,6 +147,7 @@ nav .menu li ul {
     list-style: none;
     padding: 0.5rem;
     border-radius: 5px;
+    z-index: 1;
 }
 
 nav .menu li:hover ul {
