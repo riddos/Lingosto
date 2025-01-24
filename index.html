@@ -168,23 +168,28 @@ document.addEventListener("DOMContentLoaded", () => {
             menu.classList.toggle("visible");
         });
     }
-    document.addEventListener("DOMContentLoaded", () => {
+
     const cards = document.querySelectorAll(".feature-card-inner");
 
     if (cards.length > 0) {
         cards.forEach((card) => {
             card.addEventListener("click", (event) => {
                 event.stopPropagation();
+                // Tüm diğer kartların ters dönmesini iptal et
+                document.querySelectorAll(".feature-card-inner.clicked").forEach((otherCard) => {
+                    if (otherCard !== card) {
+                        otherCard.classList.remove("clicked");
+                    }
+                });
                 card.classList.toggle("clicked");
             });
         });
     }
-});
 
-    document.querySelectorAll(".feature-card-inner").forEach((card) => {
-        card.addEventListener("click", (event) => {
-            event.stopPropagation();
-            card.classList.toggle("clicked");
+    // Kart dışında bir yere tıklandığında tüm kartları ön yüzüne çevir
+    document.addEventListener("click", () => {
+        document.querySelectorAll(".feature-card-inner.clicked").forEach((card) => {
+            card.classList.remove("clicked");
         });
     });
 });
