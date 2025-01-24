@@ -98,7 +98,17 @@
                 </div>
             </div>
         </div>
-    <img src="images/header-photo.jpg" alt="Language Learning" class="header-photo">
+    <div class="slideshow-container">
+        <img src="images/header-photo.jpg" alt="Language Learning" class="header-photo active">
+        <img src="images/header-photo2.jpg" alt="Language Learning 2" class="header-photo">
+        <img src="images/header-photo3.jpg" alt="Language Learning 3" class="header-photo">
+
+        <div class="dots-container">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+        </div>
+    </div>
 </header>
     <div class="container">
     <!-- Existing Hero Section -->
@@ -188,6 +198,30 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+const slides = document.querySelectorAll('.header-photo');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+                dots[i].classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', (e) => {
+                currentIndex = parseInt(e.target.getAttribute('data-index'));
+                showSlide(currentIndex);
+            });
+        });
+
+        setInterval(nextSlide, 3000); // Her 3 saniyede bir slayt değişir
 </script>
 </body>
 </html>
