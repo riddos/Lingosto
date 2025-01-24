@@ -98,19 +98,7 @@
                 </div>
             </div>
         </div>
-         <div class="slideshow">
-        <div class="slides">
-            <img src="images/header-photo.jpg" alt="Language Learning">
-            <img src="images/header-photo-2.jpg" alt="Interactive Stories">
-            <img src="images/header-photo-3.jpg" alt="Flashcards">
-            <img src="images/header-photo-4.jpg" alt="Multilingual Support">
-        </div>
-        <div class="dots">
-            <span class="dot" data-index="0"></span>
-            <span class="dot" data-index="1"></span>
-            <span class="dot" data-index="2"></span>
-            <span class="dot" data-index="3"></span>
-        </div>
+        <img src="images/header-photo.jpg" alt="Language Learning" class="header-photo">
 </header>
     <div class="container">
     <!-- Existing Hero Section -->
@@ -200,29 +188,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-document.addEventListener("DOMContentLoaded", () => {
-            const slides = document.querySelector(".slides");
-            const dots = document.querySelectorAll(".dot");
-            let currentIndex = 0;
-
-            function updateSlide(index) {
-                slides.style.transform = `translateX(-${index * 100}%)`;
-                dots.forEach(dot => dot.classList.remove("active"));
-                dots[index].classList.add("active");
-            }
-
-            dots.forEach((dot, index) => {
-                dot.addEventListener("click", () => {
-                    currentIndex = index;
-                    updateSlide(index);
-                });
-            });
-
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % dots.length;
-                updateSlide(currentIndex);
-            }, 3000); // Change every 3 seconds
-        });
 </script>
 </body>
 </html>
