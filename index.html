@@ -164,20 +164,23 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector(".menu");
 
-    menuToggle.addEventListener("click", () => {
-        menu.classList.toggle("visible");
-        }
-    });
-
-    // Feature card click logic
-    document.addEventListener("click", (event) => {
-        const cards = document.querySelectorAll(".feature-card-inner");
-        cards.forEach((card) => {
-            if (!card.contains(event.target)) {
-                card.classList.remove("clicked");
-            }
+    if (menuToggle && menu) {
+        menuToggle.addEventListener("click", () => {
+            menu.classList.toggle("visible");
         });
-    });
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".feature-card-inner");
+
+    if (cards.length > 0) {
+        cards.forEach((card) => {
+            card.addEventListener("click", (event) => {
+                event.stopPropagation();
+                card.classList.toggle("clicked");
+            });
+        });
+    }
+});
 
     document.querySelectorAll(".feature-card-inner").forEach((card) => {
         card.addEventListener("click", (event) => {
