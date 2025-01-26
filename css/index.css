@@ -394,11 +394,17 @@ nav ul.menu > li > a[href="pages/languages.html"] {
     font-weight: normal;        /* Make the text bold */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for text */
     transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+    position: relative;
+    z-index: 1;
 }
 
 nav ul.menu > li > a[href="pages/languages.html"]:hover {
     transform: scale(1.1);    /* Slightly enlarge on hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    position: relative;
+    z-index: 1;
+}
+
 @media (max-width: 768px) {
     nav .menu {
         display: none;
@@ -426,7 +432,7 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
         margin-bottom: 1rem; /* Alt alta dizilmesi için margin eklendi */
         display: block; /* Alt alta dizilmesi için display özelliği eklendi */
     }
-    .header-photo {
+    header .header-photo {
         display: none;
     }
     h1 {
