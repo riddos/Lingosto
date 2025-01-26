@@ -325,42 +325,6 @@ header .feature-card-inner.clicked {
 .menu.visible {
     display: block;
 }
-@media (max-width: 768px) {
-    nav .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        background: #009999;
-        width: 200px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    nav .menu.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-    .features {
-        flex-direction: column; /* Mobil uyumluluk için flex yönü değiştirildi */
-        align-items: center;
-    }
-    header .feature-card {
-        margin-bottom: 1rem; /* Alt alta dizilmesi için margin eklendi */
-        display: block; /* Alt alta dizilmesi için display özelliği eklendi */
-    }
-    .header-photo {
-        display: none;
-    }
-    h1 {
-    text-align: center;
-  }
-  p {
-    text-align: center;
-  }
    .slideshow {
     position: absolute;
     top: 0;
@@ -411,8 +375,42 @@ header .feature-card-inner.clicked {
 .dot.active {
     opacity: 1;
 }
-
 @media (max-width: 768px) {
+    nav .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        background: #009999;
+        width: 200px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+    .features {
+        flex-direction: column; /* Mobil uyumluluk için flex yönü değiştirildi */
+        align-items: center;
+    }
+    header .feature-card {
+        margin-bottom: 1rem; /* Alt alta dizilmesi için margin eklendi */
+        display: block; /* Alt alta dizilmesi için display özelliği eklendi */
+    }
+    .header-photo {
+        display: none;
+    }
+    h1 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
     .slideshow {
         display: none;
     }
