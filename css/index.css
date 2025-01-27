@@ -36,8 +36,8 @@ header {
 
 header .feature-card {
     position: relative;
-    width: 200px;
-    height: 120px;
+    width: 220px;
+    height: 140px;
     perspective: 1000px;
     z-index: 1;
 }
@@ -66,6 +66,7 @@ header .card-back {
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 header .card-front {
@@ -293,6 +294,7 @@ footer {
     gap: 15px;
     padding: 1.5rem 0;
     position: relative;
+    z-index: 2;
 }
 
 .flags .flag img {
