@@ -418,10 +418,12 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
   height: 50px;
   border-radius: 8px; /* Optional rounded corners */
   transition: transform 0.3s ease;
+    justify-content: center;
 }
 
 .social-icon:hover {
   transform: scale(1.1); /* Slight zoom effect on hover */
+    justify-content: center;
 }
 
 @media (max-width: 768px) {
@@ -471,11 +473,13 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
         display: none;
     .social-media {
       gap: 1rem; /* Smaller gap for mobile devices */
+        justify-content: center;
     }
 
     .icon {
       width: 2.5rem; /* Smaller size for mobile devices */
       height: 2.5rem;
+        justify-content: center;
     }
   }
 }
