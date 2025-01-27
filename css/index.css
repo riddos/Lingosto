@@ -446,6 +446,7 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
     }
     .flags {
         align-items: center;
+        justify-content: center;
     }
     .dots {
         display: none;
