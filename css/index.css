@@ -258,7 +258,7 @@ nav .menu li ul li a {
 
 .cta {
     text-align: center;
-    margin: 0 auto;
+    margin: 2rem 0;
     display: block;
 }
 
@@ -283,6 +283,7 @@ footer {
     text-align: center;
     padding: 1rem;
     border-radius: 5px;
+    margin-top: 3rem;
 }
 
 .flags {
