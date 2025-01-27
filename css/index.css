@@ -490,7 +490,6 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
         justify-content: center;
     }
     nav .menu > li > a[href="pages/languages.html"] {
-        nav .menu > li > a[href="pages/languages.html"] {
         border: none; /* Remove the border */
     }
 
