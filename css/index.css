@@ -490,8 +490,12 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
         justify-content: center;
     }
     nav .menu > li > a[href="pages/languages.html"] {
-        border: none; /* Remove the border */
+    border: none; /* Remove the border */
     }
+
+    nav ul.menu > li > a[href="pages/languages.html"]:hover {
+    border: none;
+}
 
     /* Adjust the dropdown menu for "Languages" */
     nav .menu > li > ul {
