@@ -406,6 +406,24 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
     z-index: 1;
 }
 
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* Space between icons */
+  margin: 1.5rem 0; /* Space above and below */
+}
+
+.social-icon {
+  width: 50px; /* Icon size */
+  height: 50px;
+  border-radius: 8px; /* Optional rounded corners */
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
 @media (max-width: 768px) {
     nav .menu {
         display: none;
@@ -451,5 +469,14 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
     }
     .dots {
         display: none;
+    .social-media {
+      gap: 1rem; /* Smaller gap for mobile devices */
+    }
+
+    .icon {
+      width: 2.5rem; /* Smaller size for mobile devices */
+      height: 2.5rem;
+    }
+  }
 }
 }
