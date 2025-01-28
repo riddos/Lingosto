@@ -126,8 +126,8 @@
             <p>Master grammar concepts with practical examples that make learning fun.</p>
         </div>
         <div class="section-divider"></div>
-        <div class="section">
-            <h2>Interactive Quizzes</h2>
+        <div class="section" id="how-to-read">
+            <h2>How to read?</h2>
             <p>Test your knowledge with quizzes designed to challenge and improve your vocabulary.</p>
         </div>
         <div class="section-divider"></div>
@@ -208,8 +208,21 @@
                 showSlide(currentIndex);
             });
         });
-
         setInterval(nextSlide, 5000);
+        document.addEventListener("DOMContentLoaded", () => {
+    const howToReadLink = document.querySelector('a[href="index.html#how-to-read"]');
+    const targetSection = document.getElementById("how-to-read");
+
+    if (howToReadLink && targetSection) {
+        howToReadLink.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent default anchor behavior
+            targetSection.scrollIntoView({
+                behavior: "smooth", // Enables smooth scrolling
+                block: "start"     // Aligns the section to the top
+            });
+        });
+    }
+});
     </script>
 </body>
 </html>
