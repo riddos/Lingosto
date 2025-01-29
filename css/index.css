@@ -434,13 +434,14 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 60px;
-        right: 10px;
+        top: 42px;
+        right: 0px;
         background: #009999;
         width: 150px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 10px; /* Add padding to the menu */
         border-radius: 5px; /* Add border radius */
+        z-index: 2;
     }
 
     nav .menu.visible {
@@ -490,7 +491,7 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
       height: 2.5rem;
         justify-content: center;
     }
-    nav .menu > li > a[href="pages/languages.html"] {
+        nav .menu > li > a[href="pages/languages.html"] {
     border: none; /* Remove the border */
     padding: 0;
     }
