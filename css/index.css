@@ -151,6 +151,7 @@ nav .menu li ul {
     padding: 0.5rem;
     border-radius: 5px;
     z-index: 1;
+    line-height: 22px;
 }
 
 nav .menu li:hover ul {
@@ -491,10 +492,12 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
     }
     nav .menu > li > a[href="pages/languages.html"] {
     border: none; /* Remove the border */
+    padding: 0;
     }
 
     nav ul.menu > li > a[href="pages/languages.html"]:hover {
     border: none;
+    padding: 0;
 }
 
     /* Adjust the dropdown menu for "Languages" */
