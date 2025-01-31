@@ -5,70 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turkish - Choose a story</title>
     <link rel="icon" href="../images/logo.png" type="image/png">
-    <link rel="icon" sizes="16x16" href="../images/logo.png" type="image/png">
-    <link rel="icon" sizes="32x32" href="../images/logo.png" type="image/png">
-    <link rel="icon" sizes="48x48" href="../images/logo.png" type="image/png">
-    <link rel="icon" href="../images/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/turkish.css">
 </head>
 <body>
     <header>
-        <nav>
-            <a href="/index.html" class="logo">
-                <img src="../images/icon.png" alt="Home Icon">
-                Home
-            </a>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                ☰
-            </button>
-            <ul class="menu">
-                <li>
-                    <a href="pages/languages.html">Languages</a>
-                    <ul>
-                        <li><a href="../pages/turkish.html">Turkish</a></li>
-                        <li><a href="../pages/english.html">English</a></li>
-                        <!-- Add other languages here -->
-                    </ul>
-                </li>
-                <li><a href="index.html#how-to-read">How to read?</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
         <h1>Turkish</h1>
         <p>Choose a story in Turkish</p>
     </header>
     <div class="container">
         <h2>Hikaye Seçin</h2>
         <div class="stories">
-            <div class="story">
-                <h3>İstanbul'un Kedileri - A2</h3>
-                <a href="istanbul.html">Hikayeyi Oku</a>
+            <div class="category">
+                <h3>A1 Seviyesi</h3>
+                <ul class="story-list">
+                    <li>Kapalıçarşı'da Bir Gün</li>
+                    <li>Geleneksel Türk Kahvaltısı</li>
+                    <li>Topkapı Sarayı Gezisi</li>
+                    <li>Dolmabahçe Sarayı'nda Günbatımı</li>
+                    <li>Minarelerin Şehri İstanbul</li>
+                </ul>
             </div>
-            <div class="story">
-                <h3>Beşiktaş Semti - B1</h3>
-                <a href="besiktas.html">Hikayeyi Oku</a>
+            <div class="category">
+                <h3>A2 Seviyesi</h3>
+                <ul class="story-list">
+                    <li>İstanbul'un Kedileri</li>
+                    <li>Kapadokya’nın Balonları</li>
+                    <li>Mevlana ve Semazenler</li>
+                    <li>Boğazda Bir Akşam Yürüyüşü</li>
+                    <li>Pazar Sabahı Simit Keyfi</li>
+                </ul>
             </div>
-            <div class="story">
-                <h3>Antalya - C1</h3>
-                <a href="../pages/antalya.html">Read</a>
+            <div class="category">
+                <h3>B1 Seviyesi</h3>
+                <ul class="story-list">
+                    <li>Beşiktaş Semti ve Çarşı</li>
+                    <li>Türk Kahvesi Kültürü</li>
+                    <li>Antalya'nın Tarihi Yerleri</li>
+                    <li>Trabzon'un Yaylaları</li>
+                    <li>Mardin'in Taş Evleri</li>
+                </ul>
+            </div>
+            <div class="category">
+                <h3>B2 Seviyesi</h3>
+                <ul class="story-list">
+                    <li>Türk Mutfağının Lezzetleri</li>
+                    <li>Efes Antik Kenti</li>
+                    <li>Osmanlı Saray Yemekleri</li>
+                    <li>Van Gölü'nün İnci Kefali</li>
+                    <li>Bursa'nın İpek Yolu Mirası</li>
+                </ul>
+            </div>
+            <div class="category">
+                <h3>C1 Seviyesi</h3>
+                <ul class="story-list">
+                    <li>Türk Sanat Müziğinin Kökenleri</li>
+                    <li>Nasreddin Hoca'nın Mizahı</li>
+                    <li>İstanbul’un Tarihi Hanları</li>
+                    <li>Türk Edebiyatında Modernizm</li>
+                    <li>Karagöz ve Hacivat Geleneği</li>
+                </ul>
+            </div>
+            <div class="category">
+                <h3>C2 Seviyesi</h3>
+                <ul class="story-list">
+                    <li>Dede Korkut Hikayeleri</li>
+                    <li>Divan Edebiyatında Şiir Sanatı</li>
+                    <li>Türk Tarihinde Kadın Figürleri</li>
+                    <li>Anadolu Medeniyetleri ve Kültürel Miras</li>
+                    <li>Türk Sinemasının Gelişimi</li>
+                </ul>
             </div>
         </div>
     </div>
-    <script>
-        // Hamburger toggle functionality
-        const menuToggle = document.querySelector('.menu-toggle');
-        const menu = document.querySelector('.menu');
-
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (event) => {
-            if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
-                menu.classList.remove('active');
-            }
-        });
-    </script>
 </body>
-</html>
+</html
