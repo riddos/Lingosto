@@ -390,21 +390,13 @@ header .feature-card-inner.clicked {
 }
 
 nav ul.menu > li > a[href="pages/languages.html"] {
-    border: 2px solid #ffffff; /* Add a visible border */
-    border-radius: 5px;        /* Round the corners */
-    padding: 5px 10px;        /* Add some padding */
-    background-color: #009999; /* Highlight background color */
-    color: #ffffff;           /* Adjust text color */
-    font-weight: normal;        /* Make the text bold */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for text */
-    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+    font-weight: bold;
     position: relative;
     z-index: 1;
 }
 
 nav ul.menu > li > a[href="pages/languages.html"]:hover {
-    transform: scale(1.1);    /* Slightly enlarge on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    font-weight: bold;
     position: relative;
     z-index: 1;
 }
