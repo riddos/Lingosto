@@ -4,7 +4,6 @@ body {
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
-            border-radius: 10px;
         }
 
         header {
@@ -25,140 +24,38 @@ body {
             border-radius: 10px;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-        }
-
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
-        }
-
-        .menu {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .menu li {
-            position: relative;
-        }
-
-        .menu li a {
-            text-decoration: none;
-            color: white;
-            font-weight: normal;
-        }
-
-        .menu li ul {
-            display: none;
-            position: absolute;
-            background-color: #007373;
-            list-style: none;
-            padding: 0.5rem;
-            border-radius: 5px;
-        }
-
-        .menu li:hover ul {
-            display: block;
-        }
-
-        .menu li ul li a {
-            color: white;
-        }
-
-        /* Hamburger Styles */
-        .menu-toggle {
-            display: none;
-            font-size: 2rem;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .menu {
-                display: none;
-                flex-direction: column;
-                gap: 0;
-                background-color: #007373;
-                width: 100%;
-                border-radius: 0;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                padding: 1rem 0;
-            }
-
-            .menu.active {
-                display: flex;
-            }
-
-            .menu li {
-                text-align: center;
-                margin: 0;
-                padding: 0.5rem 0;
-            }
-
-            .menu li ul {
-                position: relative;
-                padding-left: 1rem;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-        }
-
-        /* Additional Styling for Stories */
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            text-align: center;
-        }
-
-        h2 {
-            color: #30d5c8;
-            margin-bottom: 20px;
         }
 
         .stories {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            justify-items: center;
-        }
-
-        @media (max-width: 900px) {
-            .stories {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .stories {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .story {
-            background-color: white;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 150px;
-            height: 150px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            gap: 10px;
+        }
+
+        .category {
+            margin-bottom: 20px;
+        }
+
+        .category h3 {
+            background-color: #30d5c8;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .story-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .story-list li {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
         }
