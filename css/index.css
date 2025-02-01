@@ -421,6 +421,14 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
     justify-content: center;
 }
 
+/* Add this CSS rule to change the background color of the "How to read?" section */
+        #how-to-read {
+            background-color: #00bfbf;
+            padding: 20px; /* Optional: Add padding for better spacing */
+            border-radius: 10px; /* Optional: Add rounded corners */
+            color: white; /* Optional: Change text color for better contrast */
+        }
+
 @media (max-width: 768px) {
     nav .menu {
         display: none;
