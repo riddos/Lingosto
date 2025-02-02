@@ -3,33 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate a Text - Lingosto</title>
+    <title>Generate a Text</title>
     <link rel="stylesheet" href="../../css/generate.css">
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">Lingosto</div>
-        <button class="menu-toggle">☰</button>
-        <ul class="menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Generate a Text</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <h1>Generate a Text</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <div class="container">
-        <h1>Generate a Text</h1>
-        <textarea id="textInput" placeholder="Paste your text here..."></textarea>
-        <button id="generateBtn">Generate the Text</button>
+        <textarea id="input-text" placeholder="Paste your text here..."></textarea>
+        <button id="generate-btn">Generate the Text</button>
 
-        <div id="outputContainer"></div>
-
-        <h2>Vocabulary</h2>
-        <ul id="wordList"></ul>
+        <div id="output"></div>
+        <div id="flashcards-container"></div>
     </div>
 
-    <script src="../../js/generate.js"></script>
-
+     <script src="../../js/generate.js"></script>
 </body>
 </html>
