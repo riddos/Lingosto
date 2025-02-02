@@ -1,53 +1,23 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8f8;
+    background-color: #f0f8ff;
     color: #333;
     margin: 0;
     padding: 0;
 }
 
 .navbar {
-    background-color: #009999;
+    background-color: #00a7c4;
     padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.navbar .logo {
-    font-size: 24px;
     color: white;
-}
-
-.menu-toggle {
-    display: none;
-    font-size: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
-}
-
-.menu {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-.menu li {
-    display: inline;
-}
-
-.menu a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
 }
 
 .container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
+    width: 80%;
+    margin: 20px auto;
     text-align: center;
 }
 
@@ -59,56 +29,68 @@ textarea {
 }
 
 button {
-    background-color: #009999;
+    background-color: #00a7c4;
     color: white;
     border: none;
-    padding: 10px 15px;
-    margin: 10px;
-    cursor: pointer;
+    padding: 10px 20px;
     font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
 button:hover {
-    background-color: #007777;
-}
-
-#outputContainer {
-    margin-top: 20px;
-    text-align: left;
+    background-color: #0086a1;
 }
 
 .sentence {
-    display: inline-block;
-    margin-right: 5px;
-    position: relative;
+    display: inline;
+    font-size: 18px;
 }
 
 .sentence button {
     margin-left: 5px;
-    font-size: 14px;
-    padding: 2px 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
 }
 
 .popup {
-    position: absolute;
-    background: #009999;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
     display: none;
-    font-size: 14px;
-    top: 25px;
-    left: 0;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    background: #f0f8f8;
+    background-color: white;
+    border: 1px solid #ccc;
     padding: 5px;
-    border: 1px solid #009999;
-    margin: 5px 0;
+    position: absolute;
+    z-index: 10;
+    font-size: 16px;
+    color: black;
+}
+
+.flashcard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.flashcard {
+    background: white;
+    border: 1px solid #00a7c4;
+    padding: 15px;
+    margin: 10px;
+    width: 120px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.flashcard .translation {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #00a7c4;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
 }
