@@ -64,6 +64,9 @@ button:hover {
     z-index: 10;
     font-size: 16px;
     color: black;
+    margin-top: 5px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .flashcard-container {
@@ -81,6 +84,7 @@ button:hover {
     text-align: center;
     cursor: pointer;
     position: relative;
+    font-weight: bold;
 }
 
 .flashcard .translation {
