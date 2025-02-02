@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const button = document.createElement("button");
             button.textContent = "❓";
-            button.onclick = () => showTranslation(button, sentence.trim());
+            button.onclick = () => translateSentence(button, sentence.trim());
 
             span.appendChild(button);
             paragraph.appendChild(span);
@@ -34,22 +34,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-function showTranslation(button, sentence) {
-    const translation = fakeTranslate(sentence); // Gerçek çeviri yerine sahte çeviri fonksiyonu
-    let popup = button.nextElementSibling;
+function translateSentence(button, sentence) {
+    const googleTranslateURL = `https://translate.google.com/?sl=auto&tl=en&text=${encodeURIComponent(sentence)}`;
 
+    let popup = button.nextElementSibling;
     if (!popup) {
         popup = document.createElement("div");
         popup.classList.add("popup");
-        popup.textContent = translation;
+        popup.innerHTML = `<a href="${googleTranslateURL}" target="_blank">Translate</a>`;
         button.parentNode.appendChild(popup);
     }
 
     popup.style.display = popup.style.display === "block" ? "none" : "block";
-}
-
-function fakeTranslate(sentence) {
-    return sentence.split(" ").reverse().join(" "); // Basit demo çeviri (kelimeleri ters çeviriyor)
 }
 
 function generateVocabulary(text) {
@@ -58,8 +54,19 @@ function generateVocabulary(text) {
     const selectedWords = uniqueWords.sort(() => 0.5 - Math.random()).slice(0, 20);
 
     selectedWords.forEach(word => {
-        const li = document.createElement("li");
-        li.textContent = `${word} - (ENG) ${word.toUpperCase()}`;
-        wordList.appendChild(li);
+        const flashcard = document.createElement("div");
+        flashcard.classList.add("flashcard");
+        flashcard.textContent = word;
+
+        const translationDiv = document.createElement("div");
+        translationDiv.classList.add("translation");
+        translationDiv.textContent = "ENG: " + word.toUpperCase();
+
+        flashcard.appendChild(translationDiv);
+        flashcard.onclick = () => {
+            translationDiv.style.display = translationDiv.style.display === "block" ? "none" : "block";
+        };
+
+        wordList.appendChild(flashcard);
     });
 }
