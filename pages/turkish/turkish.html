@@ -13,7 +13,7 @@
 <body>
     <header>
         <nav>
-            <a href="index.html" class="logo">
+            <a href="/index.html" class="logo">
                 <img src="../../images/icon.png" alt="Home Icon">
                 Home
             </a>
@@ -22,9 +22,9 @@
             </button>
             <ul class="menu">
                 <li>
-                    <a href="pages/languages.html">Languages</a>
+                    <a href="../../pages/languages.html">Languages</a>
                     <ul>
-                        <li><a href="../pages/turkish/turkish.html">Turkish</a></li>
+                        <li><a href="../../pages/turkish/turkish.html">Turkish</a></li>
                         <li><a href="../pages/english.html">English</a></li>
                         <li><a href="../pages/german.html">German</a></li>
                         <li><a href="../pages/french.html">French</a></li>
@@ -108,5 +108,15 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const menu = document.querySelector(".menu");
+            if (menuToggle && menu) {
+                menuToggle.addEventListener("click", () => {
+                    menu.classList.toggle("visible");
+                });
+            }
+            </script>
 </body>
 </html
