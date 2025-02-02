@@ -135,7 +135,7 @@ nav .menu li ul li a {
 
 @media (max-width: 768px) {
     nav .menu {
-        display: none;
+        display: block;
         flex-direction: column;
         position: absolute;
         top: 60px;
