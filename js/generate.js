@@ -11,13 +11,14 @@ document.addEventListener("DOMContentLoaded", () => {
         outputContainer.innerHTML = "";
         wordList.innerHTML = "";
 
+        // Cümleleri nokta, ünlem, soru işareti ile bölme
         const sentences = text.match(/[^.!?]+[.!?]/g) || [text];
 
         const paragraph = document.createElement("p");
         sentences.forEach(sentence => {
             const span = document.createElement("span");
             span.classList.add("sentence");
-            span.textContent = sentence.trim();
+            span.textContent = sentence.trim() + " ";
 
             const button = document.createElement("button");
             button.textContent = "❓";
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function showTranslation(button, sentence) {
-    const translation = sentence.split(" ").reverse().join(" "); // Sadece demo için kelimeleri ters çeviriyor.
+    const translation = fakeTranslate(sentence); // Gerçek çeviri yerine sahte çeviri fonksiyonu
     let popup = button.nextElementSibling;
 
     if (!popup) {
@@ -45,6 +46,10 @@ function showTranslation(button, sentence) {
     }
 
     popup.style.display = popup.style.display === "block" ? "none" : "block";
+}
+
+function fakeTranslate(sentence) {
+    return sentence.split(" ").reverse().join(" "); // Basit demo çeviri (kelimeleri ters çeviriyor)
 }
 
 function generateVocabulary(text) {
