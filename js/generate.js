@@ -1,90 +1,127 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const generateBtn = document.getElementById("generateBtn");
-    const textInput = document.getElementById("textInput");
-    const outputContainer = document.getElementById("outputContainer");
-    const wordList = document.getElementById("wordList");
+    const generateButton = document.getElementById("generate-btn");
+    const textArea = document.getElementById("input-text");
+    const outputDiv = document.getElementById("output");
+    const flashcardsContainer = document.getElementById("flashcards-container");
 
-    generateBtn.addEventListener("click", async () => {
-        const text = textInput.value.trim();
+    // Boş yere tıklayınca çeviri baloncuklarını kapatma
+    document.body.addEventListener("click", (event) => {
+        if (!event.target.classList.contains("translate-btn")) {
+            document.querySelectorAll(".translation-popup").forEach(popup => popup.style.display = "none");
+        }
+    });
+
+    generateButton.addEventListener("click", async () => {
+        const text = textArea.value.trim();
         if (!text) return;
 
-        outputContainer.innerHTML = "";
-        wordList.innerHTML = "";
+        outputDiv.innerHTML = "";
+        flashcardsContainer.innerHTML = "";
 
-        const sentences = text.match(/[^.!?]+[.!?]/g) || [text];
+        const sentences = text.match(/[^.?!]+[.?!]/g) || [text];
 
-        const paragraph = document.createElement("p");
-
-        for (const sentence of sentences) {
+        for (let sentence of sentences) {
             const span = document.createElement("span");
-            span.classList.add("sentence");
             span.textContent = sentence.trim() + " ";
 
-            const button = document.createElement("button");
-            button.textContent = "❓";
-            button.onclick = async () => {
-                const translation = await translateText(sentence.trim());
-                showTranslation(button, translation);
-            };
+            const translateBtn = document.createElement("button");
+            translateBtn.textContent = "?";
+            translateBtn.classList.add("translate-btn");
+            translateBtn.style.marginLeft = "5px";
+            translateBtn.style.cursor = "pointer";
 
-            span.appendChild(button);
-            paragraph.appendChild(span);
+            const popup = document.createElement("div");
+            popup.classList.add("translation-popup");
+            popup.style.display = "none";
+
+            translateBtn.addEventListener("click", async (event) => {
+                event.stopPropagation();
+                popup.style.display = "block";
+                popup.style.position = "absolute";
+                popup.style.left = `${event.pageX}px`;
+                popup.style.top = `${event.pageY + 20}px`;
+
+                if (!popup.textContent) {
+                    popup.textContent = "Translating...";
+                    popup.textContent = await translateText(sentence.trim());
+                }
+            });
+
+            span.appendChild(translateBtn);
+            outputDiv.appendChild(span);
+            outputDiv.appendChild(popup);
         }
 
-        outputContainer.appendChild(paragraph);
-
-        generateVocabulary(text);
+        generateFlashcards(text);
     });
+
+    function generateFlashcards(text) {
+        const words = text.split(/\s+/).filter(word => word.length > 3);
+        const uniqueWords = [...new Set(words)].slice(0, 20);
+        const flashcardBlocks = [];
+
+        for (let i = 0; i < uniqueWords.length; i += 5) {
+            const block = document.createElement("div");
+            block.classList.add("flashcard-block");
+
+            uniqueWords.slice(i, i + 5).forEach(word => {
+                const flashcard = document.createElement("div");
+                flashcard.classList.add("flashcard");
+
+                const flashcardInner = document.createElement("div");
+                flashcardInner.classList.add("flashcard-inner");
+
+                const flashcardFront = document.createElement("div");
+                flashcardFront.classList.add("flashcard-front");
+                flashcardFront.textContent = word;
+
+                const flashcardBack = document.createElement("div");
+                flashcardBack.classList.add("flashcard-back");
+
+                translateText(word).then(translation => {
+                    flashcardBack.textContent = translation;
+                });
+
+                flashcardInner.appendChild(flashcardFront);
+                flashcardInner.appendChild(flashcardBack);
+                flashcard.appendChild(flashcardInner);
+
+                flashcard.addEventListener("click", () => {
+                    flashcard.classList.toggle("flipped");
+                });
+
+                block.appendChild(flashcard);
+            });
+
+            flashcardBlocks.push(block);
+        }
+
+        flashcardBlocks.forEach(block => flashcardsContainer.appendChild(block));
+    }
 });
 
-// ✅ **Google Translate kullanarak sayfa içi çeviri yapıyoruz**
+// Çeviri API (Google veya LibreTranslate Kullanılabilir)
 async function translateText(text) {
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=${encodeURIComponent(text)}`;
+    const url = "https://libretranslate.com/translate";
     
     try {
-        const response = await fetch(url);
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                q: text,
+                source: "auto",
+                target: "en",
+                format: "text"
+            })
+        });
+
         const result = await response.json();
-        return result[0].map(item => item[0]).join(""); // Çeviriyi al
+        return result.translatedText || "Translation error";
     } catch (error) {
         console.error("Çeviri hatası:", error);
         return "Translation error";
-    }
-}
-
-// ✅ **Çeviri sonucunu gösteren popup**
-function showTranslation(button, translation) {
-    let popup = button.nextElementSibling;
-    if (!popup) {
-        popup = document.createElement("div");
-        popup.classList.add("popup");
-        button.parentNode.appendChild(popup);
-    }
-    popup.textContent = translation;
-    popup.style.display = popup.style.display === "block" ? "none" : "block";
-}
-
-// ✅ **Vocabulary (flashcard) bölümü için İngilizce çeviriler ekliyoruz**
-async function generateVocabulary(text) {
-    const words = text.toLowerCase().match(/\b[a-zğüşöçıİĞÜŞÖÇ]+\b/gi) || [];
-    const uniqueWords = [...new Set(words)];
-    const selectedWords = uniqueWords.sort(() => 0.5 - Math.random()).slice(0, 20);
-
-    for (const word of selectedWords) {
-        const flashcard = document.createElement("div");
-        flashcard.classList.add("flashcard");
-        flashcard.textContent = word;
-
-        const translation = await translateText(word);
-
-        const translationDiv = document.createElement("div");
-        translationDiv.classList.add("translation");
-        translationDiv.textContent = translation;
-
-        flashcard.appendChild(translationDiv);
-        flashcard.onclick = () => {
-            translationDiv.style.display = translationDiv.style.display === "block" ? "none" : "block";
-        };
-
-        wordList.appendChild(flashcard);
     }
 }
