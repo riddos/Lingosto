@@ -93,35 +93,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 block.appendChild(flashcard);
             });
 
-            flashcardBlocks.push(block);
+            flashcardsContainer.appendChild(block);
         }
-
-        flashcardBlocks.forEach(block => flashcardsContainer.appendChild(block));
     }
 });
 
-// Çeviri API (Google veya LibreTranslate Kullanılabilir)
+// Google Translate API
 async function translateText(text) {
-    const url = "https://libretranslate.com/translate";
-    
-    try {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                q: text,
-                source: "auto",
-                target: "en",
-                format: "text"
-            })
-        });
-
-        const result = await response.json();
-        return result.translatedText || "Translation error";
-    } catch (error) {
-        console.error("Çeviri hatası:", error);
-        return "Translation error";
-    }
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=${encodeURIComponent(text)}`;
+    const response = await fetch(url);
+    const result = await response.json();
+    return result[0][0][0];
 }
