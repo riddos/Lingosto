@@ -133,7 +133,7 @@ nav .menu li ul li a {
     color: white;
 }
 
-@media (max-width: 768px)
+@media (max-width: 768px) {
  .menu-toggle {
         display: block;
     } 
@@ -172,3 +172,4 @@ nav .menu li ul li a {
         display: block;
     }
 }
+} 
