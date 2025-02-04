@@ -1,26 +1,28 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 1rem;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-    border-radius: 10px;
-}
+            font-family: Arial, sans-serif;
+            margin: 1rem;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
 
-      header {
-    position: relative;
-    text-align: left;
-    background-color: #00bfbf;
-    color: #fff;
-    padding: 1rem;
-    border-radius: 10px;
-    text-align: left;
-    background-color: #00bfbf;
-    color: #fff;
-    padding: 1rem;
-    border-radius: 10px;
+        header {
+            background-color: #00bfbf;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 10px;
+        }
 
-
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background-color: #009999;
+            color: white;
+            border-radius: 10px;
+        }
 
         .container {
             max-width: 800px;
@@ -58,7 +60,7 @@ body {
             border-radius: 5px;
         }
 
-        nav {
+nav {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -81,7 +83,6 @@ nav .logo {
 nav .logo img {
     height: 40px;
 }
-
 
 nav .menu {
     display: flex;
@@ -132,18 +133,12 @@ nav .menu li ul li a {
     color: white;
 }
 
-.menu a {
-    text-decoration: none;
-    color: white;
-    padding: 0.5rem;
-}
-
 @media (max-width: 768px) {
     nav .menu {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 42px;
+        top: 60px;
         right: 0px;
         background: #009999;
         width: 150px;
@@ -153,7 +148,7 @@ nav .menu li ul li a {
         z-index: 2;
     }
 
-    .menu.visible {
+    nav .menu.visible {
         display: flex;
     }
 
@@ -174,4 +169,4 @@ nav .menu li ul li a {
     nav .menu li ul.active {
         display: block;
     }
-}
+}</style>
