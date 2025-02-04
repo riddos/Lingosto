@@ -114,27 +114,16 @@
         </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const menu = document.querySelector(".menu");
-    const dropdowns = document.querySelectorAll(".menu > li > ul");
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".menu");
 
-    // Hamburger menüyü aç/kapat
-    menuToggle.addEventListener("click", () => {
-        menu.classList.toggle("visible");
+        if (menuToggle && menu) {
+            menuToggle.addEventListener("click", () => {
+                menu.classList.toggle("visible");
+            });
+        }
     });
-
-    // Dropdown menüleri aç/kapat (mobilde çalışması için)
-    document.querySelectorAll(".menu > li > a").forEach((item) => {
-        item.addEventListener("click", (e) => {
-            const submenu = item.nextElementSibling;
-            if (submenu && submenu.tagName === "UL") {
-                e.preventDefault(); // Sayfanın başka yere gitmesini engelle
-                submenu.classList.toggle("active");
-            }
-        });
-    });
-});
-            </script>
+</script>
 </body>
 </html
