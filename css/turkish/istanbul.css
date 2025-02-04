@@ -220,6 +220,14 @@ nav .menu li ul li a {
     color: white;
 }
 
+.arrow {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #00bfbf;
+}
+
 /* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
     nav .menu {
@@ -248,5 +256,17 @@ nav .menu li ul li a {
     header .feature-card {
         margin-bottom: 1rem; /* Alt alta dizilmesi için margin eklendi */
         display: block; /* Alt alta dizilmesi için display özelliği eklendi */
+    }
+    .main-content {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .image-section {
+        order: 1;
+    }
+    
+    .text-section {
+        order: 2;
     }
     }
