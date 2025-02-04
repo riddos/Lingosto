@@ -61,36 +61,34 @@ body {
         }
 
 nav {
-    position: relative;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: #009999;
-    color: white;
+    justify-content: space-between;
+    background-color: #00bfbf;
+    padding: 1rem;
     border-radius: 10px;
-    z-index: 3;
 }
 
 nav .logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
+    font-size: 1.5rem;
     color: white;
+    text-decoration: none;
 }
 
 nav .logo img {
-    height: 40px;
+    width: 30px;
+    margin-right: 10px;
 }
 
-nav .menu {
-    display: flex;
-    gap: 0.5rem;
+.menu {
     list-style: none;
+    display: flex;
+    gap: 1rem;
 }
 
-nav .menu li {
+.menu li {
     position: relative;
 }
 
@@ -105,18 +103,20 @@ nav .menu li a:hover {
     color: #00ffff;
 }
 
-nav .menu li ul {
+.menu li ul {
     display: none;
     position: absolute;
-    background-color: #007373;
+    background: white;
+    border: 1px solid #ddd;
     list-style: none;
-    padding: 0.5rem;
-    border-radius: 5px;
-    z-index: 1;
-    line-height: 22px;
+    padding: 0;
+    margin: 0;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
 }
 
-nav .menu li:hover ul {
+.menu li:hover ul {
     display: block;
 }
 
@@ -126,29 +126,31 @@ nav .menu li ul li a {
 
 .menu-toggle {
     display: none;
-    font-size: 2rem;
     background: none;
     border: none;
-    cursor: pointer;
+    font-size: 1.5rem;
     color: white;
+    cursor: pointer;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem;
 }
 
 @media (max-width: 768px) {
-    nav .menu {
-        display: block;
+    .menu {
+        display: none;
         flex-direction: column;
         position: absolute;
+        background: #00bfbf;
         top: 60px;
-        right: 0px;
-        background: #009999;
-        width: 150px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 10px; /* Add padding to the menu */
-        border-radius: 5px; /* Add border radius */
-        z-index: 2;
+        left: 0;
+        width: 100%;
     }
 
-    nav .menu.visible {
+    .menu.visible {
         display: flex;
     }
 
