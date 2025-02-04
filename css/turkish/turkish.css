@@ -133,7 +133,11 @@ nav .menu li ul li a {
     color: white;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px)
+ .menu-toggle {
+        display: block;
+    } 
+
     nav .menu {
         display: none;
         flex-direction: column;
@@ -155,9 +159,7 @@ nav .menu li ul li a {
     nav .menu.active {
         display: flex;
 
-    .menu-toggle {
-        display: block;
-    }
+   
             nav .menu li ul {
         position: static; /* Change to static for mobile */
         display: none;
@@ -169,4 +171,4 @@ nav .menu li ul li a {
     nav .menu li ul.active {
         display: block;
     }
-}</style>
+}
