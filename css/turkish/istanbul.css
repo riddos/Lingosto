@@ -279,7 +279,7 @@ nav .menu li ul li a {
 
     .flashcard {
         display: none;
-        width: 100%;
+         width: 100%;
     }
 
     .flashcard.active {
@@ -296,6 +296,20 @@ nav .menu li ul li a {
     /* Show arrows only in mobile version */
     .arrow {
         display: block;
+    }
+}
+
+/* Okları masaüstü versiyonda gizle */
+.arrow {
+    display: none;
+}
+
+/* Masaüstü versiyonda tüm flashcard'ları göster */
+@media (min-width: 769px) {
+    .flashcard {
+        display: block;
+        position: relative;
+        width: 120px;
     }
 }
 
