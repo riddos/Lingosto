@@ -85,6 +85,4 @@ document.addEventListener('DOMContentLoaded', () => {
             flashcard.classList.toggle('flip');
         });
     });
-
-    showFlashcard(currentIndex); // Show the initial flashcard
 });
