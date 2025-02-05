@@ -219,12 +219,11 @@ nav .menu li ul li a {
     color: white;
 }
 
-.arrow {
+.nav-button {
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 2rem;
     cursor: pointer;
-    color: #00bfbf;
 }
 
 /* Mobil cihazlar için medya sorguları */
@@ -277,11 +276,19 @@ nav .menu li ul li a {
         height: 80px;
     }
 
-    .flashcard {
-        display: none;
+    .flashcards-wrapper {
+        width: 150px;
     }
 
-    .flashcard.active {
+    .flashcard-group {
         display: flex;
+        flex-direction: column;
     }
+
+    .flashcard {
+        width: 150px;
+        height: 100px;
+        font-size: 1.2em;
+    }
+
 }
