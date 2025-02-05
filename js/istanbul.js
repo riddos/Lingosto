@@ -63,7 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showFlashcard(index) {
         flashcards.forEach((flashcard, i) => {
-            flashcard.style.display = i === index ? 'block' : 'none';
+            flashcard.classList.remove('active');
+            if (i === index) {
+                flashcard.classList.add('active');
+            }
         });
     }
 
