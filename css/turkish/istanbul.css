@@ -269,6 +269,20 @@ nav .menu li ul li a {
     .image-section {
         order: 1;
     }
+
+     .flashcards {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .flashcard {
+        display: none;
+        width: 100%;
+    }
+
+    .flashcard.active {
+        display: block;
+    }
     
     .text-section {
         order: 2;
