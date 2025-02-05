@@ -55,3 +55,33 @@ document.addEventListener('DOMContentLoaded', () => {
             menu.classList.toggle("visible");
         });
     });
+    document.addEventListener('DOMContentLoaded', function() {
+    const flashcards = document.querySelectorAll('.flashcard');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    let currentIndex = 0;
+
+    function showFlashcard(index) {
+        flashcards.forEach((flashcard, i) => {
+            flashcard.style.display = i === index ? 'block' : 'none';
+        });
+    }
+
+    leftArrow.addEventListener('click', function() {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : flashcards.length - 1;
+        showFlashcard(currentIndex);
+    });
+
+    rightArrow.addEventListener('click', function() {
+        currentIndex = (currentIndex < flashcards.length - 1) ? currentIndex + 1 : 0;
+        showFlashcard(currentIndex);
+    });
+
+    flashcards.forEach(flashcard => {
+        flashcard.addEventListener('click', function() {
+            flashcard.classList.toggle('flip');
+        });
+    });
+
+    showFlashcard(currentIndex);
+});
