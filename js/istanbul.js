@@ -55,34 +55,54 @@ document.addEventListener('DOMContentLoaded', () => {
             menu.classList.toggle("visible");
         });
     });
-    document.addEventListener('DOMContentLoaded', () => {
-    const flashcards = document.querySelectorAll('.flashcard');
-    const leftArrow = document.querySelector('.left-arrow');
-    const rightArrow = document.querySelector('.right-arrow');
-    let currentIndex = 0;
+   const flashcards = [
+    { front: "Kedi", back: "Cat" },
+    { front: "Sokak", back: "Street" },
+    { front: "Deniz", back: "Sea" },
+    { front: "Şehir", back: "City" },
+    { front: "İlham", back: "Inspiration" },
+    { front: "Sanatçı", back: "Artist" },
+    { front: "Turist", back: "Tourist" },
+    { front: "Halk", back: "Public" },
+    { front: "Kültür", back: "Culture" },
+    { front: "Doku", back: "Texture" },
+    { front: "Fotoğraf", back: "Photo" },
+    { front: "Yazar", back: "Writer" },
+    { front: "Sevmek", back: "To love" },
+    { front: "Yemek", back: "Food" },
+    { front: "Ev", back: "House" },
+    { front: "Cafe", back: "Cafe" },
+    { front: "Sanat", back: "Art" },
+    { front: "Bağlantı", back: "Connection" },
+    { front: "Eşsiz", back: "Unique" },
+    { front: "Tarih", back: "History" }
+];
 
-    function show(index) {
-        s.forEach((flashcard, i) => {
-            flashcard.classList.remove('active');
-            if (i === index) {
-                flashcard.classList.add('active');
-            }
-        });
-    }
+let currentFlashcard = 0;
+const flashcardElement = document.querySelector(".flashcard");
+const prevButton = document.getElementById("prevFlashcard");
+const nextButton = document.getElementById("nextFlashcard");
 
-    leftArrow.addEventListener('click', () => {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : flashcards.length - 1;
-        showFlashcard(currentIndex);
-    });
+function updateFlashcard() {
+    flashcardElement.querySelector(".front").textContent = flashcards[currentFlashcard].front;
+    flashcardElement.querySelector(".back").textContent = flashcards[currentFlashcard].back;
+}
 
-    rightArrow.addEventListener('click', () => {
-        currentIndex = (currentIndex < flashcards.length - 1) ? currentIndex + 1 : 0;
-        showFlashcard(currentIndex);
-    });
-
-    flashcards.forEach(flashcard => {
-        ('click', () => {
-            flashcard.classList.toggle('flip');
-        });
-    });
+flashcardElement.addEventListener("click", () => {
+    flashcardElement.classList.toggle("flip");
 });
+
+prevButton.addEventListener("click", () => {
+    currentFlashcard = (currentFlashcard - 1 + flashcards.length) % flashcards.length;
+    updateFlashcard();
+    flashcardElement.classList.remove("flip");
+});
+
+nextButton.addEventListener("click", () => {
+    currentFlashcard = (currentFlashcard + 1) % flashcards.length;
+    updateFlashcard();
+    flashcardElement.classList.remove("flip");
+});
+
+// Initialize the first flashcard
+updateFlashcard();
