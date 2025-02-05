@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const rightArrow = document.querySelector('.right-arrow');
     let currentIndex = 0;
 
-    function showFlashcard(index) {
-        flashcards.forEach((flashcard, i) => {
+    function show(index) {
+        s.forEach((flashcard, i) => {
             flashcard.classList.remove('active');
             if (i === index) {
                 flashcard.classList.add('active');
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     flashcards.forEach(flashcard => {
-        flashcard.addEventListener('click', () => {
+        ('click', () => {
             flashcard.classList.toggle('flip');
         });
     });
