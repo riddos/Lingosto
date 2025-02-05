@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
             menu.classList.toggle("visible");
         });
     });
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', () => {
     const flashcards = document.querySelectorAll('.flashcard');
     const leftArrow = document.querySelector('.left-arrow');
     const rightArrow = document.querySelector('.right-arrow');
@@ -70,21 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    leftArrow.addEventListener('click', function() {
+    leftArrow.addEventListener('click', () => {
         currentIndex = (currentIndex > 0) ? currentIndex - 1 : flashcards.length - 1;
         showFlashcard(currentIndex);
     });
 
-    rightArrow.addEventListener('click', function() {
+    rightArrow.addEventListener('click', () => {
         currentIndex = (currentIndex < flashcards.length - 1) ? currentIndex + 1 : 0;
         showFlashcard(currentIndex);
     });
 
     flashcards.forEach(flashcard => {
-        flashcard.addEventListener('click', function() {
+        flashcard.addEventListener('click', () => {
             flashcard.classList.toggle('flip');
         });
     });
 
-    showFlashcard(currentIndex);
+    showFlashcard(currentIndex); // Show the initial flashcard
 });
