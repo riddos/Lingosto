@@ -277,4 +277,14 @@ nav .menu li ul li a {
     .divider {
         display: none;
     }
+    /* Show arrows only in mobile version */
+    .arrow {
+        display: block;
+    }
+}
+
+/* Hide arrows in desktop version */
+.arrow {
+    display: none;
+}
 }
