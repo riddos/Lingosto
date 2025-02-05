@@ -230,7 +230,9 @@ nav .menu li ul li a {
     font-size: 24px;
     cursor: pointer;
     color: #00bfbf;
+    display: none;
 }
+
 
 /* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
@@ -297,8 +299,4 @@ nav .menu li ul li a {
     }
 }
 
-/* Hide arrows in desktop version */
-.arrow {
-    display: none;
-}
 
