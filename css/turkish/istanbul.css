@@ -71,7 +71,6 @@ p {
 .flashcard {
     width: 120px;
     height: 80px;
-    perspective: 1000px;
     background-color: #30d5c8;
     color: white;
     display: flex;
@@ -101,17 +100,12 @@ p {
 .flashcard .front {
     background-color: #30d5c8;
     color: white;
-    transform: rotateY(0deg);
 }
 
 .flashcard .back {
     background-color: white;
     color: #333;
     transform: rotateY(180deg);
-}
-
-.flashcard.flip .back {
-    transform: rotateY(360deg); /* Flip the back */
 }
 
 .flashcard.flip {
