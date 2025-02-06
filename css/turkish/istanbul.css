@@ -229,6 +229,11 @@ nav .menu li ul li a {
     cursor: pointer;
 }
 
+.flashcard-group {
+        display: flex;
+        gap: 5px;
+    }
+
 /* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
     nav .menu {
