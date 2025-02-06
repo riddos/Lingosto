@@ -124,17 +124,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateFlashcards();
 });
-document.addEventListener("click", (event) => {
-    const flashcards = document.querySelectorAll(".flashcard");
-    flashcards.forEach(flashcard => {
-        flashcard.classList.remove("flip");
-    });
-});
-
-// Kartların kendisine tıklanmasını, yukarıdaki olayın tetiklenmesini engelle
-flashcards.forEach(flashcard => {
-    flashcard.addEventListener("click", (event) => {
-        event.stopPropagation(); // Kart tıklandığında kapanmayı engelle
-        flashcard.classList.toggle("flip");
-    });
-});
