@@ -63,6 +63,18 @@
             <button type="submit">Gönder</button>
         </form>
     </div>
-    <script src="script.js"></script>
+    <script>document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    const mailtoLink = `mailto:ridvanakdemirr@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Ad Soyad: ${name}\nEmail: ${email}\nMesaj: ${message}`)}`;
+    
+    window.location.href = mailtoLink;
+});
+</script>
 </body>
 </html>
