@@ -309,7 +309,8 @@ nav .menu li ul li a {
     cursor: pointer;
     margin: 1rem;
     color: #30d5c8;
-    right: 12px;
+    right: -12px;
+    position: relative;
 }
 
 }
