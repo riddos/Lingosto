@@ -60,21 +60,31 @@
             <label for="message">Mesaj</label>
             <textarea id="message" name="message" required></textarea>
             
-            <button type="submit">Gönder</button>
+            <button type="submit" id="submit-button">Gönder</button>
+            <p id="confirmation-message" style="display:none; color:green;">Mesajınız gönderildi!</p>
         </form>
     </div>
-    <script>document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-    
-    const mailtoLink = `mailto:ridvanakdemirr@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Ad Soyad: ${name}\nEmail: ${email}\nMesaj: ${message}`)}`;
-    
-    window.location.href = mailtoLink;
-});
-</script>
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            fetch('https://formspree.io/f/mgvozzay', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('submit-button').style.display = 'none';
+                    document.getElementById('confirmation-message').style.display = 'block';
+                } else {
+                    alert('Mesaj gönderilemedi, lütfen tekrar deneyin.');
+                }
+            }).catch(error => alert('Bir hata oluştu: ' + error));
+        });
+    </script>
 </body>
 </html>
