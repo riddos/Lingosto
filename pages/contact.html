@@ -8,7 +8,7 @@
     <link rel="icon" sizes="32x32" href="images/logo.png" type="image/png">
     <link rel="icon" sizes="48x48" href="images/logo.png" type="image/png">
     <link rel="icon" href="images/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="../../css/contact.css">
 </head>
 <body>
     <header>
@@ -45,190 +45,24 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
-        <h1>Lingosto</h1>
-        <div class="flags">
-            <a href=../pages/turkish/turkish.html>
-            <div class="flag"><img src="images/turkish.png" alt="Turkish"></div></a>
-            <div class="flag"><img src="images/english.png" alt="English"></div>
-            <div class="flag"><img src="images/german.png" alt="German"></div>
-            <div class="flag"><img src="images/spanish.png" alt="Spanish"></div>
-            <div class="flag"><img src="images/french.png" alt="French"></div>
-            <div class="flag"><img src="images/italian.png" alt="Italian"></div>
-            <div class="flag"><img src="images/portuguese.png" alt="Portuguese"></div>
-            <div class="flag"><img src="images/czech.png" alt="Czech"></div>
-            <div class="flag"><img src="images/russian.png" alt="Russian"></div>
-            <div class="flag"><img src="images/polish.png" alt="Polish"></div>    
-            <div class="flag"><img src="images/dutch.png" alt="Dutch"></div>
-            <div class="flag"><img src="images/norwegian.png" alt="Norwegian"></div>
-            <div class="flag"><img src="images/swedish.png" alt="Swedish"></div>
-            <div class="flag"><img src="images/croatian.png" alt="Croatian"></div>        
-        </div>
-        <p>Your journey to mastering languages starts here.</p>
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-card-inner">
-                    <div class="card-front">
-                        <button class="flip-button">⟳</button>
-                        <h3>Learn</h3>
-                        <p>Learn key vocabulary step-by-step with interactive flashcards tailored for beginners.</p>
-                    </div>
-                    <div class="card-back">
-                        <button class="flip-button">⟳</button>
-                        <p>You will learn key vocabulary of each story!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-card-inner">
-                    <div class="card-front">
-                        <button class="flip-button">⟳</button>
-                        <h3>Read</h3>
-                        <p>Practice reading and comprehension with stories designed around the vocabulary you've learned.</p>
-                    </div>
-                    <div class="card-back">
-                        <button class="flip-button">⟳</button>
-                        <p>Stories make language learning fun and immersive with relatable content.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="feature-card">
-                <div class="feature-card-inner">
-                    <div class="card-front">
-                        <button class="flip-button">⟳</button>
-                        <h3>Enjoy</h3>
-                        <p>You will be able to read classics!</p>
-                    </div>
-                    <div class="card-back">
-                        <button class="flip-button">⟳</button>
-                        <p>Have you ever wondered how does it feel to read Dostoyevski fromm his perspective? Let's discover!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-          <div class="slideshow">
-           <div class="slide active">
-                <img src="images/header-photo.jpg" alt="Language Learning Slide 1" class="header-photo">
-            </div>
-            <div class="slide">
-                <img src="images/header-photo2.jpg" alt="Language Learning Slide 2" class="header-photo">
-            </div>
-            <div class="slide">
-                <img src="images/header-photo3.jpg" alt="Language Learning Slide 3" class="header-photo">
-            </div>
-        </div>
-            <div class="dots">
-            <div class="dot active" data-index="0"></div>
-            <div class="dot" data-index="1"></div>
-            <div class="dot" data-index="2"></div>
-        </div>
-    </header>
-    <div class="container">
-        <div class="hero">
-            <h1>Learn Languages Flashcards and Stories</h1>
-            <p>Start by building your vocabulary with flashcards and dive into interactive exercises using real-world sentences.</p>
-        </div>
-        <div class="section">
-            <h2>Explore Grammar with Ease</h2>
-            <p>Master grammar concepts with practical examples that make learning fun.</p>
-        </div>
-        <div class="section-divider"></div>
-        <div class="section" id="how-to-read">
-            <h2>How to read?</h2>
-            <p>Test your knowledge with quizzes designed to challenge and improve your vocabulary.</p>
-        </div>
-        <div class="section-divider"></div>
-        <div class="section">
-            <h2>Culture and Language</h2>
-            <p>Immerse yourself in the culture of the language you're learning with articles and videos about traditions, food, and more.</p>
-        </div>
-        <div class="section-divider"></div>
-        <div class="cta">
-            <a href="pages/languages.html">Get Started Now</a>
-        </div>
+        <div class="container">
+        <h2>İletişim</h2>
+        <form id="contact-form">
+            <label for="name">Ad Soyad</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="subject">Konu</label>
+            <input type="text" id="subject" name="subject" required>
+            
+            <label for="message">Mesaj</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Gönder</button>
+        </form>
     </div>
-<div class="social-media">
-  <a href="https://www.instagram.com/lingostohub/" target="_blank">
-    <img src="/images/instagram.jpg" alt="Instagram" class="social-icon">
-  </a>
-  <a href="https://www.youtube.com/@Lingosto" target="_blank">
-    <img src="/images/youtube.jpg" alt="YouTube" class="social-icon">
-  </a>
-  <a href="https://www.tiktok.com/@lingostohub" target="_blank">
-    <img src="/images/tiktok.jpg" alt="TikTok" class="social-icon">
-  </a>
-  <a href="https://x.com/LingostoHub" target="_blank">
-    <img src="/images/x.jpg" alt="X" class="social-icon">
-  </a>
-</div>
-    <footer>
-        <p>&copy; 2025 Lingosto. All Rights Reserved.</p>
-    </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const menuToggle = document.querySelector(".menu-toggle");
-            const menu = document.querySelector(".menu");
-            if (menuToggle && menu) {
-                menuToggle.addEventListener("click", () => {
-                    menu.classList.toggle("visible");
-                });
-            }
-            const cards = document.querySelectorAll(".feature-card-inner");
-            if (cards.length > 0) {
-                cards.forEach((card) => {
-                    card.addEventListener("click", (event) => {
-                        event.stopPropagation();
-                        document.querySelectorAll(".feature-card-inner.clicked").forEach((otherCard) => {
-                            if (otherCard !== card) {
-                                otherCard.classList.remove("clicked");
-                            }
-                        });
-                        card.classList.toggle("clicked");
-                    });
-                });
-            }
-            document.addEventListener("click", () => {
-                document.querySelectorAll(".feature-card-inner.clicked").forEach((card) => {
-                    card.classList.remove("clicked");
-                });
-            });
-        });
-      const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        let currentIndex = 0;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-                dots[i].classList.toggle('active', i === index);
-            });
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
-        }
-
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                currentIndex = parseInt(dot.getAttribute('data-index'));
-                showSlide(currentIndex);
-            });
-        });
-        setInterval(nextSlide, 3500);
-        document.addEventListener("DOMContentLoaded", () => {
-    const howToReadLink = document.querySelector('a[href="index.html#how-to-read"]');
-    const targetSection = document.getElementById("how-to-read");
-
-    if (howToReadLink && targetSection) {
-        howToReadLink.addEventListener("click", (event) => {
-            event.preventDefault(); // Prevent default anchor behavior
-            targetSection.scrollIntoView({
-                behavior: "smooth", // Enables smooth scrolling
-                block: "start"     // Aligns the section to the top
-            });
-        });
-    }
-});
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
