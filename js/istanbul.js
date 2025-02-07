@@ -47,6 +47,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+document.addEventListener("click", (event) => {
+    // Eğer tıklanan öğe bir flashcard değilse tüm kartları eski haline getir
+    if (!event.target.closest(".flashcard")) {
+        document.querySelectorAll(".flashcard.flip").forEach(flashcard => {
+            flashcard.classList.remove("flip");
+        });
+    }
+});
     document.addEventListener("DOMContentLoaded", function () {
         const menuToggle = document.querySelector(".menu-toggle");
         const menu = document.querySelector(".menu");
