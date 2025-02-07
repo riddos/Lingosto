@@ -298,18 +298,16 @@ nav .menu li ul li a {
 
     .flashcard {
         font-size: 1.2em;
-        width: 90%;
-        height: auto;
-        padding: 20px;
+        padding: 3px;
     }
     .nav-button {
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: 3rem;
     cursor: pointer;
     margin: 1rem;
     color: #30d5c8;
-    right: -12px;
+    left: -10px;
     position: relative;
 }
 
