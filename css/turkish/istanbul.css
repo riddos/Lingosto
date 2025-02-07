@@ -227,6 +227,7 @@ nav .menu li ul li a {
     border: none;
     font-size: 2rem;
     cursor: pointer;
+    color: #30d5c8;
 }
 
 .flashcard-group {
@@ -301,5 +302,14 @@ nav .menu li ul li a {
         height: auto;
         padding: 20px;
     }
+    .nav-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    margin: 1rem;
+    color: #30d5c8;
+    right: 12px;
+}
 
 }
