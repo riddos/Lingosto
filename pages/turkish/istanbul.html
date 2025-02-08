@@ -42,11 +42,20 @@
         </nav>
         <h1>İstanbul'un Kedileri</h1>
     </header>
-    <div class="main-content">
-        <div class="image-section">
-            <img src="../../images/catsofistanbul.jpg" alt="Cats of Istanbul">
+    <div class="flashcards-container">
+        <button id="prevDeck" class="nav-button">◀</button>
+        <div id="flashcards-wrapper" class="flashcards-wrapper">
+            <div class="flashcard-group">
+                <div class="flashcard"><div class="front">Kedi</div><div class="back">Cat</div></div>
+                <div class="flashcard"><div class="front">Sokak</div><div class="back">Street</div></div>
+                <div class="flashcard"><div class="front">Deniz</div><div class="back">Sea</div></div>
+                <div class="flashcard"><div class="front">Şehir</div><div class="back">City</div></div>
+            </div>
         </div>
-        <div class="divider"></div>
+        <button id="nextDeck" class="nav-button">▶</button>
+    </div>
+    <div class="divider"></div>
+    <div class="main-content">
         <div class="text-section">
         <p>
             İstanbul, hem Doğu ile Batı’yı birleştiren eşsiz bir şehir olmasıyla hem de kedileriyle ünlüdür.
@@ -64,19 +73,9 @@
             İstanbul kedileri, fotoğrafçılara, yazarlara ve sanatçılara ilham kaynağı olmuştur.
             <span class="translate-trigger" data-translation="Istanbul cats have inspired photographers, writers, and artists.">?</span> 
         </p>
-
-       <div class="flashcards-container">
-        <button id="prevDeck" class="nav-button">◀</button>
-        <div id="flashcards-wrapper" class="flashcards-wrapper">
-            <div class="flashcard-group">
-                <div class="flashcard"><div class="front">Kedi</div><div class="back">Cat</div></div>
-                <div class="flashcard"><div class="front">Sokak</div><div class="back">Street</div></div>
-                <div class="flashcard"><div class="front">Deniz</div><div class="back">Sea</div></div>
-                <div class="flashcard"><div class="front">Şehir</div><div class="back">City</div></div>
-            </div>
+            <div class="image-section">
+            <img src="../../images/catsofistanbul.jpg" alt="Cats of Istanbul">
         </div>
-        <button id="nextDeck" class="nav-button">▶</button>
-    </div>
     <script src="../../js/istanbul.js"></script>
 </body>
 </html>
