@@ -68,7 +68,6 @@ p {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, auto);
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 10px;
     max-width: 500px;
     width: 100%;
@@ -86,7 +85,7 @@ p {
 
 .flashcard {
     width: 100%;
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 2 / 2;
     height: 80px;
     background-color: #30d5c8;
     color: white;
@@ -318,7 +317,6 @@ nav .menu li ul li a {
 
     .flashcard {
         font-size: 0.9em;
-        padding: 3px;
     }
     .nav-button {
     background: none;
