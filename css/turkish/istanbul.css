@@ -147,6 +147,8 @@ p {
 .image-section img {
     width: 500px;
     border-radius: 10px;
+    max-width: 100%;
+    height: auto;
 }
 
 .text-section {
