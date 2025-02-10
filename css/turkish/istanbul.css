@@ -68,8 +68,10 @@ p {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(5, auto);
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 10px;
     max-width: 500px;
+    width: 100%;
 }
 
 .flashcards {
@@ -83,7 +85,8 @@ p {
 }
 
 .flashcard {
-   width: 120px;
+    width: 100%;
+    aspect-ratio: 3 / 2;
     height: 80px;
     background-color: #30d5c8;
     color: white;
@@ -314,7 +317,7 @@ nav .menu li ul li a {
     }
 
     .flashcard {
-        font-size: 1.2em;
+        font-size: 0.9em;
         padding: 3px;
     }
     .nav-button {
@@ -329,4 +332,16 @@ nav .menu li ul li a {
     .divider {
         display: none;
     }
+    .flashcards-grid {
+        grid-template-columns: repeat(4, 1fr); /* 768px altında 4 sütun */
+        gap: 8px;
+    }
+    @media (max-width: 480px) {
+    .flashcards-grid {
+        grid-template-columns: repeat(4, 1fr); /* 480px altında da 4 sütun kalacak */
+    }
+    .flashcard {
+        font-size: 0.8em;
+    }
+}
 }
