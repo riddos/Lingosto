@@ -144,8 +144,7 @@ p {
 }
 
 .image-section img {
-    width: 100%;
-    height: auto;
+    width: 500px;
     border-radius: 10px;
 }
 
