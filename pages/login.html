@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lingosto - Giriş Yap</title>
-    <link rel="stylesheet" href="styles.css"> <!-- CSS dosyamız -->
+    <link rel="stylesheet" href="../../css/login.css"> <!-- CSS dosyamız -->
 </head>
 <body>
     <div class="login-container">
@@ -28,6 +28,19 @@
         <p>Hesabın yok mu? <a href="#">Hesap Oluştur</a></p>
     </div>
 
-    <script src="script.js"></script> <!-- JavaScript dosyamız -->
+    <script>document.getElementById("login-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Sayfanın yenilenmesini engelle
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (email === "test@lingosto.com" && password === "123456") {
+        alert("Giriş başarılı! 🎉");
+        window.location.href = "dashboard.html"; // Kullanıcıyı yönlendir
+    } else {
+        alert("Hatalı e-posta veya şifre!");
+    }
+});
+</script> <!-- JavaScript dosyamız -->
 </body>
 </html>
