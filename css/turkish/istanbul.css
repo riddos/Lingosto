@@ -84,9 +84,9 @@ p {
 }
 
 .flashcard {
-    width: 100%;
+    max-width: 100%;
     aspect-ratio: 2 / 2;
-    height: 80px;
+    height: auto;
     background-color: #30d5c8;
     color: white;
     display: flex;
@@ -306,8 +306,8 @@ nav .menu li ul li a {
         overflow: hidden;
         flex-direction: column;
         align-items: center;
-        width: 120px;
-        height: 80px;
+        max-width: 100%;
+        height: auto;
     }
 
     .flashcards-wrapper {
