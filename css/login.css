@@ -1,0 +1,81 @@
+/* Sayfa arka planı */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #30d5c8, #007373);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Giriş kutusu */
+.login-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+}
+
+/* Başlık */
+h2 {
+    margin-bottom: 1rem;
+    color: #007373;
+}
+
+/* Form alanları */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Checkbox */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+/* Giriş butonu */
+.login-btn {
+    background: #007373;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background: #005555;
+}
+
+/* Bağlantılar */
+p a {
+    color: #007373;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
