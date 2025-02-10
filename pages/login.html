@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingosto - Giriş Yap</title>
+    <link rel="stylesheet" href="styles.css"> <!-- CSS dosyamız -->
+</head>
+<body>
+    <div class="login-container">
+        <h2>Lingosto'ya Giriş Yap</h2>
+        <form id="login-form">
+            <div class="input-group">
+                <label for="email">E-posta veya Kullanıcı Adı</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Şifre</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="checkbox-group">
+                <input type="checkbox" id="remember-me">
+                <label for="remember-me">Beni Hatırla</label>
+            </div>
+            <button type="submit" class="login-btn">Giriş Yap</button>
+        </form>
+        <p><a href="#">Şifremi Unuttum?</a></p>
+        <p>Hesabın yok mu? <a href="#">Hesap Oluştur</a></p>
+    </div>
+
+    <script src="script.js"></script> <!-- JavaScript dosyamız -->
+</body>
+</html>
