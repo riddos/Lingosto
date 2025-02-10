@@ -140,7 +140,7 @@ p {
 .image-section {
     flex: 1;
     position: relative;
-    max-width: 300px;
+    max-width: 500px;
     text-align: center;
 }
 
