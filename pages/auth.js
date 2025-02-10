@@ -1,4 +1,12 @@
 // Firebase yapılandırmasını burada yapıyoruz
+// Firebase nesnesi tanımlı mı kontrol et
+if (typeof firebase === "undefined") {
+    console.error("Firebase yüklenmedi! Firebase scriptlerini HTML içinde kontrol et.");
+} else {
+    console.log("Firebase başarıyla yüklendi.");
+}
+
+// Firebase yapılandırması
 const firebaseConfig = {
     apiKey: "AIzaSyBwYxsjKgQWynx7k0iALM1U7p_KIOPeYVk",
     authDomain: "lingosto.firebaseapp.com",
@@ -9,9 +17,10 @@ const firebaseConfig = {
     measurementId: "G-XP38M8F7RD"
 };
 
-// Firebase başlat
+// Firebase başlatma
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
+console.log("Firebase başlatıldı.");
 
 // Kayıt formunu seç ve olayı dinle
 document.addEventListener("DOMContentLoaded", function () {
