@@ -8,11 +8,11 @@ if (typeof firebase === "undefined") {
 // Firebase yapılandırması
 const firebaseConfig = {
     apiKey: "AIzaSyBwYxsjKgQWynx7k0iALM1U7p_KIOPeYVk",
-    authDomain: "lingosto.firebaseapp.com",
-    projectId: "lingosto",
-    storageBucket: "lingosto.appspot.com",
-    messagingSenderId: "433536212857",
-    appId: "1:433536212857:web:9af9843418cbda347f19a8",
+  authDomain: "lingosto.firebaseapp.com",
+  projectId: "lingosto",
+  storageBucket: "lingosto.firebasestorage.app",
+  messagingSenderId: "433536212857",
+  appId: "1:433536212857:web:e1bf2d61585f65c57f19a8",
     measurementId: "G-XP38M8F7RD"
 };
 
