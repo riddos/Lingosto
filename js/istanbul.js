@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Position the popup relative to the trigger
                 const rect = trigger.getBoundingClientRect();
                 popup.style.position = 'absolute';
-                popup.style.top = ${rect.bottom + window.scrollY + 5}px;
-                popup.style.left = ${rect.left + window.scrollX}px;
+                popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
+                popup.style.left = `${rect.left + window.scrollX}px`;
                 popup.style.display = 'block';
 
                 document.body.appendChild(popup);
@@ -108,7 +108,7 @@ document.addEventListener("click", (event) => {
         flashcardGroups[currentGroupIndex].forEach(card => {
             const flashcard = document.createElement("div");
             flashcard.classList.add("flashcard");
-            flashcard.innerHTML = <div class="front">${card.front}</div><div class="back">${card.back}</div>;
+            flashcard.innerHTML = `<div class="front">${card.front}</div><div class="back">${card.back}</div>`;
 
             flashcard.addEventListener("click", () => {
                 flashcard.classList.toggle("flip");
@@ -132,7 +132,6 @@ document.addEventListener("click", (event) => {
 
     updateFlashcards();
 });
-
 // JavaScript
 document.addEventListener('DOMContentLoaded', () => {
     const testButton = document.getElementById('testButton');
@@ -145,13 +144,15 @@ document.addEventListener('DOMContentLoaded', () => {
         // Flashcard'ları, resmi ve çeviri baloncuklarını kaybet
         flashcardsContainer.classList.add('fade-out');
         imageSection.classList.add('fade-out');
-        translateTriggers.forEach(trigger => trigger.classList.add('fade-out'));
+        translateTriggers.forEach(trigger => trigger.classList.add('fade-out')
+        dividers.forEach(divider => divider.classList.add('fade-out'));
 
         // Flashcard'ları, resmi ve çeviri baloncuklarını tamamen gizle
         setTimeout(() => {
             flashcardsContainer.classList.add('hidden');
             imageSection.classList.add('hidden');
-            translateTriggers.forEach(trigger => trigger.classList.add('hidden'));
+            textSection.classList.add('hidden');
+            dividers.forEach(divider => divider.classList.add('hidden'));
         }, 1000);
 
         // Quiz bölümünü göster
