@@ -178,6 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Quiz bölümünü göster
         quizSection.classList.remove('hidden');
+        quizSection.style.display = "block";
+    });
     });
 
     const correctAnswers = ["eşsiz", "tarihi", "sosyal", "adanmış", "fotoğrafçılara", "ilham"];
