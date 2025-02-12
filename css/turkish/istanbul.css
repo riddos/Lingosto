@@ -266,6 +266,29 @@ nav .menu li ul li a {
     display: none;
 }
 
+.quiz-select {
+    margin: 0 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.correct {
+    background-color: lightgreen !important;
+}
+
+.incorrect {
+    background-color: lightcoral !important;
+}
+
+.success-rate {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
 /* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
     nav .menu {
