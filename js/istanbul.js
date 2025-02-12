@@ -133,7 +133,7 @@ document.addEventListener("click", (event) => {
     updateFlashcards();
 });
 document.getElementById('testButton').addEventListener('click', function() {
-    document.querySelectorAll('.flashcards-container, .image-section, .translate-trigger').forEach(function(element) {
+    document.querySelectorAll('.flashcards-container, .image-section, .quiz-text, .divider').forEach(function(element) {
         element.classList.add('fade-out');
     });
     document.querySelector('.answers-section').style.display = 'block';
@@ -158,7 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const testSection = document.getElementById('testSection');
     const flashcardsContainer = document.querySelector('.flashcards-container');
     const imageSection = document.querySelector('.image-section');
-    const translateTriggers = document.querySelectorAll('.translate-trigger');
 
     testButton.addEventListener('click', () => {
         // Flashcard'ları, resmi ve çeviri baloncuklarını gizle
