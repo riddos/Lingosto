@@ -134,11 +134,17 @@ document.addEventListener("click", (event) => {
 });
 
 // JavaScript
+// JavaScript
 document.addEventListener('DOMContentLoaded', () => {
     const testButton = document.getElementById('testButton');
     const flashcardsContainer = document.querySelector('.flashcards-container');
     const imageSection = document.querySelector('.image-section');
     const translateTriggers = document.querySelectorAll('.translate-trigger');
+    const quizText = document.getElementById('quiz-text');
+    const quizResults = document.getElementById('quiz-results');
+
+    // Quiz için kullanılacak kelimeler
+    const quizWords = ['eşsiz', 'kedileriyle', 'tarihi', 'köşede', 'mümkündür', 'sosyal', 'parçasıdır', 'Yerel', 'ilgi', 'yiyecek', 'sever', 'evlerine', 'Şehirde', 'adanmış', 'bulunmaktadır', 'fotoğrafçılara', 'ilham'];
 
     testButton.addEventListener('click', () => {
         // Flashcard'ları, resmi ve çeviri baloncuklarını kaybet
@@ -153,66 +159,53 @@ document.addEventListener('DOMContentLoaded', () => {
             translateTriggers.forEach(trigger => trigger.classList.add('hidden'));
         }, 1000);
 
-        // "Answers" butonunu göster
+        // Metin içindeki kelimeleri çoktan seçmeli kutulara dönüştür
+        convertTextToQuiz();
+    });
+
+    function convertTextToQuiz() {
+        const words = quizText.textContent.split(' ');
+
+        quizText.innerHTML = words.map(word => {
+            const cleanWord = word.replace(/[.,]/g, ''); // Noktalama işaretlerini kaldır
+            if (quizWords.includes(cleanWord)) {
+                return `<select class="quiz-select">
+                            <option value="">---</option>
+                            <option value="${cleanWord}">${cleanWord}</option>
+                            <option value="yanlış1">yanlış1</option>
+                            <option value="yanlış2">yanlış2</option>
+                            <option value="yanlış3">yanlış3</option>
+                        </select>`;
+            }
+            return word;
+        }).join(' ');
+
+        // "Answers" butonunu ekle
         const answersButton = document.createElement('button');
         answersButton.id = 'answersButton';
         answersButton.textContent = 'Answers';
-        document.querySelector('.text-section').appendChild(answersButton);
+        quizText.parentElement.appendChild(answersButton);
 
-        // Kelime seçimi ve kontrol mekanizmasını başlat
-        startWordSelection();
-    });
-
-    function startWordSelection() {
-        const textSection = document.querySelector('.text-section p');
-        const words = textSection.textContent.split(' ');
-
-        words.forEach((word, index) => {
-            if (word.trim() === 'eşsiz') { // Örnek olarak "eşsiz" kelimesini seçiyoruz
-                const wordSpan = document.createElement('span');
-                wordSpan.textContent = word;
-                wordSpan.classList.add('selectable-word');
-                wordSpan.addEventListener('click', () => selectWord(wordSpan));
-                textSection.innerHTML = textSection.innerHTML.replace(word, wordSpan.outerHTML);
-            }
-        });
+        // "Answers" butonuna tıklama olayını ekle
+        answersButton.addEventListener('click', checkAnswers);
     }
-
-    function selectWord(wordSpan) {
-        const options = ['eşsiz', 'güzel', 'büyük', 'küçük']; // Örnek seçenekler
-        const select = document.createElement('select');
-        options.forEach(option => {
-            const optionElement = document.createElement('option');
-            optionElement.value = option;
-            optionElement.textContent = option;
-            select.appendChild(optionElement);
-        });
-
-        wordSpan.replaceWith(select);
-    }
-
-    document.addEventListener('click', (event) => {
-        if (event.target.id === 'answersButton') {
-            checkAnswers();
-        }
-    });
 
     function checkAnswers() {
-        const selects = document.querySelectorAll('select');
+        const selects = document.querySelectorAll('.quiz-select');
         let correctAnswers = 0;
 
         selects.forEach(select => {
-            if (select.value === 'eşsiz') {
-                select.style.backgroundColor = 'green';
+            const correctWord = select.querySelector(`option[value="${select.parentElement.textContent.trim()}"]`);
+            if (select.value === correctWord.value) {
+                select.classList.add('correct');
                 correctAnswers++;
             } else {
-                select.style.backgroundColor = 'red';
+                select.classList.add('incorrect');
             }
         });
 
+        // Başarı oranını hesapla ve göster
         const successRate = (correctAnswers / selects.length) * 100;
-        const successMessage = document.createElement('p');
-        successMessage.textContent = `${successRate}% success rate`;
-        document.querySelector('.text-section').appendChild(successMessage);
+        quizResults.innerHTML = `<p class="success-rate">${successRate}% success rate</p>`;
     }
 });
