@@ -257,35 +257,37 @@ nav .menu li ul li a {
     margin: 15px auto;
 }
 
+/* CSS */
 .fade-out {
-    animation: fadeOut 1s forwards;
+    opacity: 0;
+    transition: opacity 1s ease-out;
 }
 
-@keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; display: none; }
+.hidden {
+    display: none;
 }
 
-/* Seçim Kutuları ve Sonuç Alanı Stili */
-.word-choice {
+.quiz-select {
     margin: 0 5px;
     padding: 5px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    border: 1px solid #30d5c8;
-}
-
-#result {
-    margin-top: 20px;
-    font-size: 1.2em;
-    font-weight: bold;
+    background-color: #f9f9f9;
+    cursor: pointer;
 }
 
 .correct {
-    color: green;
+    background-color: lightgreen !important;
 }
 
 .incorrect {
-    color: red;
+    background-color: lightcoral !important;
+}
+
+.success-rate {
+    margin-top: 20px;
+    font-weight: bold;
+    color: #333;
 }
 /* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
