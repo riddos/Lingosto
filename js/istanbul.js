@@ -96,52 +96,98 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Test ve Quiz Butonları
-    const testButton = document.getElementById('testButton');
-    const answersButton = document.getElementById('answersButton');
-    const flashcardsContainer = document.querySelector('.flashcards-container');
-    const imageSection = document.querySelector('.image-section');
-    const textSection = document.querySelector('.text-section');
-    const dividers = document.querySelectorAll('.divider');
-    const quizSection = document.getElementById('quiz-section');
+   document.querySelector('.test-button').addEventListener('click', () => {
+            document.querySelector('.flashcards-container').style.display = 'none';
+            document.querySelector('.image-section').style.display = 'none';
+            document.querySelectorAll('.translate-trigger').forEach(el => el.style.display = 'none');
+            document.querySelector('.test-area').style.display = 'block';
 
-    if (testButton && quizSection) {
-        testButton.addEventListener('click', () => {
-            flashcardsContainer?.classList.add('fade-out');
-            imageSection?.classList.add('fade-out');
-            textSection?.classList.add('fade-out');
-            dividers.forEach(divider => divider.classList.add('fade-out'));
+            const text = document.querySelector('.text-section p').textContent;
+            const words = text.split(/\s+/); // Kelimelere ayır
 
-            setTimeout(() => {
-                flashcardsContainer?.classList.add('hidden');
-                imageSection?.classList.add('hidden');
-                textSection?.classList.add('hidden');
-                dividers.forEach(divider => divider.classList.add('hidden'));
-            }, 1000);
+            const questions = [];
+            const selectedIndices = new Set(); // Seçilen kelimelerin indekslerini tut
 
-            quizSection.classList.remove('hidden');
-            quizSection.style.display = "block";
+            while (questions.length < 20) {
+                const randomIndex = Math.floor(Math.random() * words.length);
+                if (!selectedIndices.has(randomIndex) && words[randomIndex].length > 2) { // 2 harften uzun kelimeler seç
+                    selectedIndices.add(randomIndex);
+                    questions.push({
+                        word: words[randomIndex],
+                        options: generateOptions(words[randomIndex], words)
+                    });
+                }
+            }
+
+
+            const testArea = document.querySelector('.test-area');
+            testArea.innerHTML = ''; // Önce temizle
+
+            questions.forEach(question => {
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question');
+                questionDiv.textContent = text.replace(question.word, '_____');
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.classList.add('options');
+
+                question.options.forEach(option => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.classList.add('option');
+                    optionDiv.textContent = option;
+                    optionDiv.addEventListener('click', () => {
+                      // Tüm seçenekleri temizle ve sadece tıklananı işaretle
+                        optionsDiv.parentNode.childNodes.forEach(child => child.classList.remove('correct', 'incorrect'));
+                        if (option === question.word) {
+                            optionDiv.classList.add('correct');
+                        } else {
+                            optionDiv.classList.add('incorrect');
+                        }
+                    });
+                    optionsDiv.appendChild(optionDiv);
+                });
+
+                questionDiv.appendChild(optionsDiv);
+                testArea.appendChild(questionDiv);
+            });
         });
-    }
 
-    if (answersButton) {
-        const correctAnswers = ["eşsiz", "tarihi", "sosyal", "adanmış", "fotoğrafçılara", "ilham"];
-        answersButton.addEventListener('click', () => {
-            const selects = document.querySelectorAll("select");
+        function generateOptions(correctWord, allWords) {
+            const options = [correctWord];
+            const usedWords = new Set([correctWord]);
+
+            while (options.length < 4) {
+                const randomIndex = Math.floor(Math.random() * allWords.length);
+                const randomWord = allWords[randomIndex];
+
+                if (!usedWords.has(randomWord) && randomWord.length > 2) {
+                    options.push(randomWord);
+                    usedWords.add(randomWord);
+                }
+            }
+
+            return shuffleArray(options); // Karıştır
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        document.querySelector('.answers-button').addEventListener('click', () => {
             let correctCount = 0;
+            const questions = document.querySelectorAll('.question');
 
-            selects.forEach((select, index) => {
-                if (select.value === correctAnswers[index]) {
-                    select.classList.add("correct");
-                    select.classList.remove("incorrect");
+            questions.forEach(questionDiv => {
+                const correctOption = questionDiv.querySelector('.option.correct');
+                if (correctOption) {
                     correctCount++;
-                } else {
-                    select.classList.add("incorrect");
-                    select.classList.remove("correct");
                 }
             });
 
-            const successRate = (correctCount / correctAnswers.length) * 100;
-            document.getElementById("result")?.textContent = `Success rate: ${successRate.toFixed(0)}%`;
+            const successRate = (correctCount / questions.length) * 100;
+            document.querySelector('.result').textContent = `${successRate}% success rate`;
         });
-    }
-});
