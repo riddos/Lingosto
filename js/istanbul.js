@@ -134,17 +134,12 @@ document.addEventListener("click", (event) => {
 });
 
 // JavaScript
-// JavaScript
 document.addEventListener('DOMContentLoaded', () => {
     const testButton = document.getElementById('testButton');
     const flashcardsContainer = document.querySelector('.flashcards-container');
     const imageSection = document.querySelector('.image-section');
     const translateTriggers = document.querySelectorAll('.translate-trigger');
-    const quizText = document.getElementById('quiz-text');
-    const quizResults = document.getElementById('quiz-results');
-
-    // Quiz için kullanılacak kelimeler
-    const quizWords = ['eşsiz', 'kedileriyle', 'tarihi', 'köşede', 'mümkündür', 'sosyal', 'parçasıdır', 'Yerel', 'ilgi', 'yiyecek', 'sever', 'evlerine', 'Şehirde', 'adanmış', 'bulunmaktadır', 'fotoğrafçılara', 'ilham'];
+    const quizSection = document.getElementById('quiz-section');
 
     testButton.addEventListener('click', () => {
         // Flashcard'ları, resmi ve çeviri baloncuklarını kaybet
@@ -159,53 +154,28 @@ document.addEventListener('DOMContentLoaded', () => {
             translateTriggers.forEach(trigger => trigger.classList.add('hidden'));
         }, 1000);
 
-        // Metin içindeki kelimeleri çoktan seçmeli kutulara dönüştür
-        convertTextToQuiz();
+        // Quiz bölümünü göster
+        quizSection.classList.remove('hidden');
     });
 
-    function convertTextToQuiz() {
-        const words = quizText.textContent.split(' ');
-
-        quizText.innerHTML = words.map(word => {
-            const cleanWord = word.replace(/[.,]/g, ''); // Noktalama işaretlerini kaldır
-            if (quizWords.includes(cleanWord)) {
-                return `<select class="quiz-select">
-                            <option value="">---</option>
-                            <option value="${cleanWord}">${cleanWord}</option>
-                            <option value="yanlış1">yanlış1</option>
-                            <option value="yanlış2">yanlış2</option>
-                            <option value="yanlış3">yanlış3</option>
-                        </select>`;
-            }
-            return word;
-        }).join(' ');
-
-        // "Answers" butonunu ekle
-        const answersButton = document.createElement('button');
-        answersButton.id = 'answersButton';
-        answersButton.textContent = 'Answers';
-        quizText.parentElement.appendChild(answersButton);
-
-        // "Answers" butonuna tıklama olayını ekle
-        answersButton.addEventListener('click', checkAnswers);
-    }
-
-    function checkAnswers() {
-        const selects = document.querySelectorAll('.quiz-select');
-        let correctAnswers = 0;
-
-        selects.forEach(select => {
-            const correctWord = select.querySelector(`option[value="${select.parentElement.textContent.trim()}"]`);
-            if (select.value === correctWord.value) {
-                select.classList.add('correct');
-                correctAnswers++;
+    const correctAnswers = ["eşsiz", "tarihi", "sosyal", "adanmış", "fotoğrafçılara", "ilham"];
+    
+    function checkResults() {
+        const selects = document.querySelectorAll("select");
+        let correctCount = 0;
+        
+        selects.forEach((select, index) => {
+            if (select.value === correctAnswers[index]) {
+                select.classList.add("correct");
+                select.classList.remove("incorrect");
+                correctCount++;
             } else {
-                select.classList.add('incorrect');
+                select.classList.add("incorrect");
+                select.classList.remove("correct");
             }
         });
-
-        // Başarı oranını hesapla ve göster
-        const successRate = (correctAnswers / selects.length) * 100;
-        quizResults.innerHTML = `<p class="success-rate">${successRate}% success rate</p>`;
+        
+        const successRate = (correctCount / correctAnswers.length) * 100;
+        document.getElementById("result").textContent = `Success rate: ${successRate.toFixed(0)}%`;
     }
 });
