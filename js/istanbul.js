@@ -152,6 +152,7 @@ document.getElementById('answersButton').addEventListener('click', function() {
     document.getElementById('resultMessage').textContent = `${successRate}% success rate`;
 });
 // JavaScript
+// JavaScript
 document.addEventListener('DOMContentLoaded', () => {
     const testButton = document.getElementById('testButton');
     const flashcardsContainer = document.querySelector('.flashcards-container');
