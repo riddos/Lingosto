@@ -258,6 +258,7 @@ nav .menu li ul li a {
 }
 
 /* CSS */
+/* CSS */
 .fade-out {
     opacity: 0;
     transition: opacity 1s ease-out;
