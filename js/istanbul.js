@@ -151,13 +151,13 @@ document.getElementById('answersButton').addEventListener('click', function() {
     const successRate = (correctAnswers / 20) * 100;
     document.getElementById('resultMessage').textContent = `${successRate}% success rate`;
 });
-// JavaScript
 document.addEventListener('DOMContentLoaded', () => {
     const testButton = document.getElementById('testButton');
     const answersButton = document.getElementById('answersButton');
     const testSection = document.getElementById('testSection');
     const flashcardsContainer = document.querySelector('.flashcards-container');
     const imageSection = document.querySelector('.image-section');
+    const translateTriggers = document.querySelectorAll('.translate-trigger');
 
     testButton.addEventListener('click', () => {
         // Flashcard'ları, resmi ve çeviri baloncuklarını gizle
