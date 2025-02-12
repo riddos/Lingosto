@@ -138,20 +138,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const testButton = document.getElementById('testButton');
     const flashcardsContainer = document.querySelector('.flashcards-container');
     const imageSection = document.querySelector('.image-section');
-    const translateTriggers = document.querySelectorAll('.translate-trigger');
+    const textSection = document.querySelector('.text-section');
+    const dividers = document.querySelectorAll('.divider');
     const quizSection = document.getElementById('quiz-section');
+    const answersButton = document.getElementById('answersButton');
 
     testButton.addEventListener('click', () => {
-        // Flashcard'ları, resmi ve çeviri baloncuklarını kaybet
+        // Flashcard'ları, resmi, yazıyı ve divider'ları kaybet
         flashcardsContainer.classList.add('fade-out');
         imageSection.classList.add('fade-out');
-        translateTriggers.forEach(trigger => trigger.classList.add('fade-out'));
+        textSection.classList.add('fade-out');
+        dividers.forEach(divider => divider.classList.add('fade-out'));
 
-        // Flashcard'ları, resmi ve çeviri baloncuklarını tamamen gizle
+        // Flashcard'ları, resmi, yazıyı ve divider'ları tamamen gizle
         setTimeout(() => {
             flashcardsContainer.classList.add('hidden');
             imageSection.classList.add('hidden');
-            translateTriggers.forEach(trigger => trigger.classList.add('hidden'));
+            textSection.classList.add('hidden');
+            dividers.forEach(divider => divider.classList.add('hidden'));
         }, 1000);
 
         // Quiz bölümünü göster
@@ -160,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const correctAnswers = ["eşsiz", "tarihi", "sosyal", "adanmış", "fotoğrafçılara", "ilham"];
     
-    function checkResults() {
+    answersButton.addEventListener('click', () => {
         const selects = document.querySelectorAll("select");
         let correctCount = 0;
         
@@ -174,6 +178,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 select.classList.remove("correct");
             }
         });
+        
+        const successRate = (correctCount / correctAnswers.length) * 100;
+        document.getElementById("result").textContent = `Success rate: ${successRate.toFixed(0)}%`;
+    });
+});
         
         const successRate = (correctCount / correctAnswers.length) * 100;
         document.getElementById("result").textContent = `Success rate: ${successRate.toFixed(0)}%`;
