@@ -257,6 +257,15 @@ nav .menu li ul li a {
     margin: 15px auto;
 }
 
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+.hidden {
+    display: none;
+}
+
 /* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
     nav .menu {
