@@ -152,49 +152,42 @@ document.getElementById('answersButton').addEventListener('click', function() {
     document.getElementById('resultMessage').textContent = `${successRate}% success rate`;
 });
 // JavaScript
-// JavaScript
 document.addEventListener('DOMContentLoaded', () => {
     const testButton = document.getElementById('testButton');
+    const answersButton = document.getElementById('answersButton');
+    const testSection = document.getElementById('testSection');
     const flashcardsContainer = document.querySelector('.flashcards-container');
     const imageSection = document.querySelector('.image-section');
     const translateTriggers = document.querySelectorAll('.translate-trigger');
-    const quizSection = document.getElementById('quiz-section');
 
     testButton.addEventListener('click', () => {
-        // Flashcard'ları, resmi ve çeviri baloncuklarını kaybet
+        // Flashcard'ları, resmi ve çeviri baloncuklarını gizle
         flashcardsContainer.classList.add('fade-out');
         imageSection.classList.add('fade-out');
         translateTriggers.forEach(trigger => trigger.classList.add('fade-out'));
 
-        // Flashcard'ları, resmi ve çeviri baloncuklarını tamamen gizle
-        setTimeout(() => {
-            flashcardsContainer.classList.add('hidden');
-            imageSection.classList.add('hidden');
-            translateTriggers.forEach(trigger => trigger.classList.add('hidden'));
-        }, 1000);
-
-        // Quiz bölümünü göster
-        quizSection.classList.remove('hidden');
+        // Test bölümünü göster
+        testSection.style.display = 'block';
     });
 
-    const correctAnswers = ["eşsiz", "tarihi", "sosyal", "adanmış", "fotoğrafçılara", "ilham"];
-    
-    function checkResults() {
-        const selects = document.querySelectorAll("select");
-        let correctCount = 0;
-        
-        selects.forEach((select, index) => {
-            if (select.value === correctAnswers[index]) {
-                select.classList.add("correct");
-                select.classList.remove("incorrect");
-                correctCount++;
+    answersButton.addEventListener('click', () => {
+        const wordChoices = document.querySelectorAll('.word-choice');
+        let correctAnswers = 0;
+
+        wordChoices.forEach(choice => {
+            const selectedWord = choice.value;
+            const correctWord = choice.parentElement.getAttribute('data-word');
+
+            if (selectedWord === correctWord) {
+                choice.style.backgroundColor = 'green';
+                correctAnswers++;
             } else {
-                select.classList.add("incorrect");
-                select.classList.remove("correct");
+                choice.style.backgroundColor = 'red';
             }
         });
-        
-        const successRate = (correctCount / correctAnswers.length) * 100;
-        document.getElementById("result").textContent = `Success rate: ${successRate.toFixed(0)}%`;
-    }
+
+        const successRate = (correctAnswers / wordChoices.length) * 100;
+        const resultDiv = document.getElementById('result');
+        resultDiv.textContent = `${successRate}% success rate`;
+    });
 });
