@@ -132,3 +132,87 @@ document.addEventListener("click", (event) => {
 
     updateFlashcards();
 });
+
+// JavaScript
+document.addEventListener('DOMContentLoaded', () => {
+    const testButton = document.getElementById('testButton');
+    const flashcardsContainer = document.querySelector('.flashcards-container');
+    const imageSection = document.querySelector('.image-section');
+    const translateTriggers = document.querySelectorAll('.translate-trigger');
+
+    testButton.addEventListener('click', () => {
+        // Flashcard'ları, resmi ve çeviri baloncuklarını kaybet
+        flashcardsContainer.classList.add('fade-out');
+        imageSection.classList.add('fade-out');
+        translateTriggers.forEach(trigger => trigger.classList.add('fade-out'));
+
+        // Flashcard'ları, resmi ve çeviri baloncuklarını tamamen gizle
+        setTimeout(() => {
+            flashcardsContainer.classList.add('hidden');
+            imageSection.classList.add('hidden');
+            translateTriggers.forEach(trigger => trigger.classList.add('hidden'));
+        }, 1000);
+
+        // "Answers" butonunu göster
+        const answersButton = document.createElement('button');
+        answersButton.id = 'answersButton';
+        answersButton.textContent = 'Answers';
+        document.querySelector('.text-section').appendChild(answersButton);
+
+        // Kelime seçimi ve kontrol mekanizmasını başlat
+        startWordSelection();
+    });
+
+    function startWordSelection() {
+        const textSection = document.querySelector('.text-section p');
+        const words = textSection.textContent.split(' ');
+
+        words.forEach((word, index) => {
+            if (word.trim() === 'eşsiz') { // Örnek olarak "eşsiz" kelimesini seçiyoruz
+                const wordSpan = document.createElement('span');
+                wordSpan.textContent = word;
+                wordSpan.classList.add('selectable-word');
+                wordSpan.addEventListener('click', () => selectWord(wordSpan));
+                textSection.innerHTML = textSection.innerHTML.replace(word, wordSpan.outerHTML);
+            }
+        });
+    }
+
+    function selectWord(wordSpan) {
+        const options = ['eşsiz', 'güzel', 'büyük', 'küçük']; // Örnek seçenekler
+        const select = document.createElement('select');
+        options.forEach(option => {
+            const optionElement = document.createElement('option');
+            optionElement.value = option;
+            optionElement.textContent = option;
+            select.appendChild(optionElement);
+        });
+
+        wordSpan.replaceWith(select);
+    }
+
+    document.addEventListener('click', (event) => {
+        if (event.target.id === 'answersButton') {
+            checkAnswers();
+        }
+    });
+
+    function checkAnswers() {
+        const selects = document.querySelectorAll('select');
+        let correctAnswers = 0;
+
+        selects.forEach(select => {
+            if (select.value === 'eşsiz') {
+                select.style.backgroundColor = 'green';
+                correctAnswers++;
+            } else {
+                select.style.backgroundColor = 'red';
+            }
+        });
+
+        const successRate = (correctAnswers / selects.length) * 100;
+        const successMessage = document.createElement('p');
+        successMessage.textContent = `${successRate}% success rate`;
+        document.querySelector('.text-section').appendChild(successMessage);
+    }
+});
