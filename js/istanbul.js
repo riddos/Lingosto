@@ -49,27 +49,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const flashcardsContainer = document.querySelector('.flashcards-container');
     const imageSection = document.querySelector('.image-section');
     const translateTriggers = document.querySelectorAll('.translate-trigger');
+    const dividers = document.querySelectorAll('.divider');
+    const textSection = document.querySelector('.text-section');
     const resultDiv = document.getElementById('result');
 
     testButton.addEventListener('click', () => {
-        // Hide flashcards, image, and translation triggers
-        flashcardsContainer.style.opacity = '0';
-        imageSection.style.opacity = '0';
-        translateTriggers.forEach(trigger => {
-            trigger.style.opacity = '0';
-        });
+        // Tüm öğelere fade-out efekti uygula
+        flashcardsContainer.classList.add('fade-out');
+        imageSection.classList.add('fade-out');
+        translateTriggers.forEach(trigger => trigger.classList.add('fade-out'));
+        dividers.forEach(divider => divider.classList.add('fade-out'));
+        textSection.classList.add('fade-out');
 
-        // Show test section
-        testSection.style.display = 'block';
-
-        // Fade out effect
+        // Öğeleri tamamen gizle
         setTimeout(() => {
             flashcardsContainer.style.display = 'none';
             imageSection.style.display = 'none';
-            translateTriggers.forEach(trigger => {
-                trigger.style.display = 'none';
-            });
-        }, 500); // Match this duration with the CSS transition duration
+            translateTriggers.forEach(trigger => trigger.style.display = 'none');
+            dividers.forEach(divider => divider.style.display = 'none');
+            textSection.style.display = 'none';
+
+            // Test section'ı göster
+            testSection.style.display = 'block';
+        }, 500); // CSS'deki transition süresiyle eşleşmeli
     });
 
     answersButton.addEventListener('click', () => {
@@ -85,8 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
             resultDiv.textContent = 'Incorrect!';
         }
 
-        // Calculate success rate
-        const totalQuestions = 1; // For simplicity, we have only one question
+        // Başarı oranını hesapla
+        const totalQuestions = 1; // Basitlik için sadece bir soru var
         const correctAnswers = selectedValue === correctAnswer ? 1 : 0;
         const successRate = (correctAnswers / totalQuestions) * 100;
         resultDiv.textContent += ` ${successRate}% success rate`;
