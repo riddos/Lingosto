@@ -201,6 +201,49 @@ nav .menu li ul li a {
     margin: 15px auto;
 }
 
+#testButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #30d5c8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#testButton:hover {
+    background-color: #009999;
+}
+
+#testSection {
+    margin-top: 20px;
+}
+
+.test-select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #30d5c8;
+}
+
+#answersButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #30d5c8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#answersButton:hover {
+    background-color: #009999;
+}
+
+#result {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
 @media (max-width: 768px) {
     nav .menu {
         display: none;
