@@ -215,8 +215,9 @@ nav .menu li ul li a {
     background-color: #009999;
 }
 
-#testSection {
-    margin-top: 20px;
+#testSection, #answersButton {
+    display: none;
+    opacity: 1;
 }
 
 .test-select {
