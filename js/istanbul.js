@@ -1,75 +1,126 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const testButton = document.getElementById('testButton');
-    const answersButton = document.getElementById('answersButton');
-    const testSection = document.getElementById('testSection');
-    const flashcardsContainer = document.querySelector('.flashcards-container');
-    const imageSection = document.querySelector('.image-section');
-    const translateTriggers = document.querySelectorAll('.translate-trigger');
-    const dividers = document.querySelectorAll('.divider');
-    const textSection = document.querySelector('.text-section');
-    const resultDiv = document.getElementById('result');
+    // Handle translation popup toggle
+    const triggers = document.querySelectorAll('.translate-trigger');
 
-    if (!testButton || !answersButton || !testSection || !flashcardsContainer || !imageSection || !textSection || !resultDiv) {
-        console.error("Bazı gerekli öğeler bulunamadı. Lütfen HTML'nizi kontrol edin.");
-        return;
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent closing immediately after opening
+
+            // Close all other popups
+            const openPopups = document.querySelectorAll('.translation-popup');
+            openPopups.forEach(popup => popup.remove());
+
+            // Create and show popup
+            const translation = trigger.getAttribute('data-translation');
+            if (translation) {
+                let popup = document.createElement('span');
+                popup.classList.add('translation-popup');
+                popup.textContent = translation;
+
+                // Position the popup relative to the trigger
+                const rect = trigger.getBoundingClientRect();
+                popup.style.position = 'absolute';
+                popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
+                popup.style.left = `${rect.left + window.scrollX}px`;
+                popup.style.display = 'block';
+
+                document.body.appendChild(popup);
+            }
+        });
+    });
+
+    // Close all popups when clicking outside
+    document.addEventListener('click', () => {
+        const openPopups = document.querySelectorAll('.translation-popup');
+        openPopups.forEach(popup => popup.remove());
+    });
+
+    // Handle flashcard flipping
+    const flashcards = document.querySelectorAll('.flashcard');
+
+    flashcards.forEach(flashcard => {
+        flashcard.addEventListener('click', (event) => {
+            event.stopPropagation(); // Prevent closing immediately after opening
+            flashcard.classList.toggle('flip');
+        });
+    });
+
+    document.addEventListener("click", (event) => {
+        // Close all flashcards if clicking outside
+        if (!event.target.closest(".flashcard")) {
+            document.querySelectorAll(".flashcard.flip").forEach(flashcard => {
+                flashcard.classList.remove("flip");
+            });
+        }
+    });
+
+    // Handle flashcard groups
+    const flashcardGroups = [
+        [
+            { front: "Kedi", back: "Cat" },
+            { front: "Sokak", back: "Street" },
+            { front: "Deniz", back: "Sea" },
+            { front: "Şehir", back: "City" }
+        ],
+        [
+            { front: "İlham", back: "Inspiration" },
+            { front: "Sanatçı", back: "Artist" },
+            { front: "Turist", back: "Tourist" },
+            { front: "Halk", back: "Public" }
+        ],
+        [
+            { front: "Kültür", back: "Culture" },
+            { front: "Doku", back: "Texture" },
+            { front: "Fotoğraf", back: "Photo" },
+            { front: "Yazar", back: "Writer" }
+        ],
+        [
+            { front: "Sevmek", back: "To love" },
+            { front: "Yemek", back: "Food" },
+            { front: "Ev", back: "House" },
+            { front: "Cafe", back: "Cafe" }
+        ],
+        [
+            { front: "Sanat", back: "Art" },
+            { front: "Bağlantı", back: "Connection" },
+            { front: "Eşsiz", back: "Unique" },
+            { front: "Tarih", back: "History" }
+        ]
+    ];
+
+    let currentGroupIndex = 0;
+    const flashcardsWrapper = document.getElementById("flashcards-wrapper");
+
+    function updateFlashcards() {
+        flashcardsWrapper.innerHTML = "";
+        const group = document.createElement("div");
+        group.classList.add("flashcard-group");
+
+        flashcardGroups[currentGroupIndex].forEach(card => {
+            const flashcard = document.createElement("div");
+            flashcard.classList.add("flashcard");
+            flashcard.innerHTML = `<div class="front">${card.front}</div><div class="back">${card.back}</div>`;
+
+            flashcard.addEventListener("click", (event) => {
+                event.stopPropagation(); // Prevent closing immediately after opening
+                flashcard.classList.toggle("flip");
+            });
+
+            group.appendChild(flashcard);
+        });
+
+        flashcardsWrapper.appendChild(group);
     }
 
-    testButton.addEventListener('click', () => {
-        // Show test and answer section
-        testSection.style.display = 'block';
-        testSection.classList.remove('fade-out');
-        testSection.classList.add('fade-in');
-        answersButton.style.display = 'block';
-        answersButton.classList.remove('fade-out');
-        answersButton.classList.add('fade-in');
-
-        // Hide all other sections
-        flashcardsContainer.classList.add('fade-out');
-        imageSection.classList.add('fade-out');
-        translateTriggers.forEach(trigger => trigger.classList.add('fade-out'));
-        dividers.forEach(divider => divider.classList.add('fade-out'));
-        textSection.classList.add('fade-out');
-
-        setTimeout(() => {
-            flashcardsContainer.style.display = 'none';
-            imageSection.style.display = 'none';
-            translateTriggers.forEach(trigger => trigger.style.display = 'none');
-            dividers.forEach(divider => divider.style.display = 'none');
-            textSection.style.display = 'none';
-        }, 500);
+    document.getElementById("prevDeck").addEventListener("click", () => {
+        currentGroupIndex = (currentGroupIndex - 1 + flashcardGroups.length) % flashcardGroups.length;
+        updateFlashcards();
     });
 
-    answersButton.addEventListener('click', () => {
-        const select = document.querySelector('.test-select');
-        const selectedValue = select.value;
-        const correctAnswer = 'eşsiz';
-
-        if (selectedValue === correctAnswer) {
-            select.style.backgroundColor = 'lightgreen';
-            resultDiv.textContent = 'Correct!';
-        } else {
-            select.style.backgroundColor = 'lightcoral';
-            resultDiv.textContent = 'Incorrect!';
-        }
-
-        const successRate = selectedValue === correctAnswer ? 100 : 0;
-        resultDiv.textContent += ` ${successRate}% success rate`;
-
-        setTimeout(() => {
-            testSection.style.display = 'none';
-
-            // Show the main content again
-            flashcardsContainer.style.display = 'block';
-            imageSection.style.display = 'block';
-            translateTriggers.forEach(trigger => trigger.style.display = 'inline-block');
-            dividers.forEach(divider => divider.style.display = 'block');
-            textSection.style.display = 'block';
-
-            flashcardsContainer.classList.remove('fade-out');
-            imageSection.classList.remove('fade-out');
-            translateTriggers.forEach(trigger => trigger.classList.remove('fade-out'));
-            dividers.forEach(divider => divider.classList.remove('fade-out'));
-            textSection.classList.remove('fade-out');
-        }, 2000);
+    document.getElementById("nextDeck").addEventListener("click", () => {
+        currentGroupIndex = (currentGroupIndex + 1) % flashcardGroups.length;
+        updateFlashcards();
     });
+
+    updateFlashcards();
 });
