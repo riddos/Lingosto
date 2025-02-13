@@ -1,14 +1,9 @@
-html, body {
-    overflow-x: hidden;
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 1rem;
     padding: 0;
     background-color: #f9f9f9;
     color: #333;
-    border-radius: 10px;
 }
 
 header {
@@ -19,43 +14,77 @@ header {
     border-radius: 10px;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-p {
-    position: relative;
-    max-width: 500px;
-}
-
-.translate-trigger {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: #30d5c8;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 20px;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: #009999;
     color: white;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    margin-left: 5px;
+    border-radius: 10px;
 }
 
-.translation-popup {
+nav .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: white;
+}
+
+nav .logo img {
+    height: 40px;
+}
+
+nav .menu {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+nav .menu li {
+    position: relative;
+}
+
+nav .menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: normal;
+    transition: color 0.3s;
+}
+
+nav .menu li a:hover {
+    color: #00ffff;
+}
+
+nav .menu li ul {
+    display: none;
     position: absolute;
-    background: #fff;
-    color: #333;
-    border: 1px solid #ddd;
+    background-color: #007373;
+    list-style: none;
+    padding: 0.5rem;
     border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    z-index: 10;
-    max-width: 400px;
-    display: none; /* Popups are created dynamically */
-    font-weight: bold; /* Bold font for translations */
+}
+
+nav .menu li:hover ul {
+    display: block;
+}
+
+nav .menu li ul li {
+    margin: 0;
+}
+
+nav .menu li ul li a {
+    color: white;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
 }
 
 .flashcards-container {
@@ -67,26 +96,12 @@ p {
 .flashcards-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, auto);
     gap: 10px;
     max-width: 500px;
     width: 100%;
 }
 
-.flashcards {
-    display: flex;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-    justify-items: center;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 15px;
-}
-
 .flashcard {
-    max-width: 100%;
-    aspect-ratio: 2 / 2;
-    height: auto;
     background-color: #30d5c8;
     color: white;
     display: flex;
@@ -99,6 +114,7 @@ p {
     transition: transform 0.6s ease;
     position: relative;
     transform-style: preserve-3d;
+    aspect-ratio: 1;
 }
 
 .flashcard .front,
@@ -137,18 +153,10 @@ p {
     justify-content: center;
 }
 
-.image-section {
-    flex: 1;
-    position: relative;
-    max-width: 500px;
-    text-align: center;
-}
-
 .image-section img {
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     border-radius: 10px;
-    max-width: 100%;
-    height: auto;
 }
 
 .text-section {
@@ -156,140 +164,43 @@ p {
     max-width: calc(100% - 300px);
 }
 
+.translate-trigger {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #30d5c8;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
 .translation-popup {
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    transform: translateY(-10px);
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 1rem;
-    background-color: #009999; /* Daha koyu turkuaz */
-    color: white;
-    border-radius: 10px;
-}
-
-nav .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    text-decoration: none;
-    color: white;
-}
-
-nav .logo img {
-    height: 40px;
-    text-decoration: none;
-}
-
-nav .menu {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-}
-
-nav .menu li {
-    position: relative;
-}
-
-nav .menu li a {
-    text-decoration: none;
-    color: white;
-    font-weight: normal;
-    transition: color 0.3s;
-}
-
-nav .menu li a:hover {
-    color: #00ffff; /* Parlayan açık turkuaz */
-}
-
-nav .menu li ul {
-    display: none;
     position: absolute;
-    background-color: #007373; /* Alt menü için daha koyu turkuaz */
-    list-style: none;
-    padding: 0.5rem;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
     border-radius: 5px;
-}
-
-nav .menu li:hover ul {
-    display: block;
-}
-
-nav .menu li ul li {
-    margin: 0;
-}
-
-nav .menu li ul li a {
-    color: white;
-}
-
-.menu-toggle {
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    max-width: 400px;
     display: none;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
+    font-weight: bold;
 }
-
-.nav-button {
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #30d5c8;
-}
-
-.flashcard-group {
-        display: flex;
-        gap: 5px;
-    }
 
 .divider {
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     height: 3px;
     background-color: #30d5c8;
     margin: 15px auto;
 }
 
-/* CSS */
-.fade-out {
-    opacity: 0;
-    transition: opacity 1s ease-out;
-}
-
-.hidden {
-    display: none;
-}
-
-.quiz-select {
-    margin: 0 5px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    cursor: pointer;
-}
-
-.correct {
-    background-color: lightgreen !important;
-}
-
-.incorrect {
-    background-color: lightcoral !important;
-}
-
-.success-rate {
-    margin-top: 20px;
-    font-weight: bold;
-    color: #333;
-}
-/* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
     nav .menu {
         display: none;
@@ -310,70 +221,12 @@ nav .menu li ul li a {
     .menu-toggle {
         display: block;
     }
-    .features {
-        flex-direction: column; /* Mobil uyumluluk için flex yönü değiştirildi */
-        align-items: center;
+
+    .flashcards-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
-    header .feature-card {
-        margin-bottom: 1rem; /* Alt alta dizilmesi için margin eklendi */
-        display: block; /* Alt alta dizilmesi için display özelliği eklendi */
-    }
-    .main-content {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .image-section {
-        order: 1;
-    }
-    
+
     .text-section {
-        order: 2;
         max-width: 100%;
     }
-
-    .flashcards {
-        display: flex;
-        overflow: hidden;
-        flex-direction: column;
-        align-items: center;
-        max-width: 100%;
-        height: auto;
-    }
-
-    .flashcards-wrapper {
-        width: 150px;
-    }
-
-    .flashcard-group {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .flashcard {
-        font-size: 0.9em;
-    }
-    .nav-button {
-    background: none;
-    border: none;
-    font-size: 3rem;
-    cursor: pointer;
-    color: #30d5c8;
-    left: -10px;
-    position: relative;
 }
-    .flashcards-grid {
-        grid-template-columns: repeat(4, 1fr); /* 768px altında 4 sütun */
-        gap: 8px;
-    }
-    @media (max-width: 480px) {
-    .flashcards-grid {
-        grid-template-columns: repeat(4, 1fr); /* 480px altında da 4 sütun kalacak */
-    }
-    .flashcard {
-        font-size: 0.8em;
-    }
-}
-}
-
