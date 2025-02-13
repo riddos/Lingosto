@@ -56,12 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
     testButton.addEventListener('click', () => {
         // Tüm öğelere fade-out efekti uygula
         flashcardsContainer.classList.add('fade-out');
-        imageSection.classList.add('fade-out');
-        translateTriggers.forEach(trigger => trigger.classList.add('fade-out'));
-        dividers.forEach(divider => divider.classList.add('fade-out'));
-        textSection.classList.add('fade-out');
-        testSection.style.display = 'block';
-        answersButton.style.display = 'block';
+    imageSection.classList.add('fade-out');
+    translateTriggers.forEach(trigger => trigger.classList.add('fade-out'));
+    dividers.forEach(divider => divider.classList.add('fade-out'));
+    textSection.classList.add('fade-out');
+
+    testSection.style.display = 'block';
+    answersButton.style.display = 'block';
 
         // Öğeleri tamamen gizle
         setTimeout(() => {
@@ -70,6 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
             translateTriggers.forEach(trigger => trigger.style.display = 'none');
             dividers.forEach(divider => divider.style.display = 'none');
             textSection.style.display = 'none';
+
+            testSection.classList.remove('fade-out');
+        answersButton.classList.remove('fade-out');
         }, 500); // CSS'deki transition süresiyle eşleşmeli
     });
 
