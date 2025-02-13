@@ -76,8 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
             dividers.forEach(divider => divider.style.display = 'none');
             textSection.style.display = 'none';
 
+            // Test bölümü görünür kalsın
             testSection.style.display = 'block';
-        }, 500);
+            answersButton.style.display = 'block'; // Cevap butonu da görünür olsun
+    }, 500);
     });
 
     // *** Test Sonucu Değerlendirme ***
