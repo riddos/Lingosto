@@ -251,14 +251,16 @@ nav .menu li ul li a {
 }
 
 .fade-out {
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 0.5s forwards;
-}
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+        }
+        .fade-in {
+            opacity: 1;
+            transition: opacity 0.5s ease-in;
+        }
+        .test-section {
+            display: none;
+        }
 
 @keyframes fadeIn {
     from { opacity: 0; }
