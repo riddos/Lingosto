@@ -216,8 +216,13 @@ nav .menu li ul li a {
 }
 
 #testSection, #answersButton {
-    display: none;
-    opacity: 1;
+    display: none; /* Initially hidden */
+    opacity: 0; /* Start with opacity 0 for fade-in */
+    transition: opacity 0.5s ease; /* Smooth transition */
+}
+
+#testSection.fade-in {
+    opacity: 1; /* Fade in to full visibility */
 }
 
 .test-select {
