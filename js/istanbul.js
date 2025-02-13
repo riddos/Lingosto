@@ -78,12 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Test bölümü görünür kalsın
             testSection.style.display = 'block';
-    testSection.style.opacity = '0';
-    answersButton.style.display = 'block';
-    answersButton.style.opacity = '0';
-
             testSection.classList.add('fade-in');
-        answersButton.classList.add('fade-in');
+            answersButton.style.display = 'block';
+            answersButton.classList.add('fade-in');
     }, 500);
     });
 
