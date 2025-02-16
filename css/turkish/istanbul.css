@@ -257,6 +257,24 @@ nav .menu li ul li a {
     margin: 15px auto;
 }
 
+.test-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #30d5c8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.test-button:hover {
+    background-color: #28b2a3;
+}
+
 /* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
     nav .menu {
@@ -343,4 +361,31 @@ nav .menu li ul li a {
         font-size: 0.8em;
     }
 }
+}
+
+#quizContainer {
+    margin-top: 20px;
+}
+
+.fade-out {
+    animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.correct {
+    background-color: #d4edda;
+}
+
+.incorrect {
+    background-color: #f8d7da;
+}
+
+#goBack {
+    margin-right: 10px;
 }

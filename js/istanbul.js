@@ -35,26 +35,80 @@ document.addEventListener('DOMContentLoaded', () => {
         openPopups.forEach(popup => popup.remove());
     });
 
-    // Handle flashcard flipping
-    const flashcards = document.querySelectorAll('.flashcard');
+    // Handle "Test" button click
+    document.getElementById('startTest').addEventListener('click', () => {
+        const elementsToFade = document.querySelectorAll('.flashcards-container, .divider, .image-section, .translate-trigger');
+        elementsToFade.forEach(element => {
+            element.classList.add('fade-out');
+        });
+        setTimeout(() => {
+            elementsToFade.forEach(element => {
+                element.style.display = 'none';
+            });
+            document.getElementById('quizContainer').style.display = 'block';
+        }, 1000);
+    });
 
-    flashcards.forEach(flashcard => {
-        flashcard.addEventListener('click', (event) => {
-            event.stopPropagation(); // Prevent closing immediately after opening
-            flashcard.classList.toggle('flip');
+    // Handle "Go Back" button click
+    document.getElementById('goBack').addEventListener('click', () => {
+        document.getElementById('quizContainer').style.display = 'none';
+        const elementsToShow = document.querySelectorAll('.flashcards-container, .divider, .image-section, .translate-trigger');
+        elementsToShow.forEach(element => {
+            element.style.display = 'block';
+            element.classList.remove('fade-out');
         });
     });
 
-    document.addEventListener("click", (event) => {
-        // Close all flashcards if clicking outside
-        if (!event.target.closest(".flashcard")) {
-            document.querySelectorAll(".flashcard.flip").forEach(flashcard => {
-                flashcard.classList.remove("flip");
-            });
-        }
+    // Handle "Answers" button click
+    document.getElementById('checkAnswers').addEventListener('click', () => {
+        const correctAnswers = {
+            0: 'eşsiz'
+            // Add more correct answers here
+        };
+        let score = 0;
+        const selects = document.querySelectorAll('#quizContainer select');
+        selects.forEach((select, index) => {
+            if (select.value === correctAnswers[index]) {
+                select.classList.add('correct');
+                score++;
+            } else {
+                select.classList.add('incorrect');
+            }
+        });
+        const result = document.getElementById('result');
+        result.textContent = `Success rate: ${(score / selects.length) * 100}%`;
     });
+});
 
-    // Handle flashcard groups
+document.addEventListener('DOMContentLoaded', () => {
+    const flashcards = document.querySelectorAll('.flashcard');
+
+    flashcards.forEach(flashcard => {
+        flashcard.addEventListener('click', () => {
+            flashcard.classList.toggle('flip');
+        });
+    });
+});
+
+document.addEventListener("click", (event) => {
+    // Eğer tıklanan öğe bir flashcard değilse tüm kartları eski haline getir
+    if (!event.target.closest(".flashcard")) {
+        document.querySelectorAll(".flashcard.flip").forEach(flashcard => {
+            flashcard.classList.remove("flip");
+        });
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".menu");
+
+    menuToggle.addEventListener("click", function () {
+        menu.classList.toggle("visible");
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
     const flashcardGroups = [
         [
             { front: "Kedi", back: "Cat" },
@@ -101,8 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
             flashcard.classList.add("flashcard");
             flashcard.innerHTML = `<div class="front">${card.front}</div><div class="back">${card.back}</div>`;
 
-            flashcard.addEventListener("click", (event) => {
-                event.stopPropagation(); // Prevent closing immediately after opening
+            flashcard.addEventListener("click", () => {
                 flashcard.classList.toggle("flip");
             });
 
