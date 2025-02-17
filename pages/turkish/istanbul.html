@@ -107,6 +107,7 @@
             İstanbul kedileri, fotoğrafçılara, yazarlara ve sanatçılara ilham kaynağı olmuştur.
         </p>
         <div style="text-align: center;">
+            <button id="studyAgain" class="test-button">✎ Study Again</button>
             <button id="checkAnswers" class="test-button">Answers</button>
         </div>
         <div id="result"></div>
@@ -130,6 +131,10 @@
 
         document.getElementById('startTest').addEventListener('click', function() {
             document.getElementById('quizContainer').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('studyAgain').addEventListener('click', function() {
+            location.reload();
         });
     </script>
 </body>
