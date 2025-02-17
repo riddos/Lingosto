@@ -35,21 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         openPopups.forEach(popup => popup.remove());
     });
 
-    // Handle "Test" button click
-    document.getElementById('startTest').addEventListener('click', () => {
-        const elementsToFade = document.querySelectorAll('.flashcards-container, .divider, .image-section, .translate-trigger');
-        const elementsToShow = document.querySelectorAll('.flashcards-container, .divider, .image-section, .translate-trigger');
-        elementsToFade.forEach(element => {
-            element.classList.add('fade-out');
-        });
-        setTimeout(() => {
-            elementsToFade.forEach(element => {
-                element.style.display = 'none';
-            });
-            document.getElementById('quizContainer').style.display = 'block';
-        }, 1000);
-    });
-
     // Handle "Go Back" button click
     document.getElementById('goBack').addEventListener('click', () => {
         document.getElementById('quizContainer').style.display = 'none';

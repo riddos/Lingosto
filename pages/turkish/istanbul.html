@@ -85,19 +85,20 @@
             İstanbul kedileri, fotoğrafçılara, yazarlara ve sanatçılara ilham kaynağı olmuştur.
             <span class="translate-trigger" data-translation="Istanbul cats have inspired photographers, writers, and artists.">?</span> 
         </p>
+        <div style="text-align: center;">
+            <button id="startTest" class="test-button">Test</button>
+        </div>
             <div class="divider"></div>
             <div class="image-section">
             <img src="../../images/catsofistanbul.jpg" alt="Cats of Istanbul">
-            <button class="test-button" id="startTest">
-                ✎ Test
-            </button>
         </div>
         </div>
     </div>
-<div id="quizContainer" style="display: none; text-align: center;">
+    <div class="divider"></div>
+<div id="quizContainer" style="text-align: center;">
     <div class="test-section" style="display: inline-block; text-align: left;">
         <p>
-            İstanbul, hem Doğu ile Batı’yı birleştiren <select><option value="">Select...</option><option value="eşsiz">eşsiz</option><option value="güzel">güzel</option><option value="büyük">büyük</option><option value="kalabalık">kalabalık</option></select> bir şehir olmasıyla hem de kedileriyle ünlüdür.
+            İstanbul, hem Doğu ile Batı’yı birleştiren <select id="q1"><option value="">Select...</option><option value="eşsiz">eşsiz</option><option value="güzel">güzel</option><option value="büyük">büyük</option><option value="kalabalık">kalabalık</option></select> bir şehir olmasıyla hem de kedileriyle ünlüdür.
             Şehrin tarihi sokaklarında dolaşırken, her köşede bir kedi görmek mümkündür.
             Bu kediler, İstanbul’un kültürel ve sosyal dokusunun bir parçasıdır.
             Yerel halk ve turistler, kedilere büyük ilgi gösterir.
@@ -106,7 +107,6 @@
             İstanbul kedileri, fotoğrafçılara, yazarlara ve sanatçılara ilham kaynağı olmuştur.
         </p>
         <div style="text-align: center;">
-            <button id="goBack" class="test-button">Go Back</button>
             <button id="checkAnswers" class="test-button">Answers</button>
         </div>
         <div id="result"></div>
@@ -114,19 +114,22 @@
 </div>
     <script src="../../js/istanbul.js"></script>
     <script>
-        document.getElementById('startTest').addEventListener('click', function() {
-            document.querySelector('.text-section').style.display = 'none';
-            document.getElementById('quizContainer').style.display = 'block';
+        document.getElementById('checkAnswers').addEventListener('click', function() {
+            const correctAnswers = {
+                q1: 'eşsiz'
+            };
+            let resultText = '';
+            const userAnswer1 = document.getElementById('q1').value;
+            if (userAnswer1 === correctAnswers.q1) {
+                resultText += 'Question 1: Correct<br>';
+            } else {
+                resultText += 'Question 1: Incorrect. The correct answer is "eşsiz".<br>';
+            }
+            document.getElementById('result').innerHTML = resultText;
         });
 
-        document.getElementById('goBack').addEventListener('click', function() {
-            document.querySelector('.text-section').style.display = 'block';
-            document.getElementById('quizContainer').style.display = 'none';
-            // Ensure flashcards are visible and centered
-            document.querySelector('.flashcards-container').style.display = 'flex';
-            document.querySelector('.flashcards-grid').style.display = 'grid';
-            document.querySelector('.flashcards-grid').style.justifyContent = 'center';
-            document.querySelector('.flashcards-grid').classList.add('flashcards-grid-centered');
+        document.getElementById('startTest').addEventListener('click', function() {
+            document.getElementById('quizContainer').scrollIntoView({ behavior: 'smooth' });
         });
     </script>
 </body>

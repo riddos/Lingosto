@@ -385,17 +385,6 @@ nav .menu li ul li a {
     margin-top: 20px;
 }
 
-.fade-out {
-    animation: fadeOut 1s forwards;
-}
-
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
 .correct {
     background-color: #d4edda;
 }
