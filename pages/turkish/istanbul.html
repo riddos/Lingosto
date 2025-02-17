@@ -119,14 +119,15 @@
             const correctAnswers = {
                 q1: 'eşsiz'
             };
-            let resultText = '';
+            let score = 0;
             const userAnswer1 = document.getElementById('q1').value;
             if (userAnswer1 === correctAnswers.q1) {
-                resultText += 'Question 1: Correct<br>';
-            } else {
-                resultText += 'Question 1: Incorrect. The correct answer is "eşsiz".<br>';
+                score++;
             }
-            document.getElementById('result').innerHTML = resultText;
+            const resultText = `Success rate: ${(score / 1) * 100}%`;
+            const result = document.getElementById('result');
+            result.innerHTML = resultText;
+            result.style.textAlign = 'center'; // Center the success rate message
         });
 
         document.getElementById('startTest').addEventListener('click', function() {

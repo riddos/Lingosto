@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const menu = document.querySelector(".menu");
 
     menuToggle.addEventListener("click", function () {
-        menu.classList.toggle("visible");
+        menu.classList.toggle("active");
     });
 });
 
