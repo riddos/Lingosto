@@ -38,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle "Test" button click
     document.getElementById('startTest').addEventListener('click', () => {
         const elementsToFade = document.querySelectorAll('.flashcards-container, .divider, .image-section, .translate-trigger');
+        const elementsToShow = document.querySelectorAll('.flashcards-container, .divider, .image-section, .translate-trigger');
         elementsToFade.forEach(element => {
             element.classList.add('fade-out');
         });
@@ -77,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const result = document.getElementById('result');
         result.textContent = `Success rate: ${(score / selects.length) * 100}%`;
+        result.style.textAlign = 'center'; // Center the success rate message
     });
 });
 

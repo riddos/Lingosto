@@ -88,7 +88,9 @@
             <div class="divider"></div>
             <div class="image-section">
             <img src="../../images/catsofistanbul.jpg" alt="Cats of Istanbul">
-            <button class="test-button" id="startTest">Test</button>
+            <button class="test-button" id="startTest">
+                ✏️ Test
+            </button>
         </div>
         </div>
     </div>
@@ -103,8 +105,10 @@
             Şehirde kedilere adanmış kafeler bile bulunmaktadır.
             İstanbul kedileri, fotoğrafçılara, yazarlara ve sanatçılara ilham kaynağı olmuştur.
         </p>
-        <button id="goBack">Go Back</button>
-        <button id="checkAnswers">Answers</button>
+        <div style="text-align: center;">
+            <button id="goBack" class="test-button">Go Back</button>
+            <button id="checkAnswers" class="test-button">Answers</button>
+        </div>
         <div id="result"></div>
     </div>
 </div>
@@ -118,6 +122,11 @@
         document.getElementById('goBack').addEventListener('click', function() {
             document.querySelector('.text-section').style.display = 'block';
             document.getElementById('quizContainer').style.display = 'none';
+            // Ensure flashcards are visible and centered
+            document.querySelector('.flashcards-container').style.display = 'flex';
+            document.querySelector('.flashcards-grid').style.display = 'grid';
+            document.querySelector('.flashcards-grid').style.justifyContent = 'center';
+            document.querySelector('.flashcards-grid').classList.add('flashcards-grid-centered');
         });
     </script>
 </body>
