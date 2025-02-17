@@ -421,6 +421,28 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
     justify-content: center;
 }
 
+.app-icons-container {
+    display: flex;  /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    gap: 20px; /* Space between icons */
+    text-align: center; /* Ensures text (if any) is centered */
+}
+
+.app-icon {
+    max-width: 150px; /* Icon size */
+    max-height: 50%;
+    border-radius: 8px; /* Optional rounded corners */
+    transition: transform 0.3s ease;
+    display: flex;  /* Ensures content inside stays centered */
+    align-items: center; /* Centers content vertically */
+    justify-content: center; /* Centers content horizontally */
+}
+
+.app-icon:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
 @media (max-width: 768px) {
     nav .menu {
         display: none;
