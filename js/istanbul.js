@@ -164,3 +164,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateFlashcards();
 });
+document.getElementById('startTest').addEventListener('click', function() {
+    // Get all elements except the navbar and quizContainer
+    const elementsToBlur = document.querySelectorAll('body > *:not(header):not(#quizContainer)');
+
+    // Toggle the blur class on these elements
+    elementsToBlur.forEach(element => {
+        element.classList.toggle('blur');
+    });
+
+    // Scroll to the quiz container
+    document.getElementById('quizContainer').scrollIntoView({ behavior: 'smooth' });
+});

@@ -293,6 +293,11 @@ nav .menu li ul li a {
     margin-left: 150px;
 }
 
+.blur {
+    filter: blur(5px);
+    pointer-events: none; /* Disable interactions with blurred elements */
+}
+
 /* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
     nav .menu {
