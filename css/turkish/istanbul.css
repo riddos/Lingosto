@@ -298,6 +298,15 @@ nav .menu li ul li a {
     pointer-events: none; /* Disable interactions with blurred elements */
 }
 
+option[value=""] {
+    border: 2px solid darkturquoise; /* Kenar çizgileri koyu turkuaz */
+    background-color: white; /* İç kısmı beyaz */
+    border-radius: 5px; /* Kenarları yuvarlatma */
+    padding: 5px;
+    font-size: 16px;
+    color: black; /* Yazı rengi */
+}  
+
 /* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
     nav .menu {
