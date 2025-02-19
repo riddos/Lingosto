@@ -9,6 +9,14 @@
     <link rel="icon" sizes="48x48" href="images/logo.png" type="image/png">
     <link rel="icon" href="../../images/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../../css/turkish/istanbul.css">
+    <style>
+        #q1 {
+            border: 1px solid #007373; /* Dark turquoise border */
+            border-radius: 3px; /* 5px radius */
+            font-size: 10px; /* Match font size */
+            padding: 2px 5px; /* Adjust padding */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -98,7 +106,7 @@
 <div id="quizContainer" style="text-align: center;">
     <div class="test-section" style="display: inline-block; text-align: left;">
         <p>
-            İstanbul, hem Doğu ile Batı’yı birleştiren <select id="q1"><option value="">Select...</option><option value="eşsiz">eşsiz</option><option value="güzel">güzel</option><option value="büyük">büyük</option><option value="kalabalık">kalabalık</option></select> bir şehir olmasıyla hem de kedileriyle ünlüdür.
+            İstanbul, hem Doğu ile Batı’yı birleştiren <select id="q1"><option value=""></option><option value="eşsiz">eşsiz</option><option value="güzel">güzel</option><option value="büyük">büyük</option><option value="kalabalık">kalabalık</option></select> bir şehir olmasıyla hem de kedileriyle ünlüdür.
             Şehrin tarihi sokaklarında dolaşırken, her köşede bir kedi görmek mümkündür.
             Bu kediler, İstanbul’un kültürel ve sosyal dokusunun bir parçasıdır.
             Yerel halk ve turistler, kedilere büyük ilgi gösterir.
@@ -107,7 +115,7 @@
             İstanbul kedileri, fotoğrafçılara, yazarlara ve sanatçılara ilham kaynağı olmuştur.
         </p>
         <div style="text-align: center;">
-            <button id="studyAgain" class="test-button">✎ Study Again</button>
+            <button id="studyAgain" class="back-button">✎ Study Again</button>
             <button id="checkAnswers" class="test-button">Answers</button>
         </div>
         <div id="result"></div>
