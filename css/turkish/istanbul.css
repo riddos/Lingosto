@@ -258,7 +258,6 @@ nav .menu li ul li a {
 }
 
 .test-button,
-#goBack,
 #checkAnswers {
     display: inline-block;
     margin: 20px 10px;
