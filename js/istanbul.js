@@ -48,8 +48,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle "Answers" button click
     document.getElementById('checkAnswers').addEventListener('click', () => {
         const correctAnswers = {
-            0: 'eşsiz'
-            // Add more correct answers here
+            0: 'eşsiz',
+            1: 'ünlüdür',
+            2: 'tarihi',
+            3: 'kedi',
+            4: 'kültürel',
+            5: 'dokusunun',
+            6: 'yerel halk',
+            7: 'ilgi',
+            8: 'yiyecek',
+            9: 'evlerine',
+            10: 'adanmış',
+            11: 'ilham'
         };
         let score = 0;
         const selects = document.querySelectorAll('#quizContainer select');
