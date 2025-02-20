@@ -171,6 +171,7 @@ nav {
     background-color: #009999; /* Daha koyu turkuaz */
     color: white;
     border-radius: 10px;
+    z-index: 3;
 }
 
 nav .logo {
@@ -190,10 +191,12 @@ nav .menu {
     display: flex;
     gap: 1.5rem;
     list-style: none;
+    z-index: 3;
 }
 
 nav .menu li {
     position: relative;
+    z-index: 3;
 }
 
 nav .menu li a {
@@ -214,18 +217,12 @@ nav .menu li ul {
     list-style: none;
     padding: 0.5rem;
     border-radius: 5px;
+    z-index: 5; /* Ensure the language list appears above other elements */
+    top: 100%; /* Position the dropdown below the parent item */
 }
 
 nav .menu li:hover ul {
     display: block;
-}
-
-nav .menu li ul li {
-    margin: 0;
-}
-
-nav .menu li ul li a {
-    color: white;
 }
 
 .menu-toggle {
@@ -314,22 +311,38 @@ nav .menu li ul li a {
     pointer-events: none; /* Disable interactions with blurred elements */
 }
 
-/* Mobil cihazlar için medya sorguları */
 @media (max-width: 768px) {
     nav .menu {
         display: none;
         flex-direction: column;
-        gap: 0;
         position: absolute;
-        top: 60px;
-        right: 10px;
+        top: 42px;
+        right: 0px;
         background: #009999;
-        width: 200px;
+        width: 150px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 10px; /* Add padding to the menu */
+        border-radius: 5px; /* Add border radius */
+        z-index: 2;
+        gap: 0;
     }
 
     nav .menu.active {
         display: flex;
+    }
+
+    nav .menu li ul {
+        position: absolute; /* Ensure dropdown appears on top */
+        background-color: #007373;
+        border-radius: 5px;
+        margin-top: 5px; /* Add spacing between "Languages" and dropdown */
+        width: 100%; /* Full width */
+        box-sizing: border-box; /* Include padding and border in width */
+        z-index: 5; /* Ensure the language list appears above other elements */
+    }
+
+    nav .menu li:hover ul {
+        display: block;
     }
 
     .menu-toggle {
@@ -398,6 +411,19 @@ nav .menu li ul li a {
     }
     .flashcard {
         font-size: 0.8em;
+    }
+    nav .menu > li > ul {
+        position: static; /* Make dropdown appear below */
+        background-color: #007373;
+        border-radius: 5px;
+        margin-top: 5px; /* Add spacing between "Languages" and dropdown */
+        width: 100%; /* Full width */
+        box-sizing: border-box; /* Include padding and border in width */
+    }
+
+    nav .menu > li > ul li a {
+        padding: 5px 10px; /* Adjust padding for dropdown items */
+        display: block; /* Ensure full width */
     }
 }
 }
