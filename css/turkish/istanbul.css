@@ -422,3 +422,10 @@ nav .menu li ul li a {
     filter: blur(5px);
     pointer-events: none;
 }
+
+#q1, #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10, #q11, #q12 {
+    border: 1px solid #007373; /* Dark turquoise border */
+    border-radius: 3px; /* 5px radius */
+    font-size: 10px; /* Match font size */
+    padding: 2px 5px; /* Adjust padding */
+}
