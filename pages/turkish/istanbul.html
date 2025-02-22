@@ -103,12 +103,12 @@
             <button id="startTest" class="test-button">✎ Test</button>
         </div>
             <div class="divider"></div>
-            <div class="image-section">
-            <img src="../../images/catsofistanbul.jpg" alt="Cats of Istanbul">
-        </div>
         </div>
     </div>
-    <div class="divider"></div>
+<div id="imageSection" class="image-section">
+    <img src="../../images/catsofistanbul.jpg" alt="Cats of Istanbul">
+</div>
+<div class="divider"></div>
 <div id="quizContainer" style="text-align: center;">
     <div class="test-section" style="display: inline-block; text-align: left;">
         <p>
@@ -201,6 +201,7 @@
 
         document.getElementById('startTest').addEventListener('click', function() {
             document.getElementById('quizContainer').scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('.image-section img').style.filter = 'none'; // Remove blur from image
         });
 
         document.getElementById('studyAgain').addEventListener('click', function() {

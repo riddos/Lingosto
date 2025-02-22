@@ -196,7 +196,7 @@ nav .menu {
 
 nav .menu li {
     position: relative;
-    z-index: 3;
+    z-index: ;
 }
 
 nav .menu li a {
@@ -411,19 +411,6 @@ nav .menu li:hover ul {
     }
     .flashcard {
         font-size: 0.8em;
-    }
-    nav .menu > li > ul {
-        position: static; /* Make dropdown appear below */
-        background-color: #007373;
-        border-radius: 5px;
-        margin-top: 5px; /* Add spacing between "Languages" and dropdown */
-        width: 100%; /* Full width */
-        box-sizing: border-box; /* Include padding and border in width */
-    }
-
-    nav .menu > li > ul li a {
-        padding: 5px 10px; /* Adjust padding for dropdown items */
-        display: block; /* Ensure full width */
     }
 }
 }

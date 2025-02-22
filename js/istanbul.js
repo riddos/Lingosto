@@ -175,8 +175,8 @@ document.addEventListener("DOMContentLoaded", function () {
     updateFlashcards();
 });
 document.getElementById('startTest').addEventListener('click', function() {
-    // Get all elements except the navbar and quizContainer
-    const elementsToBlur = document.querySelectorAll('body > *:not(header):not(#quizContainer)');
+    // Get all elements except the navbar, quizContainer, and imageSection
+    const elementsToBlur = document.querySelectorAll('body > *:not(header):not(#quizContainer):not(#imageSection)');
 
     // Toggle the blur class on these elements
     elementsToBlur.forEach(element => {
