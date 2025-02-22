@@ -196,7 +196,6 @@ nav .menu {
 
 nav .menu li {
     position: relative;
-    z-index: ;
 }
 
 nav .menu li a {
@@ -316,8 +315,8 @@ nav .menu li:hover ul {
         display: none;
         flex-direction: column;
         position: absolute;
-        top: 42px;
-        right: 0px;
+        top: 74px;
+        right: 30px;
         background: #009999;
         width: 150px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
