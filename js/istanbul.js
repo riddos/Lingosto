@@ -186,3 +186,81 @@ document.getElementById('startTest').addEventListener('click', function() {
     // Scroll to the quiz container
     document.getElementById('quizContainer').scrollIntoView({ behavior: 'smooth' });
 });
+document.getElementById('checkAnswers').addEventListener('click', function() {
+    const correctAnswers = {
+        q1: 'eşsiz',
+        q2: 'ünlüdür',
+        q3: 'tarihi',
+        q4: 'kedi',
+        q5: 'kültürel',
+        q6: 'dokusunun',
+        q7: 'yerel halk',
+        q8: 'ilgi',
+        q9: 'yiyecek',
+        q10: 'evlerine',
+        q11: 'adanmış',
+        q12: 'ilham'
+    };
+    let score = 0;
+    const userAnswer1 = document.getElementById('q1').value;
+    const userAnswer2 = document.getElementById('q2').value;
+    const userAnswer3 = document.getElementById('q3').value;
+    const userAnswer4 = document.getElementById('q4').value;
+    const userAnswer5 = document.getElementById('q5').value;
+    const userAnswer6 = document.getElementById('q6').value;
+    const userAnswer7 = document.getElementById('q7').value;
+    const userAnswer8 = document.getElementById('q8').value;
+    const userAnswer9 = document.getElementById('q9').value;
+    const userAnswer10 = document.getElementById('q10').value;
+    const userAnswer11 = document.getElementById('q11').value;
+    const userAnswer12 = document.getElementById('q12').value;
+    if (userAnswer1 === correctAnswers.q1) {
+        score++;
+    }
+    if (userAnswer2 === correctAnswers.q2) {
+        score++;
+    }
+    if (userAnswer3 === correctAnswers.q3) {
+        score++;
+    }
+    if (userAnswer4 === correctAnswers.q4) {
+        score++;
+    }
+    if (userAnswer5 === correctAnswers.q5) {
+        score++;
+    }
+    if (userAnswer6 === correctAnswers.q6) {
+        score++;
+    }
+    if (userAnswer7 === correctAnswers.q7) {
+        score++;
+    }
+    if (userAnswer8 === correctAnswers.q8) {
+        score++;
+    }
+    if (userAnswer9 === correctAnswers.q9) {
+        score++;
+    }
+    if (userAnswer10 === correctAnswers.q10) {
+        score++;
+    }
+    if (userAnswer11 === correctAnswers.q11) {
+        score++;
+    }
+    if (userAnswer12 === correctAnswers.q12) {
+        score++;
+    }
+    const resultText = `Success rate: ${(score / 12) * 100}%`;
+    const result = document.getElementById('result');
+    result.innerHTML = resultText;
+    result.style.textAlign = 'center'; // Center the success rate message
+});
+
+document.getElementById('startTest').addEventListener('click', function() {
+    document.getElementById('quizContainer').scrollIntoView({ behavior: 'smooth' });
+    document.querySelector('.image-section img').style.filter = 'none'; // Remove blur from image
+});
+
+document.getElementById('studyAgain').addEventListener('click', function() {
+    location.reload();
+});

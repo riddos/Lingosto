@@ -317,6 +317,14 @@ nav .menu li:hover ul {
     pointer-events: none; /* Disable interactions with blurred elements */
 }
 
+#q1 {
+    border: 1px solid #007373; /* Dark turquoise border */
+    border-radius: 3px; /* 5px radius */
+    font-size: 10px; /* Match font size */
+    padding: 2px 5px; /* Adjust padding */
+    text-align: center;
+}
+
 @media (max-width: 768px) {
     nav .menu {
         display: none;
