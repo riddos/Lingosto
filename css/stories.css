@@ -60,6 +60,15 @@ body {
             border-radius: 5px;
         }
 
+.story-list li a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent */
+}
+
+.story-list li a:hover {
+    color: gray; /* Add gray tone on hover */
+}
+
 nav {
     position: relative;
     display: flex;
@@ -172,4 +181,4 @@ nav .menu li ul li a {
         display: block;
     }
 }
-} 
+}
