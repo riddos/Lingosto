@@ -72,7 +72,15 @@ document.addEventListener("DOMContentLoaded", function () {
     menuToggle.addEventListener("click", function () {
         menu.classList.toggle("active");
     });
+
+    // Close the menu when clicking outside of it
+    document.addEventListener("click", function (event) {
+        if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+            menu.classList.remove("active");
+        }
+    });
 });
+
 document.getElementById('startTest').addEventListener('click', function() {
     // Get all elements except the navbar, quizContainer, and imageSection
     const elementsToBlur = document.querySelectorAll('body > *:not(header):not(#quizContainer):not(#imageSection)');

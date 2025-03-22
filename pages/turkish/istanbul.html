@@ -44,6 +44,14 @@
                 <li><a href="../../pages/generate.html">Generate a text</a></li>
                 <li><a href="../../pages/login.html">Log In / Register</a></li>
                 <li><a href="../../pages/contact.html">Contact</a></li>
+                <a href="#">Learn Turkish through:</a>
+            <ul>
+                <li><a href="#" data-lang="en">English</a></li>
+                <li><a href="#" data-lang="fr">French</a></li>
+                <li><a href="#" data-lang="es">Spanish</a></li>
+                <li><a href="#" data-lang="de">German</a></li>
+                <li><a href="#" data-lang="pt">Portuguese</a></li>
+            </ul>
             </ul>
         </nav>
         <h1>İstanbul'un Kedileri</h1>
@@ -188,6 +196,86 @@
         const result = document.getElementById('result');
         result.innerHTML = resultText;
         result.style.textAlign = 'center'; // Center the success rate message
-    });</script>
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+    const languageLinks = document.querySelectorAll('nav ul li ul li a[data-lang]');
+    
+    languageLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault();
+            const selectedLang = this.getAttribute('data-lang');
+            translatePage(selectedLang);
+        });
+    });
+
+    function translatePage(targetLang) {
+        const apiKey = 'AIzaSyBEQdUhmdq3CxmjJpw4-M9R89pP9LNSQds';
+        const apiUrl = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
+
+        const elementsToTranslate = document.querySelectorAll('.translate-trigger');
+        
+        elementsToTranslate.forEach(element => {
+            const textToTranslate = element.textContent.trim();
+            const translation = element.getAttribute('data-translation');
+
+            if (targetLang === 'en') {
+                // If the target language is English, show the original translation
+                element.textContent = translation;
+            } else {
+                // Use the API to translate the text
+                fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        q: translation,
+                        source: 'en',
+                        target: targetLang,
+                        format: 'text'
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const translatedText = data.data.translations[0].translatedText;
+                    element.textContent = translatedText;
+                })
+                .catch(error => console.error('Error translating text:', error));
+            }
+        });
+    }
+});
+function translateFlashcards(targetLang) {
+    const flashcards = document.querySelectorAll('.flashcard .back');
+    
+    flashcards.forEach(card => {
+        const textToTranslate = card.textContent.trim();
+        
+        if (targetLang === 'en') {
+            // If the target language is English, show the original translation
+            card.textContent = card.getAttribute('data-original');
+        } else {
+            // Use the API to translate the text
+            fetch(apiUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    q: textToTranslate,
+                    source: 'en',
+                    target: targetLang,
+                    format: 'text'
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const translatedText = data.data.translations[0].translatedText;
+                card.textContent = translatedText;
+            })
+            .catch(error => console.error('Error translating flashcard:', error));
+        }
+    });
+}</script>
 </body>
 </html>
