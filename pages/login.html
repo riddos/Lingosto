@@ -5,24 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lingosto - Giriş Yap</title>
     <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">
+                <img src="../images/icon.png" alt="Home Icon">
+                Home
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                ☰
+            </button>
+            <ul class="menu">
+                <li>
+                    <a href="../pages/languages.html">Get started</a>
+                    <ul>
+                        <li><a href="../pages/turkish/turkish.html">Turkish</a></li>
+                        <li><a href="../pages/english/english.html">English</a></li>
+                        <li><a href="../pages/german/german.html">German</a></li>
+                        <li><a href="../pages/spanish/spanish.html">Spanish</a></li>
+                        <li><a href="../pages/french/french.html">French</a></li>
+                        <li><a href="../pages/italian/italian.html">Italian</a></li>
+                        <li><a href="../pages/portuguese/portuguese.html">Portuguese</a></li>
+                        <li><a href="../pages/czech/czech.html">Czech</a></li>
+                        <li><a href="../pages/russian/russian.html">Russian</a></li>
+                        <li><a href="../pages/polish/polish.html">Polish</a></li>
+                        <li><a href="../pages/norwegian/norwegian.html">Norwegian</a></li>
+                        <li><a href="../pages/swedish/swedish.html">Swedish</a></li>
+                        <li><a href="../pages/dutch/dutch.html">Dutch</a></li>
+                        <li><a href="../pages/croatian/croatian.html">Croatian</a></li>
+                    </ul>
+                </li>
+                <li><a href="../index.html#how-to-read">How to read?</a></li>
+                <li><a href="../pages/generate.html">Generate a text</a></li>
+                <li><a href="login.html" class="active">Log In / Register</a></li>
+                <li><a href="../pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="login-container">
-        <h2>Lingosto'ya Giriş Yap</h2>
+        <div class="login-header">
+            <img src="../images/icon.png" alt="Lingosto Logo" class="login-logo">
+            <h2>Lingosto'ya Giriş Yap</h2>
+        </div>
         <form id="login-form">
             <div class="input-group">
                 <label for="email">E-posta</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required placeholder="E-posta adresinizi girin">
             </div>
             <div class="input-group">
                 <label for="password">Şifre</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" required placeholder="Şifrenizi girin">
             </div>
             <button type="submit" class="login-btn">Giriş Yap</button>
         </form>
-        <p>Hesabın yok mu? <a href="register.html">Kayıt Ol</a></p>
+        <p class="register-link">Hesabın yok mu? <a href="register.html">Kayıt Ol</a></p>
     </div>
 
-    <script src="../js/auth.js"></script> <!-- Auth işlemleri -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const menu = document.querySelector(".menu");
+
+            if (menuToggle && menu) {
+                menuToggle.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                    menu.classList.toggle("visible");
+                });
+
+                document.addEventListener("click", (event) => {
+                    if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                        menu.classList.remove("visible");
+                    }
+                });
+            }
+
+            const howToReadLink = document.querySelector('a[href="../index.html#how-to-read"]');
+            const targetSection = document.getElementById("how-to-read");
+
+            if (howToReadLink && targetSection) {
+                howToReadLink.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    targetSection.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>

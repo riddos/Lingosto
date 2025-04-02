@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingosto - Dashboard</title>
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">
+                <img src="../images/icon.png" alt="Home Icon">
+                Lingosto
+            </a>
+            <ul class="menu">
+                <li><a href="../pages/languages.html">Languages</a></li>
+                <li><a href="../pages/generate.html">Generate Text</a></li>
+                <li><button id="logout-btn">Logout</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="dashboard-container">
+        <h1>Welcome to Your Dashboard</h1>
+        <div class="user-info">
+            <p>Email: <span id="user-email">Loading...</span></p>
+            <p>Account created: <span id="account-created">Loading...</span></p>
+        </div>
+        <div class="progress-section">
+            <h2>Your Progress</h2>
+            <div class="progress-cards">
+                <div class="progress-card">
+                    <h3>Turkish</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 25%"></div>
+                    </div>
+                    <p>25% completed</p>
+                </div>
+                <div class="progress-card">
+                    <h3>English</h3>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%"></div>
+                    </div>
+                    <p>60% completed</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                document.getElementById('user-email').textContent = user.email;
+                document.getElementById('account-created').textContent = 
+                    new Date(user.metadata.creationTime).toLocaleDateString();
+            }
+        });
+    </script>
+</body>
+</html>
