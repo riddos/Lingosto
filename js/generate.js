@@ -3,11 +3,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const textArea = document.getElementById("input-text");
     const outputDiv = document.getElementById("output");
     const flashcardsContainer = document.getElementById("flashcards-container");
+    const languageSelect = document.getElementById("language-select");
+    let selectedLanguage = "en";
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+
+    languageSelect.addEventListener("change", () => {
+        selectedLanguage = languageSelect.value;
+    });
 
     // Boş yere tıklayınca çeviri baloncuklarını kapatma
     document.body.addEventListener("click", (event) => {
         if (!event.target.classList.contains("translate-btn")) {
             document.querySelectorAll(".translation-popup").forEach(popup => popup.style.display = "none");
+        }
+    });
+
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('visible');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('.menu') && !event.target.closest('.menu-toggle')) {
+            menu.classList.remove('visible');
         }
     });
 
@@ -43,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (!popup.textContent) {
                     popup.textContent = "Translating...";
-                    popup.textContent = await translateText(sentence.trim());
+                    popup.textContent = await translateText(sentence.trim(), selectedLanguage);
                 }
             });
 
@@ -52,10 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
             outputDiv.appendChild(popup);
         }
 
-        generateFlashcards(text);
+        generateFlashcards(text, selectedLanguage);
     });
 
-    function generateFlashcards(text) {
+    function generateFlashcards(text, language) {
         const words = text.split(/\s+/).filter(word => word.length > 3);
         const uniqueWords = [...new Set(words)].slice(0, 20);
         const flashcardBlocks = [];
@@ -78,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const flashcardBack = document.createElement("div");
                 flashcardBack.classList.add("flashcard-back");
 
-                translateText(word).then(translation => {
+                translateText(word, language).then(translation => {
                     flashcardBack.textContent = translation;
                 });
 
@@ -99,8 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Google Translate API
-async function translateText(text) {
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=${encodeURIComponent(text)}`;
+async function translateText(text, targetLanguage) {
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(text)}`;
     const response = await fetch(url);
     const result = await response.json();
     return result[0][0][0];

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Germinal</title>
+    <link rel="icon" sizes="16x16" href="images/logo.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="images/logo.png" type="image/png">
+    <link rel="icon" sizes="48x48" href="images/logo.png" type="image/png">
+    <link rel="icon" href="../../images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../css/textandtest.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- ...existing code... -->
+        </nav>
+        <h1>Germinal</h1>
+    </header>
+    <div class="flashcards-container">
+        <div class="flashcards-grid">
+            <div class="flashcard"><div class="front">mine</div><div class="back">mine</div></div>
+            <div class="flashcard"><div class="front">charbon</div><div class="back">coal</div></div>
+            <div class="flashcard"><div class="front">ouvrier</div><div class="back">worker</div></div>
+            <div class="flashcard"><div class="front">grève</div><div class="back">strike</div></div>
+            <div class="flashcard"><div class="front">faim</div><div class="back">hunger</div></div>
+            <div class="flashcard"><div class="front">patron</div><div class="back">boss</div></div>
+            <div class="flashcard"><div class="front">argent</div><div class="back">money</div></div>
+            <div class="flashcard"><div class="front">famille</div><div class="back">family</div></div>
+            <div class="flashcard"><div class="front">espoir</div><div class="back">hope</div></div>
+            <div class="flashcard"><div class="front">révolte</div><div class="back">revolt</div></div>
+            <div class="flashcard"><div class="front">danger</div><div class="back">danger</div></div>
+            <div class="flashcard"><div class="front">travail</div><div class="back">work</div></div>
+            <div class="flashcard"><div class="front">pauvre</div><div class="back">poor</div></div>
+            <div class="flashcard"><div class="front">riche</div><div class="back">rich</div></div>
+            <div class="flashcard"><div class="front">justice</div><div class="back">justice</div></div>
+            <div class="flashcard"><div class="front">violence</div><div class="back">violence</div></div>
+            <div class="flashcard"><div class="front">solidarité</div><div class="back">solidarity</div></div>
+            <div class="flashcard"><div class="front">esclave</div><div class="back">slave</div></div>
+            <div class="flashcard"><div class="front">mort</div><div class="back">death</div></div>
+            <div class="flashcard"><div class="front">avenir</div><div class="back">future</div></div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="text-section">
+            <div class="divider"></div>
+            <p>
+                Étienne Lantier arrive dans une ville minière. <span class="translate-trigger" data-translation="Étienne Lantier arrives in a mining town.">?</span> Il cherche du travail. <span class="translate-trigger" data-translation="He is looking for work.">?</span> Il trouve un emploi dans une mine de charbon. <span class="translate-trigger" data-translation="He finds a job in a coal mine.">?</span> Les ouvriers travaillent dur, mais ils sont pauvres. <span class="translate-trigger" data-translation="The workers work hard, but they are poor.">?</span> Ils n’ont pas assez d’argent pour manger. <span class="translate-trigger" data-translation="They do not have enough money to eat.">?</span> Étienne voit l’injustice et décide d’aider. <span class="translate-trigger" data-translation="Étienne sees the injustice and decides to help.">?</span> Il parle de solidarité et d’espoir. <span class="translate-trigger" data-translation="He talks about solidarity and hope.">?</span> Un jour, les ouvriers font une grève. <span class="translate-trigger" data-translation="One day, the workers go on strike.">?</span> Ils veulent de meilleures conditions de travail. <span class="translate-trigger" data-translation="They want better working conditions.">?</span> Mais le patron refuse. <span class="translate-trigger" data-translation="But the boss refuses.">?</span> La grève devient une révolte. <span class="translate-trigger" data-translation="The strike becomes a revolt.">?</span> Il y a de la violence et du danger. <span class="translate-trigger" data-translation="There is violence and danger.">?</span> Étienne continue de se battre pour la justice. <span class="translate-trigger" data-translation="Étienne continues to fight for justice.">?</span> Beaucoup d’ouvriers souffrent, mais ils gardent espoir. <span class="translate-trigger" data-translation="Many workers suffer, but they keep hope.">?</span> À la fin, Étienne quitte la mine. <span class="translate-trigger" data-translation="In the end, Étienne leaves the mine.">?</span> Il croit en un avenir meilleur. <span class="translate-trigger" data-translation="He believes in a better future.">?</span>
+            </p>
+            <div style="text-align: center;">
+                <button id="startTest" class="test-button">✎ Test</button>
+            </div>
+            <div class="divider"></div>
+        </div>
+    </div>
+    <div id="imageSection" class="image-section" style="text-align: center;">
+        <img src="../../images/french/germinal.jpg" alt="Germinal">
+    </div>
+    <div class="divider"></div>
+    <div id="quizContainer" style="text-align: center;">
+        <div class="test-section" style="display: inline-block; text-align: left;">
+            <p>
+                Étienne Lantier arrive dans une ville <select id="q1"><option value=""></option><option value="minière">minière</option><option value="riche">riche</option><option value="pauvre">pauvre</option><option value="calme">calme</option></select>. Il cherche du <select id="q2"><option value=""></option><option value="travail">travail</option><option value="repos">repos</option><option value="logement">logement</option><option value="nourriture">nourriture</option></select>. Il trouve un emploi dans une mine de <select id="q3"><option value=""></option><option value="charbon">charbon</option><option value="fer">fer</option><option value="or">or</option><option value="diamants">diamants</option></select>. Les ouvriers travaillent dur, mais ils sont <select id="q4"><option value=""></option><option value="pauvres">pauvres</option><option value="riches">riches</option><option value="heureux">heureux</option><option value="libres">libres</option></select>. Ils n’ont pas assez d’<select id="q5"><option value=""></option><option value="argent">argent</option><option value="espoir">espoir</option><option value="amis">amis</option><option value="idées">idées</option></select> pour manger. Étienne voit l’<select id="q6"><option value=""></option><option value="injustice">injustice</option><option value="égalité">égalité</option><option value="amitié">amitié</option><option value="paix">paix</option></select> et décide d’aider. Il parle de <select id="q7"><option value=""></option><option value="solidarité">solidarité</option><option value="violence">violence</option><option value="peur">peur</option><option value="colère">colère</option></select> et d’<select id="q8"><option value=""></option><option value="espoir">espoir</option><option value="argent">argent</option><option value="amour">amour</option><option value="haine">haine</option></select>. Un jour, les ouvriers font une <select id="q9"><option value=""></option><option value="grève">grève</option><option value="fête">fête</option><option value="réunion">réunion</option><option value="pause">pause</option></select>. Ils veulent de meilleures <select id="q10"><option value=""></option><option value="conditions">conditions</option><option value="idées">idées</option><option value="maisons">maisons</option><option value="familles">familles</option></select> de travail. Mais le <select id="q11"><option value=""></option><option value="patron">patron</option><option value="maire">maire</option><option value="médecin">médecin</option><option value="ouvrier">ouvrier</option></select> refuse. La grève devient une <select id="q12"><option value=""></option><option value="révolte">révolte</option><option value="fête">fête</option><option value="paix">paix</option><option value="discussion">discussion</option></select>. Il y a de la <select id="q13"><option value=""></option><option value="violence">violence</option><option value="joie">joie</option><option value="paix">paix</option><option value="solidarité">solidarité</option></select> et du <select id="q14"><option value=""></option><option value="danger">danger</option><option value="calme">calme</option><option value="repos">repos</option><option value="bonheur">bonheur</option></select>. Étienne continue de se battre pour la <select id="q15"><option value=""></option><option value="justice">justice</option><option value="richesse">richesse</option><option value="paix">paix</option><option value="peur">peur</option></select>. Beaucoup d’ouvriers <select id="q16"><option value=""></option><option value="souffrent">souffrent</option><option value="rient">rient</option><option value="dansent">dansent</option><option value="voyagent">voyagent</option></select>, mais ils gardent <select id="q17"><option value=""></option><option value="espoir">espoir</option><option value="colère">colère</option><option value="haine">haine</option><option value="peur">peur</option></select>. À la fin, Étienne <select id="q18"><option value=""></option><option value="quitte">quitte</option><option value="reste">reste</option><option value="vend">vend</option><option value="achète">achète</option></select> la mine. Il croit en un <select id="q19"><option value=""></option><option value="avenir">avenir</option><option value="passé">passé</option><option value="présent">présent</option><option value="travail">travail</option></select> meilleur.
+            </p>
+            <div style="text-align: center;">
+                <button id="studyAgain" class="back-button">Study Again</button>
+                <button id="checkAnswers" class="test-button">Answers</button>
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+    <script src="../../js/textandtest.js"></script>
+    <script>
+        document.getElementById('checkAnswers').addEventListener
+</script>
+</body>
+</html>
