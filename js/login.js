@@ -15,25 +15,37 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM fully loaded and parsed");
+  console.log("DOM fully loaded and parsed"); // Debugging log to confirm script is running
   const form = document.getElementById("login-form");
+
+  if (!form) {
+    console.error("Login form not found. Ensure the form has the correct ID.");
+    return;
+  }
 
   form.addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent form submission
+    console.log("Login form submitted"); // Debugging log to confirm event listener is working
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = document.getElementById("email")?.value;
+    const password = document.getElementById("password")?.value;
+
+    if (!email || !password) {
+      alert("Please fill in both email and password fields.");
+      return;
+    }
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // User successfully logged in
+        console.log("Login successful:", userCredential.user); // Log user details
         window.location.href = "dashboard.html"; // Redirect to dashboard.html
       })
       .catch((error) => {
         // Handle errors
         const errorCode = error.code;
         const errorMessage = error.message;
-        alert(errorMessage); // Display error message
+        console.error("Error during login:", errorCode, errorMessage); // Log error details
+        alert("Login failed: " + errorMessage); // Display error message
       });
   });
 });
