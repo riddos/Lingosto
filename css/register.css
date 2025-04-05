@@ -1,12 +1,13 @@
-/* Genel Sayfa Stili */
+/* Sayfa arka planı */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background: white;
+    min-height: 100vh;
+    margin: 1rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
 }
 
 /* Navbar styles */
@@ -15,7 +16,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem; /* Increased padding for longer width */
     background-color: #009999;
     color: white;
     border-radius: 10px;
@@ -103,7 +104,7 @@ nav .menu li ul li a:hover {
         top: 42px;
         right: 0px;
         background: #009999;
-        width: 200px;
+        width: 150px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 10px;
         border-radius: 5px;
@@ -111,10 +112,6 @@ nav .menu li ul li a:hover {
     }
 
     nav .menu.visible {
-        display: flex;
-    }
-
-    nav .menu.active {
         display: flex;
     }
 
@@ -137,83 +134,141 @@ nav .menu li ul li a:hover {
     }
 }
 
-/* Giriş/Kayıt Kutusu */
+/* Navbar logo */
+.small-logo {
+    height: 30px;
+    width: auto;
+}
+
+/* Kayıt kutusu */
 .login-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
+    background: linear-gradient(135deg, #30d5c8, #007373);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Register header */
+.login-header {
+    margin-bottom: 2rem;
+}
+
+.login-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
 }
 
 /* Başlık */
 h2 {
-    margin-bottom: 20px;
-    color: #333;
+    margin: 0;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 600;
 }
 
-/* Giriş Alanları */
+/* Form alanları */
 .input-group {
-    margin-bottom: 15px;
+    margin-bottom: 1.5rem;
     text-align: left;
 }
 
 .input-group label {
     display: block;
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 5px;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: white;
 }
 
 .input-group input {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+    padding: 0.8rem 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.9);
 }
 
-/* Beni Hatırla Checkbox */
-.checkbox-group {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    font-size: 14px;
-    margin-bottom: 15px;
+.input-group input:focus {
+    outline: none;
+    border-color: white;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
-.checkbox-group input {
-    margin-right: 5px;
+.input-group input::placeholder {
+    color: #666;
 }
 
-/* Buton Stili */
+/* Kayıt butonu */
 .login-btn {
-    background-color: #007bff;
-    color: white;
+    background: white;
+    color: #007373;
     border: none;
-    padding: 10px;
+    padding: 1rem;
     width: 100%;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
 }
 
 .login-btn:hover {
-    background-color: #0056b3;
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Linkler */
-p {
-    margin-top: 10px;
-    font-size: 14px;
+/* Giriş yap linki */
+.register-link {
+    margin-top: 1.5rem;
+    color: white;
 }
 
-p a {
-    color: #007bff;
+.register-link a {
+    color: white;
     text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-p a:hover {
+.register-link a:hover {
+    color: rgba(255, 255, 255, 0.9);
     text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .login-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .login-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .input-group input {
+        padding: 0.7rem;
+    }
+    
+    .login-btn {
+        padding: 0.8rem;
+    }
 }

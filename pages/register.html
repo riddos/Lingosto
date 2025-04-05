@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lingosto - Kayıt Ol</title>
+    <title>Lingosto - Create an account</title>
     <link rel="stylesheet" href="../css/register.css">
     <link rel="stylesheet" href="../css/navbar.css">
 </head>
@@ -23,23 +23,20 @@
     </header>
 
     <div class="login-container">
-        <h2>Lingosto'ya Kayıt Ol</h2>
+        <h2>Start your journey</h2>
         <form id="register-form">
             <div class="input-group">
-                <label for="email">E-posta</label>
-                <input type="email" id="email" name="email" required>
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Enter your e-mail">
             </div>
             <div class="input-group">
-                <label for="password">Şifre</label>
-                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
             </div>
-            <button type="submit" class="login-btn">Kayıt Ol</button>
+            <button type="submit" id="submit">Register</button>
         </form>
-        <p>Zaten hesabın var mı? <a href="login.html">Giriş Yap</a></p>
+        <p>Do you already have an account? <a href="login.html">Log in</a></p>
     </div>
-
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
-    <script src="../js/auth.js"></script>
+    <script type="module" src="../js/register.js"></script>
 </body>
 </html>
