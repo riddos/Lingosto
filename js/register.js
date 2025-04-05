@@ -11,9 +11,6 @@ const firebaseConfig = {
   measurementId: "G-T0M1QSQJ5N"
 };
 
-console.log("Form element:", document.getElementById("register-form"));
-
-
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
