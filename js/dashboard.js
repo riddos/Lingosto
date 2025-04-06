@@ -52,11 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault(); // Prevent default navigation
             onAuthStateChanged(auth, (user) => {
                 if (user) {
-                    // Redirect to ../pages/dashboard.html if user is logged in
-                    window.location.href = '../pages/dashboard.html';
+                    // Redirect to the correct path for dashboard.html
+                    window.location.href = '/Lingosto/pages/dashboard.html';
                 } else {
-                    // Redirect to ../index.html if user is not logged in
-                    window.location.href = '../index.html';
+                    // Redirect to the correct path for index.html
+                    window.location.href = '/Lingosto/index.html';
                 }
             });
         });
