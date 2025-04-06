@@ -8,7 +8,6 @@
     <link rel="icon" sizes="32x32" href="../images/logo.png" type="image/png">
     <link rel="icon" sizes="48x48" href="../images/logo.png" type="image/png">
     <link rel="icon" href="../images/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
@@ -18,9 +17,11 @@
                 <img src="../images/icon.png" alt="Home Icon">
                 Home
             </a>
-            <button class="menu-toggle" aria-label="Toggle menu">
-                ☰
-            </button>
+            <div class="right-section">
+                <span id="user-greeting" class="user-greeting">Hi, <strong>Username</strong>!</span>
+                <button id="logout-btn" class="logout-btn">Log Out</button>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            </div>
             <ul class="menu">
                 <li>
                     <a href="languages.html">Get started</a>
@@ -32,51 +33,49 @@
                         <li><a href="french/french.html">French</a></li>
                         <li><a href="italian/italian.html">Italian</a></li>
                         <li><a href="portuguese/portuguese.html">Portuguese</a></li>
-                        <li><a href="czech/czech.html">Czech</a></li>
-                        <li><a href="russian/russian.html">Russian</a></li>
-                        <li><a href="polish/polish.html">Polish</a></li>
-                        <li><a href="norwegian/norwegian.html">Norwegian</a></li>
-                        <li><a href="swedish/swedish.html">Swedish</a></li>
-                        <li><a href="dutch/dutch.html">Dutch</a></li>
-                        <li><a href="croatian/croatian.html">Croatian</a></li>
+                        <li><a href="../pages/czech/czech.html">Czech</a></li>
+                        <li><a href="../pages/russian/russian.html">Russian</a></li>
+                        <li><a href="../pages/polish/polish.html">Polish</a></li>
+                        <li><a href="../pages/norwegian/norwegian.html">Norwegian</a></li>
+                        <li><a href="../pages/swedish/swedish.html">Swedish</a></li>
+                        <li><a href="../pages/dutch/dutch.html">Dutch</a></li>
+                        <li><a href="../pages/croatian/croatian.html">Croatian</a></li>
                     </ul>
                 </li>
                 <li><a href="../index.html#how-to-read">How to read?</a></li>
-                <li><a href="generate.html">Generate a text</a></li>
-                <li><span id="user-greeting">Hi, -username-!</span></li>
-                <li><button id="logout-btn">Logout</button></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="../pages/generate.html">Generate a text</a></li>
+                <li><a href="../pages/contact.html">Contact</a></li>
             </ul>
         </nav>
         <h1>Lingosto</h1>
         <div class="flags">
-            <a href="turkish/turkish.html">
+            <a href="../pages/turkish/turkish.html">
             <div class="flag"><img src="../images/flags/turkish.png" alt="Turkish"></div></a>
-            <a href="english/english.html">
+            <a href="../pages/english/english.html">
             <div class="flag"><img src="../images/flags/english.png" alt="English"></div></a>
-            <a href="german/german.html">
+            <a href="../pages/german/german.html">
             <div class="flag"><img src="../images/flags/german.png" alt="German"></div></a>
-            <a href="spanish/spanish.html">
+            <a href="../pages/spanish/spanish.html">
             <div class="flag"><img src="../images/flags/spanish.png" alt="Spanish"></div></a>
-            <a href="french/french.html">
+            <a href="../pages/french/french.html">
             <div class="flag"><img src="../images/flags/french.png" alt="French"></div></a>
-            <a href="italian/italian.html">
+            <a href="../pages/italian/italian.html">
             <div class="flag"><img src="../images/flags/italian.png" alt="Italian"></div></a>
-            <a href="portuguese/portuguese.html">
+            <a href="../pages/portuguese/portuguese.html">
             <div class="flag"><img src="../images/flags/portuguese.png" alt="Portuguese"></div></a>
-            <a href="czech/czech.html">
+            <a href="../pages/czech/czech.html">
             <div class="flag"><img src="../images/flags/czech.png" alt="Czech"></div></a>
-            <a href="russian/russian.html">
+            <a href="../pages/russian/russian.html">
             <div class="flag"><img src="../images/flags/russian.png" alt="Russian"></div></a>
-            <a href="polish/polish.html">
+            <a href="../pages/polish/polish.html">
             <div class="flag"><img src="../images/flags/polish.png" alt="Polish"></div></a>
-            <a href="norwegian/norwegian.html">
+            <a href="../pages/norwegian/norwegian.html">
             <div class="flag"><img src="../images/flags/norwegian.png" alt="Norwegian"></div></a>
-            <a href="swedish/swedish.html">
+            <a href="../pages/swedish/swedish.html">
             <div class="flag"><img src="../images/flags/swedish.png" alt="Swedish"></div></a>    
-            <a href="dutch/dutch.html">
+            <a href="../pages/dutch/dutch.html">
             <div class="flag"><img src="../images/flags/dutch.png" alt="Dutch"></div></a>
-            <a href="croatian/croatian.html">
+            <a href="../pages/croatian/croatian.html">
             <div class="flag"><img src="../images/flags/croatian.png" alt="Croatian"></div></a>        
         </div>
         <p>Your journey to mastering languages starts here.</p>
@@ -121,8 +120,8 @@
                 </div>
             </div>
         </div>
-        <div class="slideshow">
-            <div class="slide active">
+          <div class="slideshow">
+           <div class="slide active">
                 <img src="../images/header/header-photo.jpg" alt="Language Learning Slide 1" class="header-photo">
             </div>
             <div class="slide">
@@ -132,7 +131,7 @@
                 <img src="../images/header/header-photo3.jpg" alt="Language Learning Slide 3" class="header-photo">
             </div>
         </div>
-        <div class="dots">
+            <div class="dots">
             <div class="dot active" data-index="0"></div>
             <div class="dot" data-index="1"></div>
             <div class="dot" data-index="2"></div>
@@ -159,124 +158,113 @@
         </div>
         <div class="section-divider"></div>
         <div class="cta">
-            <a href="languages.html">Get Started Now</a>
+            <a href="../pages/languages.html">Get Started Now</a>
         </div>
     </div>
-    <div class="social-media">
-        <a href="https://www.instagram.com/lingostohub/" target="_blank">
-            <img src="../images/socialmedia/instagram.jpg" alt="Instagram" class="social-icon">
-        </a>
-        <a href="https://www.youtube.com/@Lingostohub" target="_blank">
-            <img src="../images/socialmedia/youtube.jpg" alt="YouTube" class="social-icon">
-        </a>
-        <a href="https://www.tiktok.com/@lingostohub" target="_blank">
-            <img src="../images/socialmedia/tiktok.jpg" alt="TikTok" class="social-icon">
-        </a>
-        <a href="https://x.com/LingostoHub" target="_blank">
-            <img src="../images/socialmedia/x.jpg" alt="X" class="social-icon">
-        </a>
-    </div>
-    <div class="app-icons-container">
-        <a href="#" target="_blank">
-            <img src="../images/socialmedia/ios.png" alt="iOS" class="app-icon">
-        </a>
-        <a href="#" target="_blank">
-            <img src="../images/socialmedia/android.png" alt="Android" class="app-icon">
-        </a>
-    </div>
+<div class="social-media">
+  <a href="https://www.instagram.com/lingostohub/" target="_blank">
+    <img src="../images/socialmedia/instagram.jpg" alt="Instagram" class="social-icon">
+  </a>
+  <a href="https://www.youtube.com/@Lingostohub" target="_blank">
+    <img src="../images/socialmedia/youtube.jpg" alt="YouTube" class="social-icon">
+  </a>
+  <a href="https://www.tiktok.com/@lingostohub" target="_blank">
+    <img src="../images/socialmedia/tiktok.jpg" alt="TikTok" class="social-icon">
+  </a>
+  <a href="https://x.com/LingostoHub" target="_blank">
+    <img src="../images/socialmedia/x.jpg" alt="X" class="social-icon">
+  </a>
+</div>
+<div class="app-icons-container">
+    <a href="../pages/turkish/turkish.html" target="_blank">
+        <img src="../images/socialmedia/ios.png" alt="iOS" class="app-icon">
+    </a>
+    <a href="../pages/android.html" target="_blank">
+        <img src="../images/socialmedia/android.png" alt="Android" class="app-icon">
+    </a>
+</div>
     <footer>
         <p>&copy; 2025 Lingosto. All Rights Reserved.</p>
     </footer>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
-    <script src="../js/auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js"></script>
+    <script type="module" src="../js/dashboard.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const menuToggle = document.querySelector(".menu-toggle");
-            const menu = document.querySelector(".menu");
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".menu");
 
-            if (menuToggle && menu) {
-                menuToggle.addEventListener("click", (event) => {
-                    event.stopPropagation();
-                    menu.classList.toggle("visible");
-                });
-
-                document.addEventListener("click", (event) => {
-                    if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
-                        menu.classList.remove("visible");
-                    }
-                });
-            }
-
-            const cards = document.querySelectorAll(".feature-card-inner");
-            if (cards.length > 0) {
-                cards.forEach((card) => {
-                    card.addEventListener("click", (event) => {
-                        event.stopPropagation();
-                        document.querySelectorAll(".feature-card-inner.clicked").forEach((otherCard) => {
-                            if (otherCard !== card) {
-                                otherCard.classList.remove("clicked");
-                            }
-                        });
-                        card.classList.toggle("clicked");
-                    });
-                });
-            }
-
-            document.addEventListener("click", () => {
-                document.querySelectorAll(".feature-card-inner.clicked").forEach((card) => {
-                    card.classList.remove("clicked");
-                });
+        if (menuToggle && menu) {
+            menuToggle.addEventListener("click", (event) => {
+                event.stopPropagation(); // Prevent click from propagating to the document
+                menu.classList.toggle("visible");
             });
 
-            const slides = document.querySelectorAll('.slide');
-            const dots = document.querySelectorAll('.dot');
-            let currentIndex = 0;
-
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.toggle('active', i === index);
-                    dots[i].classList.toggle('active', i === index);
-                });
-            }
-
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % slides.length;
-                showSlide(currentIndex);
-            }
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', () => {
-                    currentIndex = parseInt(dot.getAttribute('data-index'));
-                    showSlide(currentIndex);
-                });
-            });
-
-            setInterval(nextSlide, 3500);
-
-            const howToReadLink = document.querySelector('a[href="../index.html#how-to-read"]');
-            const targetSection = document.getElementById("how-to-read");
-
-            if (howToReadLink && targetSection) {
-                howToReadLink.addEventListener("click", (event) => {
-                    event.preventDefault();
-                    targetSection.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                    });
-                });
-            }
-
-            auth.onAuthStateChanged(user => {
-                if (user) {
-                    const username = user.displayName || user.email.split('@')[0];
-                    document.getElementById('user-greeting').textContent = `Hi, ${username}!`;
-                    document.getElementById('user-email').textContent = user.email;
-                    document.getElementById('account-created').textContent = 
-                        new Date(user.metadata.creationTime).toLocaleDateString();
+            document.addEventListener("click", (event) => {
+                if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                    menu.classList.remove("visible");
                 }
             });
+        }
+
+        const cards = document.querySelectorAll(".feature-card-inner");
+        if (cards.length > 0) {
+            cards.forEach((card) => {
+                card.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                    document.querySelectorAll(".feature-card-inner.clicked").forEach((otherCard) => {
+                        if (otherCard !== card) {
+                            otherCard.classList.remove("clicked");
+                        }
+                    });
+                    card.classList.toggle("clicked");
+                });
+            });
+        }
+
+        document.addEventListener("click", () => {
+            document.querySelectorAll(".feature-card-inner.clicked").forEach((card) => {
+                card.classList.remove("clicked");
+            });
         });
-    </script>
+
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+                dots[i].classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentIndex = parseInt(dot.getAttribute('data-index'));
+                showSlide(currentIndex);
+            });
+        });
+
+        setInterval(nextSlide, 3500);
+
+        const howToReadLink = document.querySelector('a[href="../index.html#how-to-read"]');
+        const targetSection = document.getElementById("how-to-read");
+
+        if (howToReadLink && targetSection) {
+            howToReadLink.addEventListener("click", (event) => {
+                event.preventDefault();
+                targetSection.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            });
+        }
+    });
+</script>
 </body>
 </html>

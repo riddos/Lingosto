@@ -122,6 +122,19 @@ nav .logo img {
     height: 40px;
 }
 
+.user-greeting {
+    color: white;
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.user-greeting strong {
+    font-weight: bold;
+    margin: 0 0.2rem;
+}
+
 nav .menu {
     display: flex;
     gap: 0.5rem;
@@ -453,8 +466,8 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
         background: #009999;
         width: 150px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 10px; /* Add padding to the menu */
-        border-radius: 5px; /* Add border radius */
+        padding: 10px;
+        border-radius: 5px;
         z-index: 2;
     }
 
@@ -528,6 +541,11 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
     nav .menu > li > ul li a {
         padding: 5px 10px; /* Adjust padding for dropdown items */
         display: block; /* Ensure full width */
+    }
+
+    .user-greeting {
+        margin-right: 0.5rem;
+        font-size: 1rem;
     }
   }
 }

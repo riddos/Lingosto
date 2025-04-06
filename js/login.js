@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault(); // Prevent form submission
     console.log("Login form submitted"); // Debugging log to confirm event listener is working
 
-    const email = document.getElementById("email")?.value;
-    const password = document.getElementById("password")?.value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
     if (!email || !password) {
       alert("Please fill in both email and password fields.");
@@ -37,11 +37,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log("Login successful:", userCredential.user); // Log user details
-        window.location.href = "dashboard.html"; // Redirect to dashboard.html
+        // Signed in
+        const user = userCredential.user;
+        console.log("Successfully logged in:", user);
+        window.location.href = "dashboard.html"; // Redirect to dashboard after successful login
       })
       .catch((error) => {
-        // Handle errors
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error("Error during login:", errorCode, errorMessage); // Log error details
