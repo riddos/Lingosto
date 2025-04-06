@@ -45,4 +45,20 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = '/Lingosto/index.html';
         }
     });
+
+    const homeIcon = document.querySelector('a.logo');
+    if (homeIcon) {
+        homeIcon.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default navigation
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // Redirect to ../pages/dashboard.html if user is logged in
+                    window.location.href = '../pages/dashboard.html';
+                } else {
+                    // Redirect to ../index.html if user is not logged in
+                    window.location.href = '../index.html';
+                }
+            });
+        });
+    }
 });
