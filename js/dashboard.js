@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     // Redirect to the correct path for dashboard.html
-                    window.location.href = '/Lingosto/pages/dashboard.html';
+                    window.location.href = '/Lingosto/dashboard.html';
                 } else {
                     // Redirect to the correct path for index.html
                     window.location.href = '/Lingosto/index.html';
