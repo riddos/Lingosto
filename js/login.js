@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Signed in
         const user = userCredential.user;
         console.log("Successfully logged in:", user);
-        window.location.href = "dashboard.html"; // Redirect to dashboard after successful login
+        window.location.href = "../pages/dashboard.html"; // Redirect to dashboard after successful login
       })
       .catch((error) => {
         const errorCode = error.code;

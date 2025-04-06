@@ -185,6 +185,12 @@
     <footer>
         <p>&copy; 2025 Lingosto. All Rights Reserved.</p>
     </footer>
+    <script type="module">
+        import { setupAuthNavigation } from './js/auth.js';
+        document.addEventListener('DOMContentLoaded', () => {
+            setupAuthNavigation();
+        });
+    </script>
     <script>
     document.addEventListener("DOMContentLoaded", () => {
         const menuToggle = document.querySelector(".menu-toggle");

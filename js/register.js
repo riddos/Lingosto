@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
           createdAt: new Date().toISOString()
         });
 
-        window.location.href = "dashboard.html"; // Redirect to dashboard.html
+        window.location.href = "../pages/dashboard.html"; // Redirect to dashboard.html
       })
       .catch((error) => {
         // Handle errors

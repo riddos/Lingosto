@@ -20,11 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Handle authentication state
     onAuthStateChanged(auth, async (user) => {
         if (user) {
-            // Get user data from Firestore
+            // User is authenticated, stay on dashboard.html
             const userDoc = await getDoc(doc(db, "users", user.uid));
             const username = userDoc.exists() ? userDoc.data().username : user.email.split('@')[0];
             
-            // Update greeting with username
             const greetingElement = document.getElementById('user-greeting');
             if (greetingElement) {
                 greetingElement.innerHTML = `Hi, <strong>${username}</strong>!`;
@@ -42,8 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
         } else {
-            // User is signed out
-            window.location.href = 'login.html';
+            // User is not authenticated, redirect to index.html
+            window.location.href = '/Lingosto/index.html';
         }
     });
 });

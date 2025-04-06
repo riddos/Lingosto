@@ -189,6 +189,12 @@
     </footer>
     <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js"></script>
     <script type="module" src="../js/dashboard.js"></script>
+    <script type="module">
+        import { setupAuthNavigation } from '../js/auth.js';
+        document.addEventListener('DOMContentLoaded', () => {
+            setupAuthNavigation();
+        });
+    </script>
     <script>
     document.addEventListener("DOMContentLoaded", () => {
         const menuToggle = document.querySelector(".menu-toggle");
