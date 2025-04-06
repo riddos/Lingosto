@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (logoutBtn) {
                 logoutBtn.addEventListener('click', () => {
                     signOut(auth).then(() => {
-                        window.location.href = 'index.html'; // Redirect to index.html
+                        window.location.href = '/Lingosto/index.html'; // Use absolute path to index.html
                     }).catch((error) => {
                         console.error('Error signing out:', error);
                     });

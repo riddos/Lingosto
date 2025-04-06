@@ -44,6 +44,7 @@
                 </li>
                 <li><a href="../index.html#how-to-read">How to read?</a></li>
                 <li><a href="../pages/generate.html">Generate a text</a></li>
+                <li><a href="../pages/profile.html">My Profile</a></li>
                 <li><a href="../pages/contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -261,6 +262,17 @@
                 targetSection.scrollIntoView({
                     behavior: "smooth",
                     block: "start"
+                });
+            });
+        }
+
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', () => {
+                signOut(auth).then(() => {
+                    window.location.href = '../index.html'; // Redirect to index.html
+                }).catch((error) => {
+                    console.error('Error logging out:', error);
                 });
             });
         }

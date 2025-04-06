@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lingosto - Profile</title>
+    <link rel="icon" sizes="16x16" href="../images/logo.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="../images/logo.png" type="image/png">
+    <link rel="icon" sizes="48x48" href="../images/logo.png" type="image/png">
+    <link rel="icon" href="../images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">
+                <img src="../images/icon.png" alt="Home Icon">
+                Home
+            </a>
+            <div class="right-section">
+                <span id="user-greeting" class="user-greeting">Hi, <strong>Username</strong>!</span>
+                <button id="logout-btn" class="logout-btn">Log Out</button>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="languages.html">Get started</a>
+                    <ul>
+                        <li><a href="turkish/turkish.html">Turkish</a></li>
+                        <li><a href="english/english.html">English</a></li>
+                        <li><a href="german/german.html">German</a></li>
+                        <li><a href="spanish/spanish.html">Spanish</a></li>
+                        <li><a href="french/french.html">French</a></li>
+                        <li><a href="italian/italian.html">Italian</a></li>
+                        <li><a href="portuguese/portuguese.html">Portuguese</a></li>
+                        <li><a href="czech/czech.html">Czech</a></li>
+                        <li><a href="russian/russian.html">Russian</a></li>
+                        <li><a href="polish/polish.html">Polish</a></li>
+                        <li><a href="norwegian/norwegian.html">Norwegian</a></li>
+                        <li><a href="swedish/swedish.html">Swedish</a></li>
+                        <li><a href="dutch/dutch.html">Dutch</a></li>
+                        <li><a href="croatian/croatian.html">Croatian</a></li>
+                    </ul>
+                </li>
+                <li><a href="../index.html#how-to-read">How to read?</a></li>
+                <li><a href="generate.html">Generate a text</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="profile-section">
+            <h1>Your Profile</h1>
+            <div class="user-info">
+                <div class="info-card">
+                    <h2>Account Information</h2>
+                    <p><strong>Username:</strong> <span id="profile-username">Loading...</span></p>
+                    <p><strong>Email:</strong> <span id="profile-email">Loading...</span></p>
+                    <p><strong>Member since:</strong> <span id="profile-join-date">Loading...</span></p>
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <h2>Language Progress</h2>
+                <div id="language-progress" class="progress-grid">
+                    <!-- Progress cards will be dynamically added here -->
+                </div>
+            </div>
+
+            <div class="achievements-section">
+                <h2>Your Achievements</h2>
+                <div id="achievements" class="achievements-grid">
+                    <!-- Achievement cards will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Lingosto. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js"></script>
+    <script type="module" src="../js/profile.js"></script>
+</body>
+</html> 
