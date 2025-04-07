@@ -27,7 +27,9 @@ export function setupAuthNavigation() {
         if (user) {
             // User is logged in
             if (logoLink) {
-                logoLink.href = '../pages/dashboard.html';
+                const currentPath = window.location.pathname;
+                const isInLanguagePage = currentPath.includes('/pages/') && currentPath.split('/').length > 3;
+                logoLink.href = isInLanguagePage ? '../../pages/dashboard.html' : '../pages/dashboard.html';
             }
             if (loginLink) {
                 loginLink.style.display = 'none';
@@ -61,9 +63,10 @@ export function setupAuthNavigation() {
             }
 
             // If we're on a protected page, redirect to index
-            if (!window.location.pathname.endsWith('index.html') && 
-                !window.location.pathname.endsWith('login.html') &&
-                !window.location.pathname.endsWith('register.html')) {
+            const protectedPages = ['dashboard.html', 'profile.html', 'settings.html'];
+            const currentPage = window.location.pathname.split('/').pop();
+            
+            if (protectedPages.includes(currentPage)) {
                 window.location.href = '../index.html';
             }
         }
@@ -79,6 +82,18 @@ export function setupAuthNavigation() {
             } catch (error) {
                 console.error('Error signing out:', error);
             }
+        });
+    }
+
+    // Setup profile button if it exists
+    const profileBtn = document.getElementById('profile-btn');
+    if (profileBtn) {
+        profileBtn.addEventListener('click', () => {
+            // Get the current path and determine the correct relative path to profile.html
+            const currentPath = window.location.pathname;
+            const isInLanguagePage = currentPath.includes('/pages/') && currentPath.split('/').length > 3;
+            const relativePath = isInLanguagePage ? '../../pages/profile.html' : '../pages/profile.html';
+            window.location.href = relativePath;
         });
     }
 } 

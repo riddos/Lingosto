@@ -482,6 +482,28 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
     background-color: #e60000;
 }
 
+.profile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-btn .user-icon {
+    width: 24px; /* Set consistent size */
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Makes the icon white */
+    transition: transform 0.2s ease;
+}
+
+.profile-btn:hover .user-icon {
+    transform: scale(1.1);
+}
+
 @media (max-width: 768px) {
     nav .menu {
         display: none;
@@ -572,6 +594,11 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
     .user-greeting {
         margin-right: 0.5rem;
         font-size: 1rem;
+    }
+
+    .profile-btn .user-icon {
+        width: 24px; /* Keep the same size for mobile */
+        height: 24px;
     }
   }
 }

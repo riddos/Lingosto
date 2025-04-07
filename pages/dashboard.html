@@ -18,7 +18,10 @@
                 Home
             </a>
             <div class="right-section">
-                <span id="user-greeting" class="user-greeting">Hi, <strong>Username</strong>!</span>
+                <span id="user-greeting" class="user-greeting">Hi<strong></strong>!</span>
+                <button id="profile-btn" class="profile-btn" aria-label="My Profile">
+                    <img src="../images/user-icon.png" alt="Profile" class="user-icon">
+                </button>
                 <button id="logout-btn" class="logout-btn">Log Out</button>
                 <button class="menu-toggle" aria-label="Toggle menu">☰</button>
             </div>
@@ -44,7 +47,6 @@
                 </li>
                 <li><a href="../index.html#how-to-read">How to read?</a></li>
                 <li><a href="../pages/generate.html">Generate a text</a></li>
-                <li><a href="../pages/profile.html">My Profile</a></li>
                 <li><a href="../pages/contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -280,6 +282,13 @@
                 }).catch((error) => {
                     console.error('Error logging out:', error);
                 });
+            });
+        }
+
+        const profileBtn = document.getElementById('profile-btn');
+        if (profileBtn) {
+            profileBtn.addEventListener('click', () => {
+                window.location.href = '../pages/profile.html';
             });
         }
     });

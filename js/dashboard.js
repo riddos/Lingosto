@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (logoutBtn) {
                 logoutBtn.addEventListener('click', () => {
                     signOut(auth).then(() => {
-                        window.location.href = '/Lingosto/index.html'; // Use absolute path to index.html
+                        window.location.href = '../../index.html'; // Use absolute path to index.html
                     }).catch((error) => {
                         console.error('Error signing out:', error);
                     });
@@ -53,10 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
             onAuthStateChanged(auth, (user) => {
                 if (user) {
                     // Redirect to the correct path for dashboard.html
-                    window.location.href = '/Lingosto/dashboard.html';
+                    window.location.href = '../pages/dashboard.html';
                 } else {
                     // Redirect to the correct path for index.html
-                    window.location.href = '/Lingosto/index.html';
+                    window.location.href = '../../index.html';
                 }
             });
         });

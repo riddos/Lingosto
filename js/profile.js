@@ -35,6 +35,24 @@ const languages = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Add menu toggle functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const menu = document.querySelector('.menu');
+    
+    if (menuToggle && menu) {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent the click from immediately triggering the document click
+            menu.classList.toggle('visible');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
+                menu.classList.remove('visible');
+            }
+        });
+    }
+
     // Handle authentication state
     onAuthStateChanged(auth, async (user) => {
         if (user) {
@@ -78,15 +96,19 @@ async function loadLanguageProgress(userId) {
     const progressContainer = document.getElementById('language-progress');
     const userProgressRef = doc(db, "users", userId);
     const userProgressDoc = await getDoc(userProgressRef);
-    const userProgress = userProgressDoc.data()?.progress || {};
-    const completedStories = userProgressDoc.data()?.completedStories || {};
+    const userData = userProgressDoc.data();
+    const completedStories = userData?.completedStories || {};
 
     languages.forEach(language => {
-        const completedStoriesForLang = completedStories[language.code] || [];
-        const totalStories = 30; // Total number of stories for each language
-        const progress = Math.round((completedStoriesForLang.length / totalStories) * 100);
+        const languageCode = language.code;
+        const completedStoriesForLang = completedStories[languageCode] || {};
+        const completedCount = Object.keys(completedStoriesForLang).length;
+        const totalStories = Object.keys(completedStories).reduce((acc, lang) => {
+            return acc + Object.keys(completedStories[lang] || {}).length;
+        }, 0); // Dynamically calculate total stories for all languages
+        const languageProgress = totalStories > 0 ? (completedCount / totalStories) * 100 : 0; // Calculate progress based on completed stories
         
-        const progressCard = createProgressCard(language, progress, completedStoriesForLang.length);
+        const progressCard = createProgressCard(language, languageProgress, completedCount);
         progressContainer.appendChild(progressCard);
     });
 }
@@ -118,4 +140,4 @@ export async function updateLanguageProgress(userId, languageCode, progress) {
             [`progress.${languageCode}`]: progress
         });
     }
-} 
+}
