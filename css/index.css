@@ -34,6 +34,11 @@ header {
     background-repeat: no-repeat;
 }
 
+header h1, header p {
+    position: relative; /* Ensure z-index works properly */
+    z-index: 15; /* Increased z-index to ensure they appear on top of everything */
+}
+
 header .feature-card {
     position: relative;
     width: 220px;
@@ -303,19 +308,24 @@ footer {
 
 .flags {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 15px;
+    flex-direction: column;
+    gap: 10px; /* Space between rows */
     padding: 1.5rem 0;
-    position: relative;
-    z-index: 2;
+    z-index: 10; /* Increased z-index to ensure it appears on top of everything */
+    position: relative; /* Ensure z-index works properly */
+}
+
+.flag-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px; /* Space between flags */
 }
 
 .flags .flag img {
     width: 40px;
+    height: auto;
     border-radius: 5px;
     transition: transform 0.3s;
-    position: relative;
 }
 
 .flags .flag img:hover {
