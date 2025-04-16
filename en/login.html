@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lingosto - Giriş Yap</title>
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="stylesheet" href="../../css/login.css">
 </head>
 <body>
     <header>
         <nav>
-            <a href="../index.html" class="logo">
-                <img src="../images/icon.png" alt="Home Icon">
+            <a href="../../index.html" class="logo">
+                <img src="../../images/icon.png" alt="Home Icon">
                 Home
             </a>
             <button class="menu-toggle" aria-label="Toggle menu">
@@ -19,35 +19,35 @@
             </button>
             <ul class="menu">
                 <li>
-                    <a href="../pages/languages.html">Get started</a>
+                    <a href="languages.html">Get started</a>
                     <ul>
-                        <li><a href="../pages/turkish/turkish.html">Turkish</a></li>
-                        <li><a href="../pages/english/english.html">English</a></li>
-                        <li><a href="../pages/german/german.html">German</a></li>
-                        <li><a href="../pages/spanish/spanish.html">Spanish</a></li>
-                        <li><a href="../pages/french/french.html">French</a></li>
-                        <li><a href="../pages/italian/italian.html">Italian</a></li>
-                        <li><a href="../pages/portuguese/portuguese.html">Portuguese</a></li>
-                        <li><a href="../pages/czech/czech.html">Czech</a></li>
-                        <li><a href="../pages/russian/russian.html">Russian</a></li>
-                        <li><a href="../pages/polish/polish.html">Polish</a></li>
-                        <li><a href="../pages/norwegian/norwegian.html">Norwegian</a></li>
-                        <li><a href="../pages/swedish/swedish.html">Swedish</a></li>
-                        <li><a href="../pages/dutch/dutch.html">Dutch</a></li>
-                        <li><a href="../pages/croatian/croatian.html">Croatian</a></li>
+                        <li><a href="/en/stories/turkish/turkish.html">Turkish</a></li>
+                        <li><a href="/en/stories/english/english.html">English</a></li>
+                        <li><a href="/en/stories/german/german.html">German</a></li>
+                        <li><a href="/en/stories/spanish/spanish.html">Spanish</a></li>
+                        <li><a href="/en/stories/french/french.html">French</a></li>
+                        <li><a href="/en/stories/italian/italian.html">Italian</a></li>
+                        <li><a href="/en/stories/portuguese/portuguese.html">Portuguese</a></li>
+                        <li><a href="/en/stories/czech/czech.html">Czech</a></li>
+                        <li><a href="/en/stories/russian/russian.html">Russian</a></li>
+                        <li><a href="/en/stories/polish/polish.html">Polish</a></li>
+                        <li><a href="/en/stories/norwegian/norwegian.html">Norwegian</a></li>
+                        <li><a href="/en/stories/swedish/swedish.html">Swedish</a></li>
+                        <li><a href="/en/stories/dutch/dutch.html">Dutch</a></li>
+                        <li><a href="/en/stories/croatian/croatian.html">Croatian</a></li>
                     </ul>
                 </li>
-                <li><a href="../index.html#how-to-read">How to read?</a></li>
-                <li><a href="../pages/generate.html">Generate a text</a></li>
-                <li><a href="login.html" class="active">Log In / Register</a></li>
-                <li><a href="../pages/contact.html">Contact</a></li>
+                <li><a href="../../index.html#how-to-read">How to read?</a></li>
+                <li><a href="/en/generate.html">Generate a text</a></li>
+                <li><a href="/en/login.html" class="active">Log In / Register</a></li>
+                <li><a href="/en/contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
     <div class="container">
         <div class="login-container">
             <div class="login-header">
-                <img src="../images/icon.png" alt="Lingosto Logo" class="login-logo">
+                <img src="../../images/icon.png" alt="Lingosto Logo" class="login-logo">
                 <h2>Lingosto'ya Giriş Yap</h2>
             </div>
             <form id="login-form">
@@ -66,7 +66,7 @@
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-    <script type="module" src="../js/login.js"></script>
+    <script type="module" src="../../js/login.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const menuToggle = document.querySelector(".menu-toggle");
@@ -85,7 +85,7 @@
                 });
             }
 
-            const howToReadLink = document.querySelector('a[href="../index.html#how-to-read"]');
+            const howToReadLink = document.querySelector('a[href="../../index.html#how-to-read"]');
             const targetSection = document.getElementById("how-to-read");
 
             if (howToReadLink && targetSection) {

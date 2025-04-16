@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>French</title>
+    <link rel="icon" sizes="16x16" href="images/logo.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="images/logo.png" type="image/png">
+    <link rel="icon" sizes="48x48" href="images/logo.png" type="image/png">
+    <link rel="icon" href="/images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/stories.css">
+    <style>
+        @media (max-width: 768px) {
+            .right-section {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            .user-greeting {
+                order: 1;
+                margin-right: auto;
+                font-size: 14px;
+            }
+
+            .profile-btn {
+                order: 2;
+                margin-right: 10px;
+            }
+
+            .logout-btn {
+                order: 3;
+                margin-left: 10px;
+                font-size: 14px;
+                display: inline-block;
+            }
+
+            .menu-toggle {
+                order: 4;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: white;
+                border: 1px solid #ccc;
+                z-index: 1000;
+            }
+
+            .menu.visible {
+                display: flex;
+            }
+
+            .menu li {
+                margin: 0;
+            }
+
+            .menu li a {
+                padding: 10px;
+                display: block;
+                text-decoration: none;
+                color: black;
+            }
+
+            .menu li a:hover {
+                background-color: #f0f0f0;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .user-icon {
+                width: 20px; /* Match the size in mobile version */
+                height: 20px;
+                object-fit: contain;
+                filter: brightness(0) invert(1);
+                transition: transform 0.2s ease;
+            }
+
+            .logout-btn {
+                background-color: #ff4d4d; /* Match the background color in mobile version */
+                color: white;
+                border: none;
+                padding: 0.4rem 0.8rem; /* Match the padding in mobile version */
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 0.9rem; /* Match the font size in mobile version */
+            }
+
+            .logout-btn:hover {
+                background-color: #e60000; /* Match the hover color in mobile version */
+            }
+
+            .profile-btn {
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .profile-btn:hover .user-icon {
+                transform: scale(1.1); /* Match the hover effect in mobile version */
+            }
+
+            .right-section {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem; /* Match the gap in mobile version */
+            }
+
+            .complete-btn {
+                background-color: #40e0d0; /* Turquoise background color */
+                color: white;
+                border: none;
+                padding: 0.4rem 0.8rem;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 0.9rem;
+            }
+
+            .complete-btn:hover {
+                background-color: #20b2aa; /* Darker turquoise for hover */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/en/index.html" class="logo">
+                <img src="/images/icon.png" alt="Home Icon">
+                Home
+            </a>
+            <div class="right-section">
+                <span id="user-greeting" class="user-greeting">Hi<strong></strong>!</span>
+                <button id="profile-btn" class="profile-btn" aria-label="My Profile">
+                    <img src="/images/user-icon.png" alt="Profile" class="user-icon">
+                </button>
+                <button id="logout-btn" class="logout-btn">Log Out</button>
+                <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="/en/languages.html">Get started</a>
+                    <ul>
+                        <li><a href="/en/stories/turkish/turkish.html">Turkish</a></li>
+                        <li><a href="/en/stories/english/english.html">English</a></li>
+                        <li><a href="/en/stories/german/german.html">German</a></li>
+                        <li><a href="/en/stories/french/french.html">French</a></li>
+                        <li><a href="/en/stories/portuguese/portuguese.html">Portuguese</a></li>
+                        <li><a href="/en/stories/italian/italian.html">Italian</a></li>
+                        <li><a href="/en/stories/spanish/spanish.html">Spanish</a></li>
+                        <li><a href="/en/stories/czech/czech.html">Czech</a></li>
+                        <li><a href="/en/stories/russian/russian.html">Russian</a></li>
+                        <li><a href="/en/stories/dutch/dutch.html">Dutch</a></li>
+                        <li><a href="/en/stories/swedish/swedish.html">Swedish</a></li>
+                        <li><a href="/en/stories/norwegian/norwegian.html">Norwegian</a></li>
+                        <li><a href="/en/stories/croatian/croatian.html">Croatian</a></li>
+                        <li><a href="/en/stories/polish/polish.html">Polish</a></li>
+                    </ul>
+                </li>
+                <li><a href="/en/index.html#how-to-read">How to read?</a></li>
+                <li><a href="/en/generate.html">Generate a text</a></li>
+                <li><a href="/en/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>French</h1>
+        <p>Choisis une histoire en français</p>
+    </header>
+    <div class="container">
+
+        <div class="stories">
+            <div class="category">
+                <h3>Niveau A1</h3>
+                <ul class="story-list">
+                    <li>
+                        <a href="/en/stories/french/lesmiserables.html">Misérables (The Miserables) – Victor Hugo</a>
+                        <button class="complete-btn" data-story="lesmiserables">Mark as Completed</button>
+                    </li>
+                    <li>
+                        <a href="/en/stories/french/lepetitprince.html">Petit Prince (The Little Prince) – Antoine de Saint-Exupéry</a>
+                        <button class="complete-btn" data-story="lepetitprince">Mark as Completed</button>
+                    </li>
+                    <li>
+                        <a href="/en/stories/french/madamebovary.html">Madame Bovary – Gustave Flaubert</a>
+                        <button class="complete-btn" data-story="madamebovary">Mark as Completed</button>
+                    </li>
+                    <li>
+                        <a href="/en/stories/french/notredamedeparis.html">Notre de Paris (The Hunchback of Notre-Dame) – Victor Hugo</a>
+                        <button class="complete-btn" data-story="notredamedeparis">Mark as Completed</button>
+                    </li>
+                    <li>
+                        <a href="/en/stories/french/letranger.html">L'Étranger (The Stranger) – Albert Camus</a>
+                        <button class="complete-btn" data-story="letranger">Mark as Completed</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="category">
+                <h3>Niveau A2</h3>
+                <ul class="story-list">
+                    <li>
+                        <a href="/en/stories/french/lecomtedemontecristo.html">Le Comte de Monte-Cristo (The Count of Monte Cristo) – Alexandre Dumas</a>
+                        <button class="complete-btn" data-story="lecomtedemontecristo">Mark as Completed</button>
+                    </li>
+                    <li>
+                        <a href="/en/stories/french/cyranodebergerac.html">Cyrano de Bergerac – Edmond Rostand</a>
+                        <button class="complete-btn" data-story="cyranodebergerac">Mark as Completed</button>
+                    </li>
+                    <li>
+                        <a href="/en/stories/french/lapeste.html">La Peste (The Plague) – Albert Camus</a>
+                        <button class="complete-btn" data-story="lapeste">Mark as Completed</button>
+                    </li>
+                    <li>
+                        <a href="/en/stories/french/lerougeetlenoir.html">Le Rouge et le Noir (The Red and the Black) – Stendhal</a>
+                        <button class="complete-btn" data-story="lerougeetlenoir">Mark as Completed</button>
+                    </li>
+                    <li>
+                        <a href="/en/stories/french/germinal.html">Germinal – Émile Zola</a>
+                        <button class="complete-btn" data-story="germinal">Mark as Completed</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="module">
+        import { setupAuthNavigation } from '/js/auth.js';
+        document.addEventListener('DOMContentLoaded', () => {
+            setupAuthNavigation();
+        });
+    </script>
+    <script type="module" src="/js/storyCompletion.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".menu");
+        const profileBtn = document.getElementById("profile-btn");
+
+        if (menuToggle && menu) {
+            menuToggle.addEventListener("click", (event) => {
+                event.stopPropagation(); // Prevent click from propagating to the document
+                menu.classList.toggle("visible");
+            });
+
+            document.addEventListener("click", (event) => {
+                if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                    menu.classList.remove("visible");
+                }
+            });
+        }
+
+        if (profileBtn) {
+            profileBtn.addEventListener("click", () => {
+                window.location.href = "/en/profile.html";
+            });
+        }
+    });
+</script>
+</body>
+</html>

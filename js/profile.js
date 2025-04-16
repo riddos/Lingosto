@@ -53,6 +53,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Handle profile button click
+    const profileBtn = document.getElementById('profile-btn');
+    if (profileBtn) {
+        profileBtn.addEventListener('click', () => {
+            // Get the current path and determine the correct relative path to profile.html
+            const currentPath = window.location.pathname;
+            const isInLanguagePage = currentPath.includes('/en/') && currentPath.split('/').length > 3;
+            const relativePath = isInLanguagePage ? '/en/profile.html' : '/en/profile.html';
+            window.location.href = relativePath;
+        });
+    }
+
     // Handle authentication state
     onAuthStateChanged(auth, async (user) => {
         if (user) {
@@ -79,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (logoutBtn) {
                 logoutBtn.addEventListener('click', () => {
                     signOut(auth).then(() => {
-                        window.location.href = '../index.html';
+                        window.location.href = "../index.html";
                     }).catch((error) => {
                         console.error('Error signing out:', error);
                     });
@@ -87,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         } else {
             // User is signed out
-            window.location.href = 'login.html';
+            window.location.href = "../../en/login.html";
         }
     });
 });
@@ -97,16 +109,31 @@ async function loadLanguageProgress(userId) {
     const userProgressRef = doc(db, "users", userId);
     const userProgressDoc = await getDoc(userProgressRef);
     const userData = userProgressDoc.data();
+    
+    console.log('Profile Debug - Full User Data:', userData);
     const completedStories = userData?.completedStories || {};
+    console.log('Profile Debug - Completed Stories:', completedStories);
+
+    // Clear existing progress cards
+    progressContainer.innerHTML = '';
 
     languages.forEach(language => {
         const languageCode = language.code;
         const completedStoriesForLang = completedStories[languageCode] || {};
-        const completedCount = Object.keys(completedStoriesForLang).length;
-        const totalStories = Object.keys(completedStories).reduce((acc, lang) => {
-            return acc + Object.keys(completedStories[lang] || {}).length;
-        }, 0); // Dynamically calculate total stories for all languages
-        const languageProgress = totalStories > 0 ? (completedCount / totalStories) * 100 : 0; // Calculate progress based on completed stories
+        
+        // Count only the stories that are marked as true (completed)
+        const completedCount = Object.values(completedStoriesForLang).filter(v => v === true).length;
+        
+        // Get total stories from the completedStories object
+        const totalStories = Object.keys(completedStoriesForLang).length;
+        const languageProgress = totalStories > 0 ? Math.round((completedCount / totalStories) * 100) : 0;
+        
+        console.log(`Profile Debug - Language ${language.name} (${languageCode}):`, {
+            completedStoriesForLang,
+            completedCount,
+            totalStories,
+            languageProgress
+        });
         
         const progressCard = createProgressCard(language, languageProgress, completedCount);
         progressContainer.appendChild(progressCard);
@@ -141,3 +168,41 @@ export async function updateLanguageProgress(userId, languageCode, progress) {
         });
     }
 }
+
+document.addEventListener("DOMContentLoaded", async () => {
+    const db = getFirestore();
+    const userId = "currentUserId"; // Replace with logic to get the current user's ID
+    const userDocRef = doc(db, "users", userId);
+
+    try {
+        const userDoc = await getDoc(userDocRef);
+
+        if (userDoc.exists()) {
+            const userData = userDoc.data();
+
+            // Update username, email, and join date
+            document.getElementById("profile-username").textContent = userData.username || "N/A";
+            document.getElementById("profile-email").textContent = userData.email || "N/A";
+            document.getElementById("profile-join-date").textContent = userData.joinDate || "N/A";
+
+            // Update language progress
+            const languageProgress = userData.languageProgress || {};
+            const progressContainer = document.getElementById("language-progress");
+            progressContainer.innerHTML = ""; // Clear existing content
+
+            Object.entries(languageProgress).forEach(([language, progress]) => {
+                const progressCard = document.createElement("div");
+                progressCard.classList.add("progress-card");
+                progressCard.innerHTML = `
+                    <h3>${language}</h3>
+                    <p>Stories Completed: ${progress.completedStories || 0}</p>
+                `;
+                progressContainer.appendChild(progressCard);
+            });
+        } else {
+            console.error("User document does not exist.");
+        }
+    } catch (error) {
+        console.error("Error fetching user data:", error);
+    }
+});

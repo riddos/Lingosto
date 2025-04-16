@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Get current language from URL and map to language code
         const currentPath = window.location.pathname;
-        const languageMatch = currentPath.match(/\/pages\/([^\/]+)\//);
+        const languageMatch = currentPath.match(/\/en\/([^\/]+)\//);
         const currentLanguagePath = languageMatch ? languageMatch[1] : null;
         const currentLanguage = currentLanguagePath ? languageCodeMap[currentLanguagePath] : null;
 
@@ -78,8 +78,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     // Calculate new progress
                     const completedCount = Object.keys(completedStories[currentLanguage] || {}).length;
-                    const totalStories = 30; // Total number of stories for each language
-                    const newProgress = Math.round((completedCount / totalStories) * 100);
+                    const totalStories = document.querySelectorAll('.story-list li').length;
+                    const newProgress = totalStories > 0 ? Math.round((completedCount / totalStories) * 100) : 0;
+                    
+                    console.log('Story Completion Debug:', {
+                        currentLanguage,
+                        completedStories,
+                        completedCount,
+                        totalStories,
+                        newProgress
+                    });
                     
                     // Update Firestore with both completedStories and progress
                     await updateDoc(doc(db, "users", user.uid), {
@@ -89,6 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             [currentLanguage]: newProgress
                         }
                     });
+
+                    console.log('Firestore update successful');
 
                     // Also update localStorage for offline support
                     localStorage.setItem('completedStories', JSON.stringify(completedStories));

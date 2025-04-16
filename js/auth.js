@@ -20,7 +20,7 @@ const db = getFirestore(app);
 export function setupAuthNavigation() {
     onAuthStateChanged(auth, async (user) => {
         const logoLink = document.querySelector('.logo');
-        const loginLink = document.querySelector('a[href*="login.html"]');
+        const loginLink = document.querySelector('a[href*="/en/login.html"]');
         const logoutBtn = document.getElementById('logout-btn');
         const userGreeting = document.getElementById('user-greeting');
 
@@ -28,8 +28,8 @@ export function setupAuthNavigation() {
             // User is logged in
             if (logoLink) {
                 const currentPath = window.location.pathname;
-                const isInLanguagePage = currentPath.includes('/pages/') && currentPath.split('/').length > 3;
-                logoLink.href = isInLanguagePage ? '../../pages/dashboard.html' : '../pages/dashboard.html';
+                const isInLanguagePage = currentPath.includes('/en/') && currentPath.split('/').length > 3;
+                logoLink.href = isInLanguagePage ? '../../en/dashboard.html' : '../en/dashboard.html';
             }
             if (loginLink) {
                 loginLink.style.display = 'none';
@@ -45,7 +45,7 @@ export function setupAuthNavigation() {
 
             // If we're on the index page, redirect to dashboard
             if (window.location.pathname.endsWith('index.html')) {
-                window.location.href = '../pages/dashboard.html';
+                window.location.href = '../en/dashboard.html';
             }
         } else {
             // User is not logged in
@@ -89,11 +89,7 @@ export function setupAuthNavigation() {
     const profileBtn = document.getElementById('profile-btn');
     if (profileBtn) {
         profileBtn.addEventListener('click', () => {
-            // Get the current path and determine the correct relative path to profile.html
-            const currentPath = window.location.pathname;
-            const isInLanguagePage = currentPath.includes('/pages/') && currentPath.split('/').length > 3;
-            const relativePath = isInLanguagePage ? '../../pages/profile.html' : '../pages/profile.html';
-            window.location.href = relativePath;
+            window.location.href = '/en/profile.html';
         });
     }
 } 

@@ -36,7 +36,7 @@ header {
 
 header h1, header p {
     position: relative; /* Ensure z-index works properly */
-    z-index: 15; /* Increased z-index to ensure they appear on top of everything */
+    z-index: 9; /* Increased z-index to ensure they appear on top of everything */
 }
 
 header .feature-card {
@@ -112,7 +112,7 @@ nav {
     background-color: #009999;
     color: white;
     border-radius: 10px;
-    z-index: 3;
+    z-index: 10;
 }
 
 nav .logo {
@@ -168,7 +168,7 @@ nav .menu li ul {
     list-style: none;
     padding: 0.5rem;
     border-radius: 5px;
-    z-index: 1;
+    z-index: 10;
     line-height: 22px;
 }
 
@@ -311,7 +311,7 @@ footer {
     flex-direction: column;
     gap: 10px; /* Space between rows */
     padding: 1.5rem 0;
-    z-index: 10; /* Increased z-index to ensure it appears on top of everything */
+    z-index: 5; /* Increased z-index to ensure it appears on top of everything */
     position: relative; /* Ensure z-index works properly */
 }
 
@@ -478,19 +478,22 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         padding: 10px;
         border-radius: 5px;
-        z-index: 2;
+        z-index: 10;
     }
 
     nav .menu.visible {
         display: flex;
+        z-index: 10; /* Further increased z-index to ensure it appears on top */
     }
 
     nav .menu.active {
         display: flex;
+        z-index: 10; /* Further increased z-index to ensure it appears on top */
     }
 
     .menu-toggle {
         display: block;
+        z-index: 10;
     }
     .features {
         flex-direction: column; /* Mobil uyumluluk için flex yönü değiştirildi */
@@ -546,11 +549,13 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
         margin-top: 5px; /* Add spacing between "Languages" and dropdown */
         width: 100%; /* Full width */
         box-sizing: border-box; /* Include padding and border in width */
+        z-index: 10;
     }
 
     nav .menu > li > ul li a {
         padding: 5px 10px; /* Adjust padding for dropdown items */
         display: block; /* Ensure full width */
+        z-index: 10;
     }
 
     .user-greeting {
@@ -558,4 +563,73 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
         font-size: 1rem;
     }
   }
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.language-selector {
+    position: relative;
+    z-index: 1000;
+}
+
+.language-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    z-index: 1001;
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #007373;
+    border-radius: 4px;
+    padding: 5px 0;
+    min-width: 100px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 1002;
+}
+
+.language-dropdown.show {
+    display: block;
+}
+
+.language-dropdown li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.language-dropdown a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    display: block;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.language-dropdown a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .nav-right {
+        gap: 0.5rem;
+    }
+    
+    .language-btn {
+        padding: 3px 8px;
+        font-size: 12px;
+    }
 }

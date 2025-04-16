@@ -115,6 +115,38 @@ document.addEventListener("DOMContentLoaded", () => {
             flashcardsContainer.appendChild(block);
         }
     }
+
+    // Language selector functionality
+    const languageBtn = document.querySelector('.language-btn');
+    const languageDropdown = document.querySelector('.language-dropdown');
+
+    // Toggle dropdown when clicking the button
+    if (languageBtn) {
+        languageBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            languageDropdown.classList.toggle('show');
+        });
+    }
+
+    // Handle clicks on language options
+    const languageLinks = document.querySelectorAll('.language-dropdown a');
+    languageLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.dataset.lang) {
+                e.preventDefault();
+                languageBtn.textContent = this.dataset.lang.toUpperCase() + ' ▼';
+            }
+            languageDropdown.classList.remove('show');
+        });
+    });
+
+    // Close dropdown when clicking anywhere else
+    window.addEventListener('click', function(e) {
+        if (!languageBtn.contains(e.target)) {
+            languageDropdown.classList.remove('show');
+        }
+    });
 });
 
 // Google Translate API

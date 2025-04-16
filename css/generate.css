@@ -191,6 +191,63 @@ button:hover {
     transform: rotateY(180deg);
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.language-selector {
+    position: relative;
+    z-index: 1000;
+}
+
+.language-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.language-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #007373;
+    border-radius: 4px;
+    padding: 5px 0;
+    min-width: 100px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.language-selector:hover .language-dropdown {
+    display: block;
+}
+
+.language-dropdown li {
+    list-style: none;
+}
+
+.language-dropdown a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 15px;
+    display: block;
+    font-size: 14px;
+}
+
+.language-dropdown a:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -210,5 +267,14 @@ button:hover {
 
     .menu-toggle {
         display: block;
+    }
+
+    .nav-right {
+        gap: 0.5rem;
+    }
+    
+    .language-btn {
+        padding: 3px 8px;
+        font-size: 12px;
     }
 }

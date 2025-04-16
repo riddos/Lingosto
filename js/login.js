@@ -30,6 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
+    console.log("Attempting login with:", email); // Log the email being used
+
     if (!email || !password) {
       alert("Please fill in both email and password fields.");
       return;
@@ -40,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Signed in
         const user = userCredential.user;
         console.log("Successfully logged in:", user);
-        window.location.href = "../pages/dashboard.html"; // Redirect to dashboard after successful login
+        window.location.href = "/en/dashboard.html"; // Updated path to use absolute path from root
       })
       .catch((error) => {
         const errorCode = error.code;
