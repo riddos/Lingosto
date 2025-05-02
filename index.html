@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lingosto - Learn Languages with Ease</title>
+    <title>Lingosto - Learn Languages with meaningful content</title>
     <link rel="icon" sizes="16x16" href="images/logo.png" type="image/png">
     <link rel="icon" sizes="32x32" href="images/logo.png" type="image/png">
     <link rel="icon" sizes="48x48" href="images/logo.png" type="image/png">
@@ -22,6 +22,8 @@
                     <button class="language-btn">EN ▼</button>
                     <ul class="language-dropdown">
                         <li><a href="index.html">EN</a></li>
+                        <li><a href="/tr/index.html">TR</a></li>
+                        <li><a href="/de/index.html">DE</a></li>
                     </ul>
                 </div>
                 <button class="menu-toggle" aria-label="Toggle menu">
@@ -33,20 +35,20 @@
                     <a href="/en/languages.html">Get started</a>
                     <ul>
                         <li><a href="/en/stories/turkish/turkish.html">Turkish</a></li>
-                        <li><a href="/en/stories/english.html">English</a></li>
-                        <li><a href="/en/stories/german.html">German</a></li>
-                        <li><a href="/en/stories/spanish.html">Spanish</a></li>
-                        <li><a href="/en/stories/french.html">French</a></li>
-                        <li><a href="/en/stories/italian.html">Italian</a></li>
-                        <li><a href="/en/stories/portuguese.html">Portuguese</a></li>
-                        <li><a href="/en/stories/czech.html">Czech</a></li>
-                        <li><a href="/en/stories/russian.html">Russian</a></li>
-                        <li><a href="/en/stories/polish.html">Polish</a></li>
-                        <li><a href="/en/stories/norwegian.html">Norwegian</a></li>
-                        <li><a href="/en/stories/swedish.html">Swedish</a></li>
-                        <li><a href="/en/stories/dutch.html">Dutch</a></li>
-                        <li><a href="/en/stories/croatian.html">Croatian</a></li>
-                        <li><a href="/en/stories/greek.html">Greek</a></li>
+                        <li><a href="/en/stories/english/english.html">English</a></li>
+                        <li><a href="/en/stories/german/german.html">German</a></li>
+                        <li><a href="/en/stories/spanish/spanish.html">Spanish</a></li>
+                        <li><a href="/en/stories/french/french.html">French</a></li>
+                        <li><a href="/en/stories/italian/italian.html">Italian</a></li>
+                        <li><a href="/en/stories/portuguese/portuguese.html">Portuguese</a></li>
+                        <li><a href="/en/stories/czech/czech.html">Czech</a></li>
+                        <li><a href="/en/stories/russian/russian.html">Russian</a></li>
+                        <li><a href="/en/stories/polish/polish.html">Polish</a></li>
+                        <li><a href="/en/stories/norwegian/norwegian.html">Norwegian</a></li>
+                        <li><a href="/en/stories/swedish/swedish.html">Swedish</a></li>
+                        <li><a href="/en/stories/dutch/dutch.html">Dutch</a></li>
+                        <li><a href="/en/stories/croatian/croatian.html">Croatian</a></li>
+                        <li><a href="/en/stories/greek/greek.html">Greek</a></li>
                     </ul>
                 </li>
                 <li><a href="index.html#how-to-read">How to read?</a></li>
@@ -104,8 +106,8 @@
                 <a href="/en/stories/croatian/croatian.html">
                     <div class="flag"><img src="images/flags/croatian.png" alt="Croatian"></div>
                 </a>
-                <a href="/en/stories/greek/greek.html">
-                    <div class="flag"><img src="images/flags/finnish.png" alt="Greek"></div>
+                <a href="/en/stories/finnish/finnish.html">
+                    <div class="flag"><img src="images/flags/finnish.png" alt="Finnish"></div>
                 </a>
             </div>
         </div>
@@ -189,7 +191,7 @@
         </div>
         <div class="section-divider"></div>
         <div class="cta">
-            <a href="/en/languages.html">Get    Started Now</a>
+            <a href="/en/languages.html">Get Started Now</a>
         </div>
     </div>
 <div class="social-media">
@@ -229,8 +231,35 @@
         const menu = document.querySelector('.menu');
         const languageBtn = document.querySelector('.language-btn');
         const languageDropdown = document.querySelector('.language-dropdown');
-        const languageLinks = document.querySelectorAll('.language-dropdown a');
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
 
+        // Slideshow functionality
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-advance slides every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Dot click handlers
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Menu toggle functionality
         menuToggle.addEventListener('click', () => {
             menu.classList.toggle('visible');
         });
@@ -242,7 +271,7 @@
             }
         });
 
-        // Toggle dropdown when clicking the button
+        // Language dropdown functionality
         if (languageBtn) {
             languageBtn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -251,22 +280,9 @@
             });
         }
 
-        // Handle clicks on language options
-        languageLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (this.dataset.lang) {
-                    e.preventDefault();
-                    languageBtn.textContent = this.dataset.lang.toUpperCase() + ' ▼';
-                }
-                languageDropdown.classList.remove('show');
-            });
-        });
-
-        // Close dropdown when clicking anywhere else
-        window.addEventListener('click', function(e) {
-            if (!languageBtn.contains(e.target)) {
-                languageDropdown.classList.remove('show');
-            }
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            languageDropdown.classList.remove('show');
         });
 
         const cards = document.querySelectorAll(".feature-card-inner");
@@ -289,31 +305,6 @@
                 card.classList.remove("clicked");
             });
         });
-
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        let currentIndex = 0;
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-                dots[i].classList.toggle('active', i === index);
-            });
-        }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
-        }
-
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                currentIndex = parseInt(dot.getAttribute('data-index'));
-                showSlide(currentIndex);
-            });
-        });
-
-        setInterval(nextSlide, 3500);
 
         const howToReadLink = document.querySelector('a[href="index.html#how-to-read"]');
         const targetSection = document.getElementById("how-to-read");

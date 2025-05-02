@@ -23,20 +23,15 @@ header {
     color: #fff;
     padding: 1rem;
     border-radius: 10px;
-    text-align: left;
-    background-color: #00bfbf;
-    color: #fff;
-    padding: 1rem;
-    border-radius: 10px;
-    background-image: url('path_to_your_image.jpg'); /* Your image here */
-    background-size: cover;  /* Make the image cover the entire header */
-    background-position: right center; /* Align the image to the right */
+    background-image: url('../images/header/header-bg.jpg');
+    background-size: cover;
+    background-position: right center;
     background-repeat: no-repeat;
 }
 
 header h1, header p {
-    position: relative; /* Ensure z-index works properly */
-    z-index: 9; /* Increased z-index to ensure they appear on top of everything */
+    position: relative;
+    z-index: 2;
 }
 
 header .feature-card {
@@ -211,11 +206,10 @@ nav .menu li ul li a {
 .features {
     display: flex;
     gap: 40px;
-    justify-content: flex;
+    justify-content: center;
     margin: 40px 0 80px;
     align-items: center;
 }
-
 
 .card-front, .card-back {
     border: 1px solid #ddd;
@@ -496,50 +490,57 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
         z-index: 10;
     }
     .features {
-        flex-direction: column; /* Mobil uyumluluk için flex yönü değiştirildi */
-        align-items: center;
+        flex-direction: column;
+        gap: 20px;
     }
+    
     header .feature-card {
-        margin-bottom: 1rem; /* Alt alta dizilmesi için margin eklendi */
-        display: block; /* Alt alta dizilmesi için display özelliği eklendi */
+        width: 100%;
+        max-width: 300px;
     }
+    
     header .header-photo {
         display: none;
     }
+    
     h1 {
-    text-align: center;
-  }
-  p {
-    text-align: center;
-  }
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
     .slideshow {
-        display: none;
+        height: 200px;
     }
+    
     .flags {
-        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .dots {
+        bottom: 10px;
+    }
+    
+    .social-media {
+        flex-wrap: wrap;
         justify-content: center;
     }
-    .dots {
-        display: none;
-    .social-media {
-      gap: 1rem; /* Smaller gap for mobile devices */
-        justify-content: center;
+    
+    .icon {
+        margin: 5px;
     }
 
-    .icon {
-      width: 2.5rem; /* Smaller size for mobile devices */
-      height: 2.5rem;
-        justify-content: center;
-    }
-        nav .menu > li > a[href="pages/languages.html"] {
-    border: none; /* Remove the border */
-    padding: 0;
+    nav .menu > li > a[href="pages/languages.html"] {
+        border: none; /* Remove the border */
+        padding: 0;
     }
 
     nav ul.menu > li > a[href="pages/languages.html"]:hover {
-    border: none;
-    padding: 0;
-}
+        border: none;
+        padding: 0;
+    }
 
     /* Adjust the dropdown menu for "Languages" */
     nav .menu > li > ul {
@@ -562,7 +563,6 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
         margin-right: 0.5rem;
         font-size: 1rem;
     }
-  }
 }
 
 .nav-right {
@@ -631,5 +631,26 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
     .language-btn {
         padding: 3px 8px;
         font-size: 12px;
+    }
+}
+
+/* Mobile-only elements */
+.mobile-only {
+    display: none;
+}
+
+/* Desktop-only elements */
+.desktop-only {
+    display: block;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+    
+    .desktop-only {
+        display: none;
     }
 }
