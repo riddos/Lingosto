@@ -103,6 +103,13 @@ nav .menu li ul li a {
     color: white;
 }
 
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: auto;
+}
+
 .menu-toggle {
     display: none;
     font-size: 2rem;
@@ -110,12 +117,8 @@ nav .menu li ul li a {
     border: none;
     cursor: pointer;
     color: white;
-}
-
-.right-section {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    order: 3;
+    margin-left: 1rem;
 }
 
 .logout-btn {
@@ -126,6 +129,7 @@ nav .menu li ul li a {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
+    order: 2;
 }
 
 .logout-btn:hover {
@@ -140,6 +144,8 @@ nav .menu li ul li a {
     display: flex;
     align-items: center;
     justify-content: center;
+    order: 0;
+    margin-right: 0.5rem;
 }
 
 .profile-btn .user-icon {
@@ -177,8 +183,27 @@ nav .menu li ul li a {
         display: flex;
     }
 
+    .right-section {
+        gap: 0.5rem;
+    }
+
     .menu-toggle {
         display: block;
+        order: 3;
+        margin-left: 0.5rem;
+    }
+
+    .language-selector {
+        order: 1;
+    }
+
+    .profile-btn {
+        order: 0;
+        margin-right: 0.5rem;
+    }
+
+    .logout-btn {
+        order: 2;
     }
 
     .user-greeting {
@@ -328,4 +353,92 @@ footer {
     text-align: center;
     padding: 20px;
     margin-top: 30px;
+}
+
+.language-selector {
+    position: relative;
+    z-index: 1000;
+    order: 1;
+}
+
+.language-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+}
+
+.language-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.language-btn::after {
+    content: '▼';
+    font-size: 10px;
+    margin-left: 4px;
+    transition: transform 0.2s ease;
+}
+
+.language-selector:hover .language-btn::after {
+    transform: rotate(180deg);
+}
+
+.language-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    padding: 8px 0;
+    min-width: 120px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+}
+
+.language-selector:hover .language-dropdown {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.language-dropdown a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.language-dropdown a:hover {
+    background: #f5f5f5;
+    color: #009999;
+}
+
+@media (max-width: 768px) {
+    .language-btn {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+    
+    .language-dropdown {
+        min-width: 100px;
+    }
+    
+    .language-dropdown a {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
 }

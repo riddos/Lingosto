@@ -13,16 +13,21 @@
 <body>
     <header>
         <nav>
-            <a href="/index.html" class="logo">
+            <a href="/en/dashboard.html" class="logo">
                 <img src="/images/icon.png" alt="Home Icon">
                 Home
             </a>
             <div class="right-section">
-                <span id="user-greeting" class="user-greeting">Hi<strong></strong>!</span>
                 <button id="profile-btn" class="profile-btn" aria-label="My Profile">
                     <img src="/images/user-icon.png" alt="Profile" class="user-icon">
                 </button>
                 <button id="logout-btn" class="logout-btn">Log Out</button>
+                <div class="language-selector">
+                    <button class="language-btn">EN</button>
+                    <div class="language-dropdown">
+                        <a href="#">English</a>
+                    </div>
+                </div>
                 <button class="menu-toggle" aria-label="Toggle menu">☰</button>
             </div>
             <ul class="menu">
@@ -86,5 +91,25 @@
 
     <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js"></script>
     <script type="module" src="/js/profile.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const languageBtn = document.querySelector('.language-btn');
+            const languageDropdown = document.querySelector('.language-dropdown');
+
+            // Language dropdown functionality
+            if (languageBtn) {
+                languageBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    languageDropdown.classList.toggle('show');
+                });
+            }
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', () => {
+                languageDropdown.classList.remove('show');
+            });
+        });
+    </script>
 </body>
 </html>

@@ -18,44 +18,26 @@
                 Home
             </a>
             <div class="nav-right">
+                <button id="profile-btn" class="profile-btn" aria-label="My Profile">
+                    <img src="images/user-icon.png" alt="Profile" class="user-icon">
+                </button>
+                <ul class="menu">
+                    <li><a href="/en/languages.html" class="bold-link">Get started</a></li>
+                    <li><a href="index.html#how-to-read">How to read?</a></li>
+                    <li><a href="/en/generate.html">Generate a text</a></li>
+                    <li><a href="/en/login.html">Log In / Register</a></li>
+                    <li><a href="/en/contact.html">Contact</a></li>
+                </ul>
                 <div class="language-selector">
-                    <button class="language-btn">EN ▼</button>
-                    <ul class="language-dropdown">
-                        <li><a href="index.html">EN</a></li>
-                        <li><a href="/tr/index.html">TR</a></li>
-                        <li><a href="/de/index.html">DE</a></li>
-                    </ul>
+                    <button class="language-btn">EN</button>
+                    <div class="language-dropdown">
+                        <a href="#">English</a>
+                    </div>
                 </div>
                 <button class="menu-toggle" aria-label="Toggle menu">
                     ☰
                 </button>
             </div>
-            <ul class="menu">
-                <li>
-                    <a href="/en/languages.html">Get started</a>
-                    <ul>
-                        <li><a href="/en/stories/turkish/turkish.html">Turkish</a></li>
-                        <li><a href="/en/stories/english/english.html">English</a></li>
-                        <li><a href="/en/stories/german/german.html">German</a></li>
-                        <li><a href="/en/stories/spanish/spanish.html">Spanish</a></li>
-                        <li><a href="/en/stories/french/french.html">French</a></li>
-                        <li><a href="/en/stories/italian/italian.html">Italian</a></li>
-                        <li><a href="/en/stories/portuguese/portuguese.html">Portuguese</a></li>
-                        <li><a href="/en/stories/czech/czech.html">Czech</a></li>
-                        <li><a href="/en/stories/russian/russian.html">Russian</a></li>
-                        <li><a href="/en/stories/polish/polish.html">Polish</a></li>
-                        <li><a href="/en/stories/norwegian/norwegian.html">Norwegian</a></li>
-                        <li><a href="/en/stories/swedish/swedish.html">Swedish</a></li>
-                        <li><a href="/en/stories/dutch/dutch.html">Dutch</a></li>
-                        <li><a href="/en/stories/croatian/croatian.html">Croatian</a></li>
-                        <li><a href="/en/stories/greek/greek.html">Greek</a></li>
-                    </ul>
-                </li>
-                <li><a href="index.html#how-to-read">How to read?</a></li>
-                <li><a href="/en/generate.html">Generate a text</a></li>
-                <li><a href="/en/login.html">Log In / Register</a></li>
-                <li><a href="/en/contact.html">Contact</a></li>
-            </ul>
         </nav>
         <h1>Lingosto</h1>
         <div class="flags">
@@ -103,11 +85,11 @@
                 <a href="/en/stories/dutch/dutch.html">
                     <div class="flag"><img src="images/flags/dutch.png" alt="Dutch"></div>
                 </a>
-                <a href="/en/stories/croatian/croatian.html">
-                    <div class="flag"><img src="images/flags/croatian.png" alt="Croatian"></div>
-                </a>
                 <a href="/en/stories/finnish/finnish.html">
-                    <div class="flag"><img src="images/flags/finnish.png" alt="Finnish"></div>
+                    <div class="flag"><img src="images/flags/finnish.png" alt="Croatian"></div>
+                </a>
+                <a href="/en/stories/croatian/croatian.html">
+                    <div class="flag"><img src="images/flags/croatian.png" alt="Finnish"></div>
                 </a>
             </div>
         </div>
@@ -233,7 +215,16 @@
         const languageDropdown = document.querySelector('.language-dropdown');
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.dot');
+        const profileBtn = document.getElementById("profile-btn");
         let currentSlide = 0;
+
+        if (profileBtn) {
+            profileBtn.addEventListener("click", () => {
+                // Check if user is logged in (you can modify this condition based on your auth system)
+                const isLoggedIn = localStorage.getItem('user') !== null;
+                window.location.href = isLoggedIn ? "/en/profile.html" : "/en/login.html";
+            });
+        }
 
         // Slideshow functionality
         function showSlide(index) {
