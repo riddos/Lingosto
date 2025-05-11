@@ -73,7 +73,7 @@
 
         @media (min-width: 769px) {
             .user-icon {
-                width: 20px; /* Match the size in mobile version */
+                width: 20px;
                 height: 20px;
                 object-fit: contain;
                 filter: brightness(0) invert(1);
@@ -81,17 +81,18 @@
             }
 
             .logout-btn {
-                background-color: #ff4d4d; /* Match the background color in mobile version */
+                background-color: #ff4d4d;
                 color: white;
                 border: none;
-                padding: 0.4rem 0.8rem; /* Match the padding in mobile version */
+                padding: 0.4rem 0.8rem;
                 border-radius: 5px;
                 cursor: pointer;
-                font-size: 0.9rem; /* Match the font size in mobile version */
+                font-size: 0.9rem;
+                margin-left: 10px;
             }
 
             .logout-btn:hover {
-                background-color: #e60000; /* Match the hover color in mobile version */
+                background-color: #e60000;
             }
 
             .profile-btn {
@@ -102,20 +103,73 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                margin-right: 5px;
             }
 
             .profile-btn:hover .user-icon {
-                transform: scale(1.1); /* Match the hover effect in mobile version */
+                transform: scale(1.1);
             }
 
             .right-section {
                 display: flex;
                 align-items: center;
-                gap: 0.5rem; /* Match the gap in mobile version */
+                gap: 0.5rem;
+            }
+
+            .language-selector {
+                position: relative;
+                margin: 0 5px;
+            }
+
+            .language-btn {
+                background: none;
+                border: 1px solid #ccc;
+                padding: 0.4rem 0.8rem;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 0.9rem;
+                color: #333;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 45px;
+            }
+
+            .language-btn:hover {
+                background-color: #f0f0f0;
+            }
+
+            .language-dropdown {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background-color: white;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 5px 0;
+                min-width: 120px;
+                z-index: 1000;
+                margin-top: 5px;
+            }
+
+            .language-dropdown.show {
+                display: block;
+            }
+
+            .language-dropdown a {
+                display: block;
+                padding: 8px 15px;
+                text-decoration: none;
+                color: #333;
+            }
+
+            .language-dropdown a:hover {
+                background-color: #f0f0f0;
             }
 
             .complete-btn {
-                background-color: #40e0d0; /* Turquoise background color */
+                background-color: #40e0d0;
                 color: white;
                 border: none;
                 padding: 0.4rem 0.8rem;
@@ -125,7 +179,7 @@
             }
 
             .complete-btn:hover {
-                background-color: #20b2aa; /* Darker turquoise for hover */
+                background-color: #20b2aa;
             }
         }
     </style>
@@ -138,11 +192,16 @@
                 Home
             </a>
             <div class="right-section">
-                <span id="user-greeting" class="user-greeting">Hi<strong></strong>!</span>
                 <button id="profile-btn" class="profile-btn" aria-label="My Profile">
                     <img src="/images/user-icon.png" alt="Profile" class="user-icon">
                 </button>
-                <button id="logout-btn" class="logout-btn">Log Out</button>
+                <div class="language-selector">
+                    <button class="language-btn">EN</button>
+                    <div class="language-dropdown">
+                        <a href="#">English</a>
+                    </div>
+                </div>
+                <button id="logout-btn" class="logout-btn" style="display: none;">Log Out</button>
                 <button class="menu-toggle" aria-label="Toggle menu">☰</button>
             </div>
             <ul class="menu">
@@ -240,10 +299,19 @@
         const menuToggle = document.querySelector(".menu-toggle");
         const menu = document.querySelector(".menu");
         const profileBtn = document.getElementById("profile-btn");
+        const logoutBtn = document.getElementById("logout-btn");
+        const languageBtn = document.querySelector('.language-btn');
+        const languageDropdown = document.querySelector('.language-dropdown');
+
+        // Check if user is logged in and show/hide logout button accordingly
+        const isLoggedIn = localStorage.getItem('user') !== null;
+        if (logoutBtn) {
+            logoutBtn.style.display = isLoggedIn ? 'block' : 'none';
+        }
 
         if (menuToggle && menu) {
             menuToggle.addEventListener("click", (event) => {
-                event.stopPropagation(); // Prevent click from propagating to the document
+                event.stopPropagation();
                 menu.classList.toggle("visible");
             });
 
@@ -256,10 +324,24 @@
 
         if (profileBtn) {
             profileBtn.addEventListener("click", () => {
-                window.location.href = "/en/profile.html";
+                window.location.href = isLoggedIn ? "/en/profile.html" : "/en/login.html";
             });
         }
+
+        // Language dropdown functionality
+        if (languageBtn) {
+            languageBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                languageDropdown.classList.toggle('show');
+            });
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            languageDropdown.classList.remove('show');
+        });
     });
-</script>
+    </script>
 </body>
 </html>
