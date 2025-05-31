@@ -571,67 +571,14 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
     gap: 1rem;
 }
 
+/* Remove styles for the language box */
 .language-selector {
-    position: relative;
-    z-index: 1000;
+    display: none; /* Ensure it is hidden if still present */
 }
 
-.language-btn {
-    background: transparent;
-    color: white;
-    border: 1px solid white;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
-    z-index: 1001;
-}
-
+.language-btn,
 .language-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: #007373;
-    border-radius: 4px;
-    padding: 5px 0;
-    min-width: 100px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    z-index: 1002;
-}
-
-.language-dropdown.show {
-    display: block;
-}
-
-.language-dropdown li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.language-dropdown a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 15px;
-    display: block;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.language-dropdown a:hover {
-    background: rgba(255, 255, 255, 0.1);
-}
-
-@media (max-width: 768px) {
-    .nav-right {
-        gap: 0.5rem;
-    }
-    
-    .language-btn {
-        padding: 3px 8px;
-        font-size: 12px;
-    }
+    display: none; /* Ensure no visual elements remain */
 }
 
 /* Mobile-only elements */

@@ -22,11 +22,11 @@
                     <img src="images/user-icon.png" alt="Profile" class="user-icon">
                 </button>
                 <ul class="menu">
-                    <li><a href="/en/languages.html" class="bold-link">Get started</a></li>
+                    <li><a href="pages/languages.html" class="bold-link">Get started</a></li>
                     <li><a href="index.html#how-to-read">How to read?</a></li>
-                    <li><a href="/en/generate.html">Generate a text</a></li>
-                    <li><a href="/en/login.html">Log In / Register</a></li>
-                    <li><a href="/en/contact.html">Contact</a></li>
+                    <li><a href="pages/generate.html">Generate a text</a></li>
+                    <li><a href="pages/login.html">Log In / Register</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
                 </ul>
                 <div class="language-selector">
                     <button class="language-btn">EN</button>
@@ -42,53 +42,53 @@
         <h1>Lingosto</h1>
         <div class="flags">
             <div class="flag-row">
-                <a href="/en/stories/turkish/turkish.html">
+                <a href="pages/stories/turkish/turkish.html">
                     <div class="flag"><img src="images/flags/turkish.png" alt="Turkish"></div>
                 </a>
-                <a href="/en/stories/english/english.html">
+                <a href="pages/stories/english/english.html">
                     <div class="flag"><img src="images/flags/english.png" alt="English"></div>
                 </a>
-                <a href="/en/stories/german/german.html">
+                <a href="pages/stories/german/german.html">
                     <div class="flag"><img src="images/flags/german.png" alt="German"></div>
                 </a>
-                <a href="/en/stories/spanish/spanish.html">
+                <a href="pages/stories/spanish/spanish.html">
                     <div class="flag"><img src="images/flags/spanish.png" alt="Spanish"></div>
                 </a>
-                <a href="/en/stories/french/french.html">
+                <a href="pages/stories/french/french.html">
                     <div class="flag"><img src="images/flags/french.png" alt="French"></div>
                 </a>
             </div>
             <div class="flag-row">
-                <a href="/en/stories/italian/italian.html">
+                <a href="pages/stories/italian/italian.html">
                     <div class="flag"><img src="images/flags/italian.png" alt="Italian"></div>
                 </a>
-                <a href="/en/stories/portuguese/portuguese.html">
+                <a href="pages/stories/portuguese/portuguese.html">
                     <div class="flag"><img src="images/flags/portuguese.png" alt="Portuguese"></div>
                 </a>
-                <a href="/en/stories/czech/czech.html">
+                <a href="pages/stories/czech/czech.html">
                     <div class="flag"><img src="images/flags/czech.png" alt="Czech"></div>
                 </a>
-                <a href="/en/stories/russian/russian.html">
+                <a href="pages/stories/russian/russian.html">
                     <div class="flag"><img src="images/flags/russian.png" alt="Russian"></div>
                 </a>
-                <a href="/en/stories/dutch/dutch.html">
+                <a href="pages/stories/dutch/dutch.html">
                     <div class="flag"><img src="images/flags/dutch.png" alt="Dutch"></div>
                 </a>
             </div>
             <div class="flag-row">
-                <a href="/en/stories/norwegian/norwegian.html">
+                <a href="pages/stories/norwegian/norwegian.html">
                     <div class="flag"><img src="images/flags/norwegian.png" alt="Norwegian"></div>
                 </a>
-                <a href="/en/stories/swedish/swedish.html">
+                <a href="pages/stories/swedish/swedish.html">
                     <div class="flag"><img src="images/flags/swedish.png" alt="Swedish"></div>
                 </a>
-                <a href="/en/stories/swedish/danish.html">
+                <a href="pages/stories/swedish/danish.html">
                     <div class="flag"><img src="images/flags/danish.png" alt="Danish"></div>
                 </a>
-                <a href="/en/stories/polish/polish.html">
+                <a href="pages/stories/polish/polish.html">
                     <div class="flag"><img src="images/flags/polish.png" alt="Polish"></div>
                 </a>
-                <a href="/en/stories/croatian/croatian.html">
+                <a href="pages/stories/croatian/croatian.html">
                     <div class="flag"><img src="images/flags/croatian.png" alt="Finnish"></div>
                 </a>
             </div>
@@ -173,7 +173,7 @@
         </div>
         <div class="section-divider"></div>
         <div class="cta">
-            <a href="/en/languages.html">Get Started Now</a>
+            <a href="languages.html">Get Started Now</a>
         </div>
     </div>
 <div class="social-media">
@@ -214,7 +214,7 @@
             profileBtn.addEventListener("click", () => {
                 // Check if user is logged in (you can modify this condition based on your auth system)
                 const isLoggedIn = localStorage.getItem('user') !== null;
-                window.location.href = isLoggedIn ? "/en/profile.html" : "/en/login.html";
+                window.location.href = isLoggedIn ? "/profile.html" : "/login.html";
             });
         }
 
