@@ -563,6 +563,28 @@ nav ul.menu > li > a[href="pages/languages.html"]:hover {
         margin-right: 0.5rem;
         font-size: 1rem;
     }
+
+    /* Center language flags on mobile */
+    .flags {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flag-row {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    /* Center "Lingosto" and introductory text on mobile */
+    header h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+    }
 }
 
 .nav-right {
