@@ -1,0 +1,221 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+input, textarea, button {
+    font-size: 1rem;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+button {
+    background-color: #30d5c8;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #28b2a3;
+}
+
+#confirmation-message {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+header {
+    background-color: #00bfbf;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+header .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header .language-selector {
+    position: relative;
+}
+
+header .language-btn {
+    background-color: #ffffff;
+    color: #00bfbf;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+header .language-btn:hover {
+    background-color: #e0f7f7;
+}
+
+header .language-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+header .language-selector:hover .language-dropdown {
+    display: block;
+}
+
+header .language-dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+header .language-dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+header .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+header .menu {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header .menu li {
+    position: relative;
+}
+
+header .menu li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header .menu li a:hover {
+    color: #e0f7f7;
+}
+
+header .menu li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #007373;
+    border-radius: 5px;
+    list-style: none;
+    padding: 0.5rem;
+    z-index: 10;
+}
+
+header .menu li:hover ul {
+    display: block;
+}
+
+header .menu li ul li a {
+    color: white;
+    padding: 5px 10px;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+header .menu li ul li a:hover {
+    background-color: #005959;
+}
+
+@media (max-width: 768px) {
+    header .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #00bfbf;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0 0 10px 10px;
+    }
+
+    header .menu.active {
+        display: flex;
+    }
+
+    header .menu-toggle {
+        display: block;
+    }
+}
