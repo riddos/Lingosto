@@ -35,8 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 translationBox.className = 'translation-box';
                 translationBox.textContent = translation;
                 
-                // Add to body first to calculate dimensions
-                document.body.appendChild(translationBox);
+                // Make the trigger container relative positioned if it isn't already
+                if (getComputedStyle(trigger).position === 'static') {
+                    trigger.style.position = 'relative';
+                }
+                
+                // Add the translation box as a child of the trigger first to calculate dimensions
+                trigger.appendChild(translationBox);
                 
                 // Get screen dimensions and box dimensions
                 const screenWidth = window.innerWidth;
@@ -45,32 +50,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 const boxWidth = translationBox.offsetWidth;
                 const boxHeight = translationBox.offsetHeight;
                 
-                // Calculate optimal position
-                let left = rect.right + 10;
-                let top = rect.top;
+                // Calculate optimal position to stay next to question mark
+                let left = 25; // Default: to the right of question mark
+                let top = -5; // Default: slightly above question mark
                 
-                // Check if box goes off right edge
-                if (left + boxWidth > screenWidth - 20) {
-                    left = rect.left - boxWidth - 10; // Position to the left of question mark
+                // Check if box goes off right edge when positioned to the right
+                if (rect.left + left + boxWidth > screenWidth - 20) {
+                    left = -boxWidth - 5; // Position to the left of question mark
                 }
                 
-                // Check if box goes off left edge
-                if (left < 20) {
-                    left = 20; // Minimum left margin
+                // Check if box goes off left edge when positioned to the left
+                if (rect.left + left < 20) {
+                    left = 25; // Force to the right if left side is also off-screen
                 }
                 
                 // Check if box goes off bottom edge
-                if (top + boxHeight > screenHeight - 20) {
-                    top = screenHeight - boxHeight - 20; // Position above bottom edge
+                if (rect.top + top + boxHeight > screenHeight - 20) {
+                    top = -boxHeight - 5; // Position above question mark
                 }
                 
                 // Check if box goes off top edge
-                if (top < 20) {
-                    top = 20; // Minimum top margin
+                if (rect.top + top < 20) {
+                    top = 25; // Position below question mark
                 }
                 
                 // Apply calculated position
-                translationBox.style.position = 'fixed';
+                translationBox.style.position = 'absolute';
                 translationBox.style.left = left + 'px';
                 translationBox.style.top = top + 'px';
                 translationBox.style.zIndex = '9999';

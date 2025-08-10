@@ -62,24 +62,24 @@ p {
 }
 
 .translation-box {
-    position: fixed;
+    position: absolute;
     background: #fff;
     color: #333;
     border: 2px solid #30d5c8;
     border-radius: 5px;
-    padding: 8px 12px;
+    padding: 6px 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     font-size: 0.9em;
     font-weight: normal;
-    line-height: 1.3;
+    line-height: 1.2;
     z-index: 9999;
     white-space: normal;
     pointer-events: none;
-    min-width: 120px;
+    min-width: 300px;
     max-width: calc(100vw - 40px);
     word-wrap: break-word;
     overflow-wrap: break-word;
-    hyphens: auto;
+    hyphens: none;
 }
 
 /* Mobile-specific adjustments */
