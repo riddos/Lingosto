@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle studyAgain button - remove blur and scroll to top
+    // Handle studyAgain button - remove blur and scroll to text section
     const studyAgainBtn = document.getElementById('studyAgain');
     if (studyAgainBtn) {
         studyAgainBtn.addEventListener('click', function() {
@@ -158,10 +158,14 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('blur');
             document.documentElement.classList.remove('blur');
             
-            // Scroll to top of the page
-            window.scrollTo(0, 0);
-            document.documentElement.scrollTop = 0;
-            document.body.scrollTop = 0;
+            // Scroll smoothly to the text section
+            const textSection = document.querySelector('.text-section');
+            if (textSection) {
+                textSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
     }
 });
