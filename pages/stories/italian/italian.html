@@ -21,40 +21,55 @@
                 ☰
             </button>
             <ul class="menu">
-                <li><a href="../../pages/languages.html">Languages</a></li>
-                <li><a href="../../index.html#how-to-read">How to read?</a></li>
-                <li><a href="../../pages/generate.html">Generate a text</a></li>
-                <li><a href="../../pages/contact.html">Contact</a></li>
+                <li><a href="/pages/languages.html">Languages</a></li>
+                <li><a href="/index.html#how-to-read">How to read?</a></li>
+                <li><a href="/pages/generate.html">Generate a text</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
             </ul>
         </nav>
         <h1>Italian Stories</h1>
-        <p>Explore these 10 engaging stories in Italian:</p>
+        <p>Explore these 9 engaging stories in Italian:</p>
     </header>
     <div class="container">
-        <ul class="story-list">
-            <li><a href="ilcaffesospeso.html">Il Caffè Sospeso</a></li>
-            <li><a href="inboccaallupo.html">In Bocca al Lupo</a></li>
-            <li><a href="ladivertentevita.html">La Divertente Vita</a></li>
-            <li><a href="ilgiornodellafesta.html">Il Giorno della Festa</a></li>
-            <li><a href="unamiciziavera.html">Un'Amicizia Vera</a></li>
-            <li><a href="ilviaggiomagico.html">Il Viaggio Magico</a></li>
-            <li><a href="lestagionidellavita.html">Le Stagioni della Vita</a></li>
-            <li><a href="ilpiccolopastore.html">Il Piccolo Pastore</a></li>
-            <li><a href="unavventuraindimenticabile.html">Un'Avventura Indimenticabile</a></li>
-            <li><a href="ilsegretodellafelicita.html">Il Segreto della Felicità</a></li>
-        </ul>
+        <div class="story-grid">
+            <div class="story-box">
+                <img src="/images/story-placeholder.png" alt="Il Caffè Sospeso">
+                <a href="ilcaffesospeso.html">Il Caffè Sospeso</a>
+            </div>
+            <div class="story-box">
+                <img src="/images/story-placeholder.png" alt="In Bocca al Lupo">
+                <a href="inboccaallupo.html">In Bocca al Lupo</a>
+            </div>
+            <div class="story-box">
+                <img src="/images/story-placeholder.png" alt="La Divertente Vita">
+                <a href="ladivertentevita.html">La Divertente Vita</a>
+            </div>
+            <div class="story-box">
+                <img src="/images/story-placeholder.png" alt="Il Giorno della Festa">
+                <a href="ilgiornodellafesta.html">Il Giorno della Festa</a>
+            </div>
+            <div class="story-box">
+                <img src="/images/story-placeholder.png" alt="Un'Amicizia Vera">
+                <a href="unamiciziavera.html">Un'Amicizia Vera</a>
+            </div>
+            <div class="story-box">
+                <img src="/images/story-placeholder.png" alt="Il Viaggio Magico">
+                <a href="ilviaggiomagico.html">Il Viaggio Magico</a>
+            </div>
+            <div class="story-box">
+                <img src="/images/story-placeholder.png" alt="Le Stagioni della Vita">
+                <a href="lestagionidellavita.html">Le Stagioni della Vita</a>
+            </div>
+            <div class="story-box">
+                <img src="/images/story-placeholder.png" alt="Il Piccolo Pastore">
+                <a href="ilpiccolopastore.html">Il Piccolo Pastore</a>
+            </div>
+            <div class="story-box">
+                <img src="/images/story-placeholder.png" alt="Un'Avventura Indimenticabile">
+                <a href="unavventuraindimenticabile.html">Un'Avventura Indimenticabile</a>
+            </div>
+        </div>
     </div>
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const menuToggle = document.querySelector(".menu-toggle");
-        const menu = document.querySelector(".menu");
-
-        if (menuToggle && menu) {
-            menuToggle.addEventListener("click", () => {
-                menu.classList.toggle("visible");
-            });
-        }
-    });
-    </script>
+    <script src="/js/stories.js"></script>
 </body>
 </html>

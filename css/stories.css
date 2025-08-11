@@ -150,9 +150,9 @@ nav .menu li ul li a {
 }
 
 @media (max-width: 768px) {
- .menu-toggle {
+    .menu-toggle {
         display: block;
-    } 
+    }
 
     nav .menu {
         display: none;
@@ -172,11 +172,7 @@ nav .menu li ul li a {
         display: flex;
     }
 
-    nav .menu.active {
-        display: flex;
-
-   
-            nav .menu li ul {
+    nav .menu li ul {
         position: static; /* Change to static for mobile */
         display: none;
         background-color: #007373;
@@ -192,12 +188,12 @@ nav .menu li ul li a {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .story-list li a {
         width: 100%;
         margin-bottom: 10px;
     }
-    
+
     .complete-btn {
         margin-left: 0;
         width: 100%;
@@ -293,5 +289,54 @@ nav .menu li ul li a {
     .logout-btn {
         padding: 0.3rem 0.6rem;
         font-size: 0.8rem;
+    }
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Always 3 columns */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.story-box {
+    text-align: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.story-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.story-box a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.story-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .story-grid {
+        grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .story-grid {
+        grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns on smaller screens */
     }
 }
