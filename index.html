@@ -132,7 +132,7 @@
                 </div>
             </div>
         </div>
-          <div class="slideshow">
+        <div class="slideshow">
            <div class="slide active">
                 <img src="images/header/header-photo.jpg" alt="Language Learning Slide 1" class="header-photo">
             </div>
@@ -143,7 +143,7 @@
                 <img src="images/header/header-photo3.jpg" alt="Language Learning Slide 3" class="header-photo">
             </div>
         </div>
-            <div class="dots">
+        <div class="dots">
             <div class="dot active" data-index="0"></div>
             <div class="dot" data-index="1"></div>
             <div class="dot" data-index="2"></div>
@@ -173,132 +173,23 @@
             <a href="languages.html">Get Started Now</a>
         </div>
     </div>
-<div class="social-media">
-  <a href="https://www.instagram.com/lingostohub/" target="_blank">
-    <img src="images/socialmedia/instagram.jpg" alt="Instagram" class="social-icon">
-  </a>
-  <a href="https://www.youtube.com/@Lingostohub" target="_blank">
-    <img src="images/socialmedia/youtube.jpg" alt="YouTube" class="social-icon">
-  </a>
-  <a href="https://www.tiktok.com/@lingostohub" target="_blank">
-    <img src="images/socialmedia/tiktok.jpg" alt="TikTok" class="social-icon">
-  </a>
-  <a href="https://x.com/LingostoHub" target="_blank">
-    <img src="images/socialmedia/x.jpg" alt="X" class="social-icon">
-  </a>
-</div>
+    <div class="social-media">
+        <a href="https://www.instagram.com/lingostohub/" target="_blank">
+            <img src="images/socialmedia/instagram.jpg" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://www.youtube.com/@Lingostohub" target="_blank">
+            <img src="images/socialmedia/youtube.jpg" alt="YouTube" class="social-icon">
+        </a>
+        <a href="https://www.tiktok.com/@lingostohub" target="_blank">
+            <img src="images/socialmedia/tiktok.jpg" alt="TikTok" class="social-icon">
+        </a>
+        <a href="https://x.com/LingostoHub" target="_blank">
+            <img src="images/socialmedia/x.jpg" alt="X" class="social-icon">
+        </a>
+    </div>
     <footer>
         <p>&copy; 2025 Lingosto. All Rights Reserved.</p>
     </footer>
-    <script type="module">
-        import { setupAuthNavigation } from './js/auth.js';
-        document.addEventListener('DOMContentLoaded', () => {
-            setupAuthNavigation();
-        });
-    </script>
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const menu = document.querySelector('.menu');
-        const languageBtn = document.querySelector('.language-btn');
-        const languageDropdown = document.querySelector('.language-dropdown');
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        const profileBtn = document.getElementById("profile-btn");
-        let currentSlide = 0;
-
-        if (profileBtn) {
-            profileBtn.addEventListener("click", () => {
-                // Check if user is logged in (you can modify this condition based on your auth system)
-                const isLoggedIn = localStorage.getItem('user') !== null;
-                window.location.href = isLoggedIn ? "/profile.html" : "/login.html";
-            });
-        }
-
-        // Slideshow functionality
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            slides[index].classList.add('active');
-            dots[index].classList.add('active');
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        // Auto-advance slides every 5 seconds
-        setInterval(nextSlide, 5000);
-
-        // Dot click handlers
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentSlide = index;
-                showSlide(currentSlide);
-            });
-        });
-
-        // Menu toggle functionality
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('visible');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (event) => {
-            if (!event.target.closest('.menu') && !event.target.closest('.menu-toggle')) {
-                menu.classList.remove('visible');
-            }
-        });
-
-        // Language dropdown functionality
-        if (languageBtn) {
-            languageBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                languageDropdown.classList.toggle('show');
-            });
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', () => {
-            languageDropdown.classList.remove('show');
-        });
-
-        const cards = document.querySelectorAll(".feature-card-inner");
-        if (cards.length > 0) {
-            cards.forEach((card) => {
-                card.addEventListener("click", (event) => {
-                    event.stopPropagation();
-                    document.querySelectorAll(".feature-card-inner.clicked").forEach((otherCard) => {
-                        if (otherCard !== card) {
-                            otherCard.classList.remove("clicked");
-                        }
-                    });
-                    card.classList.toggle("clicked");
-                });
-            });
-        }
-
-        document.addEventListener("click", () => {
-            document.querySelectorAll(".feature-card-inner.clicked").forEach((card) => {
-                card.classList.remove("clicked");
-            });
-        });
-
-        const howToReadLink = document.querySelector('a[href="index.html#how-to-read"]');
-        const targetSection = document.getElementById("how-to-read");
-
-        if (howToReadLink && targetSection) {
-            howToReadLink.addEventListener("click", (event) => {
-                event.preventDefault();
-                targetSection.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
-            });
-        }
-    });
-</script>
+    <script type="module" src="js/index.js"></script>
 </body>
 </html>
