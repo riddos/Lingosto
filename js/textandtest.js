@@ -104,6 +104,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Handle individual word translations
+    const words = document.querySelectorAll('.word-translate');
+    words.forEach(word => {
+        word.addEventListener('click', (event) => {
+            event.stopPropagation();
+
+            // Remove existing underlines and translation boxes
+            document.querySelectorAll('.word-translate').forEach(w => w.style.textDecoration = 'none');
+            const existingTranslationBox = document.querySelector('.word-translation-box');
+            if (existingTranslationBox) {
+                existingTranslationBox.remove();
+            }
+
+            // Underline the clicked word
+            word.style.textDecoration = 'underline';
+
+            // Create and display the translation box
+            const translation = word.getAttribute('data-translation');
+            const translationBox = document.createElement('div');
+            translationBox.className = 'word-translation-box';
+            translationBox.textContent = translation;
+
+            // Position the translation box below the word
+            const rect = word.getBoundingClientRect();
+            translationBox.style.position = 'absolute';
+            translationBox.style.left = `${rect.left + window.scrollX}px`;
+            translationBox.style.top = `${rect.bottom + window.scrollY + 5}px`;
+            translationBox.style.background = '#fff';
+            translationBox.style.border = '1px solid #ddd';
+            translationBox.style.borderRadius = '5px';
+            translationBox.style.padding = '5px 10px';
+            translationBox.style.boxShadow = '0 2px 6px rgba(0, 0, 0, 0.15)';
+            translationBox.style.zIndex = '9999';
+
+            document.body.appendChild(translationBox);
+
+            // Remove the translation box when clicking outside
+            const dismissTranslation = (event) => {
+                if (!translationBox.contains(event.target) && !word.contains(event.target)) {
+                    translationBox.remove();
+                    word.style.textDecoration = 'none';
+                    document.removeEventListener('click', dismissTranslation);
+                }
+            };
+            setTimeout(() => {
+                document.addEventListener('click', dismissTranslation);
+            }, 100);
+        });
+    });
+
     // Handle menu toggle
     const menuToggle = document.querySelector('.menu-toggle');
     const menu = document.querySelector('.menu');
