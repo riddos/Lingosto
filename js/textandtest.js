@@ -168,26 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle startTest button - blur everything except quiz
+    // Handle startTest button - scroll to quiz section
     const startTestBtn = document.getElementById('startTest');
     if (startTestBtn) {
         startTestBtn.addEventListener('click', function() {
-            // Add blur to specific sections, excluding quiz
-            const sectionsToBlur = [
-                'header',
-                '.flashcards-container',
-                '.main-content',
-                '#videoSection',
-                '.divider'
-            ];
-            
-            sectionsToBlur.forEach(selector => {
-                const elements = document.querySelectorAll(selector);
-                elements.forEach(element => {
-                    element.classList.add('blur');
-                });
-            });
-            
             // Scroll to quiz section
             const quizContainer = document.getElementById('quizContainer');
             if (quizContainer) {
@@ -196,27 +180,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle studyAgain button - remove blur and scroll to text section
+    // Handle studyAgain button - scroll to text section
     const studyAgainBtn = document.getElementById('studyAgain');
     if (studyAgainBtn) {
         studyAgainBtn.addEventListener('click', function() {
-            // Remove blur from all elements
-            const allElements = document.querySelectorAll('*');
-            allElements.forEach(element => {
-                element.classList.remove('blur');
-                if (element.style.filter) {
-                    element.style.filter = '';
-                }
-            });
-            
-            // Also remove blur from body and documentElement
-            document.body.classList.remove('blur');
-            document.documentElement.classList.remove('blur');
-            
             // Scroll smoothly to the text section
             const textSection = document.querySelector('.text-section');
             if (textSection) {
                 textSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+
+        studyAgainBtn.addEventListener('click', function() {
+            // Scroll smoothly to the video section
+            const videoSection = document.getElementById('videoSection');
+            if (videoSection) {
+                videoSection.scrollIntoView({ 
                     behavior: 'smooth',
                     block: 'start'
                 });
