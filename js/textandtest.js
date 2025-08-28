@@ -205,6 +205,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    document.getElementById('checkAnswers').addEventListener('click', function() {
+        const correctAnswers = {
+            q1: 'Napoli',
+            q2: 'felice',
+            q3: 'pagare',
+            q4: 'sconosciuto',
+            q5: 'sospeso',
+            q6: 'pagato',
+            q7: 'difficoltà',
+            q8: 'chiederlo',
+            q9: 'gratuitamente',
+            q10: 'solidarietà',
+            q11: 'diffusa',
+            q12: 'paesi',
+            q13: 'speranza',
+            q14: 'sorriso',
+            q15: 'provare',
+            q16: 'lasciare'
+        };
+        calculateQuizResult(correctAnswers);
+    });
 });
 
 /**
@@ -213,13 +235,15 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function calculateQuizResult(correctAnswers) {
     let score = 0;
-    for (let i = 1; i <= 20; i++) {
+    const totalQuestions = 16; // Updated to 16 questions
+    for (let i = 1; i <= totalQuestions; i++) {
         const userAnswer = document.getElementById(`q${i}`).value;
         if (userAnswer === correctAnswers[`q${i}`]) {
             score++;
         }
     }
-    const resultText = `Success rate: ${(score / 20) * 100}%`;
+    const successRate = ((score / totalQuestions) * 100).toFixed(2);
+    const resultText = `Success rate: ${successRate}%`;
     const result = document.getElementById('result');
     result.innerHTML = resultText;
     result.style.textAlign = 'center';
