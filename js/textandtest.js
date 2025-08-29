@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('checkAnswers').addEventListener('click', function() {
         const correctAnswers = {
-            q1: 'Napoli',
+            q1: 'nata',
             q2: 'felice',
             q3: 'pagare',
             q4: 'sconosciuto',
@@ -225,7 +225,13 @@ document.addEventListener('DOMContentLoaded', () => {
             q15: 'provare',
             q16: 'lasciare'
         };
-        calculateQuizResult(correctAnswers);
+
+        const result = document.getElementById('result');
+        if (result) {
+            calculateQuizResult(correctAnswers);
+        } else {
+            console.error('Result element not found.');
+        }
     });
 });
 
@@ -235,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function calculateQuizResult(correctAnswers) {
     let score = 0;
-    const totalQuestions = 16; // Updated to 16 questions
+    const totalQuestions = Object.keys(correctAnswers).length;
     for (let i = 1; i <= totalQuestions; i++) {
         const userAnswer = document.getElementById(`q${i}`).value;
         if (userAnswer === correctAnswers[`q${i}`]) {
