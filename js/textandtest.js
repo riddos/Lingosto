@@ -206,33 +206,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    document.getElementById('checkAnswers').addEventListener('click', function() {
-        const correctAnswers = {
-            q1: 'nata',
-            q2: 'felice',
-            q3: 'pagare',
-            q4: 'sconosciuto',
-            q5: 'sospeso',
-            q6: 'pagato',
-            q7: 'difficoltà',
-            q8: 'chiederlo',
-            q9: 'gratuitamente',
-            q10: 'solidarietà',
-            q11: 'diffusa',
-            q12: 'paesi',
-            q13: 'speranza',
-            q14: 'sorriso',
-            q15: 'provare',
-            q16: 'lasciare'
-        };
-
-        const result = document.getElementById('result');
-        if (result) {
+    // Handle checkAnswers button
+    const checkAnswersBtn = document.getElementById('checkAnswers');
+    if (checkAnswersBtn) {
+        checkAnswersBtn.addEventListener('click', function() {
+            const correctAnswers = {
+                q1: 'nata',
+                q2: 'felice',
+                q3: 'pagare',
+                q4: 'sconosciuto',
+                q5: 'sospeso',
+                q6: 'pagato',
+                q7: 'difficoltà',
+                q8: 'chiederlo',
+                q9: 'gratuitamente',
+                q10: 'solidarietà',
+                q11: 'diffusa',
+                q12: 'paesi',
+                q13: 'speranza',
+                q14: 'sorriso',
+                q15: 'provare',
+                q16: 'lasciare'
+            };
             calculateQuizResult(correctAnswers);
-        } else {
-            console.error('Result element not found.');
-        }
-    });
+        });
+    }
+
 });
 
 /**

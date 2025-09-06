@@ -31,15 +31,15 @@
         </nav>
         <h1>Il Caffè Sospeso</h1>
     </header>
-    <div style="height: 20px;"></div>
-    <div id="videoSection" class="video-section" style="text-align: center; padding: 0 px;">
-        <div style="position: relative; padding-bottom: 100%; height: 0; overflow: hidden; max-width: 480px; width: 100%; background: #000; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+    <div class="spacer"></div>
+    <div id="videoSection" class="video-section">
+        <div class="video-container">
             <iframe 
                 src="https://www.youtube.com/embed/YQSWKJvHxl4" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen 
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;">
+                class="video-iframe">
             </iframe>
         </div>
     </div>
@@ -236,7 +236,7 @@
                 <span class="word-translate" data-translation="someone">qualcuno</span>. 
                 <span class="translate-trigger" data-translation="Next time you go to a café… think about leaving a coffee for someone.">?</span>
             </p>
-            <div style="text-align: center;">
+            <div class="text-center">
                 <button id="startTest" class="test-button">✎ Test</button>
             </div>
           
@@ -310,8 +310,8 @@
             </div>
         </div>
     </div>
-    <div id="quizContainer" style="text-align: center;">
-        <div class="test-section" style="display: inline-block; text-align: left;">
+    <div id="quizContainer" class="text-center">
+        <div class="test-section">
             <p>
                 Hai mai sentito parlare del caffè sospeso?  
                 È una tradizione <select id="q1"><option value=""></option><option value="prendere">prendere</option><option value="offrire">offrire</option><option value="nata">nata</option><option value="diffusa">diffusa</option></select> a Napoli, nel sud d'Italia.  
@@ -327,35 +327,12 @@
                 Hai voglia di <select id="q15"><option value=""></option><option value="provare">provare</option><option value="ignorare">ignorare</option><option value="raccontare">raccontare</option><option value="condividere">condividere</option></select> anche tu il "caffè sospeso"?  
                 Offrire un caffè sospeso è un modo per connettersi con gli altri. La prossima volta che vai al bar… pensa a <select id="q16"><option value=""></option><option value="prendere">prendere</option><option value="offrire">offrire</option><option value="condividere">condividere</option><option value="lasciare">lasciare</option></select> un caffè per qualcuno.
             </p>
-            <div style="text-align: center;">
+            <div class="text-center">
                 <button id="studyAgain" class="back-button">Study Again</button>
                 <button id="checkAnswers" class="test-button">Answers</button>
             </div>
             <div id="result"></div>
         </div>
     </div>
-    <script>
-        document.getElementById('checkAnswers').addEventListener('click', function() {
-            const correctAnswers = {
-                q1: 'nata',
-                q2: 'felice',
-                q3: 'pagare',
-                q4: 'sconosciuto',
-                q5: 'sospeso',
-                q6: 'pagato',
-                q7: 'difficoltà',
-                q8: 'chiederlo',
-                q9: 'gratuitamente',
-                q10: 'solidarietà',
-                q11: 'diffusa',
-                q12: 'paesi',
-                q13: 'speranza',
-                q14: 'sorriso',
-                q15: 'provare',
-                q16: 'lasciare'
-            };
-            calculateQuizResult(correctAnswers);
-        });
-    </script>
 </body>
 </html>
