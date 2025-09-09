@@ -169,7 +169,7 @@ p {
 .main-content {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 5px;
     margin: 20px auto;
     max-width: 800px;
     justify-content: center;
@@ -479,7 +479,7 @@ nav .menu li:hover ul {
 .helper-instruction {
     font-size: 0.8rem;
     font-weight: 700;
-    margin: 0 0 6px;
+    margin: 0 0 2px;
     text-align: center;
 }
 
