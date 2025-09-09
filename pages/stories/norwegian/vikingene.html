@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/textandtest.css">
     <script src="/js/textandtest.js" defer></script>
     <meta name="description" content="En enkel norsk lesetekst om vikingene med ord-for-ord oversettelser, gloser, og quiz.">
+    
 </head>
 <body>
     <header>
@@ -45,6 +46,7 @@
         </div>
     </div>
     <div class="main-content">
+        <div class="helper-instruction">Click to see the meaning of each word.</div>
         <div class="text-section">
             <p>
                 <span class="word-translate" data-translation="The Vikings">Vikingene</span> 
@@ -190,9 +192,7 @@
                 <span class="word-translate" data-translation="and traditions">og tradisjoner</span>.
                 <span class="translate-trigger" data-translation="Their legacy still lives on in language, culture, and traditions.">?</span>
             </p>
-            <div class="text-center">
-                <button id="startTest" class="test-button">✎ Test</button>
-            </div>
+            
         </div>
     </div>
 
@@ -264,9 +264,13 @@
             </div>
         </div>
     </div>
+    <div class="text-center">
+        <button id="startTest" class="test-button">✎ Test</button>
+    </div>
 
     <div id="quizContainer" class="text-center">
         <div class="test-section">
+            <div class="quiz-instruction">Select the correct word to complete the text!</div>
             <p>
                 <select id="q1" data-correct="Vikingene"><option value=""></option><option value="Vikingene">Vikingene</option><option value="Kvinner">Kvinner</option><option value="Sagaene">Sagaene</option><option value="Skipene">Skipene</option></select> kom fra Norge, Sverige og Danmark.
                 De levde for mer enn tusen år siden.

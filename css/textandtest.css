@@ -460,3 +460,50 @@ nav .menu li:hover ul {
     display: inline-block;
     text-align: left;
 }
+
+/* Blur handling for study vs. test modes */
+.blurred {
+    filter: blur(4px);
+    pointer-events: none;
+    user-select: none;
+    transition: filter 0.25s ease;
+}
+
+/* Word clickability */
+.word-translate {
+    cursor: pointer;
+}
+
+/* Helper and quiz instructions */
+.helper-instruction {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin: 0 0 6px;
+    text-align: center;
+}
+
+.quiz-instruction {
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+/* Desktop centering for reading text */
+@media (min-width: 992px) {
+    .text-section {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 800px;
+        text-align: center;
+    }
+    .text-section p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .helper-instruction {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 800px;
+    }
+}

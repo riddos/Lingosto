@@ -209,6 +209,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (quizContainer) {
                 quizContainer.scrollIntoView({ behavior: 'smooth' });
             }
+
+            // Apply blur to study content (text + video + flashcards) when starting test
+            const textSection = document.querySelector('.text-section');
+            const videoSection = document.getElementById('videoSection');
+            const flashcardsContainer = document.querySelector('.flashcards-container');
+            [textSection, videoSection, flashcardsContainer].forEach(el => {
+                if (el) el.classList.add('blurred');
+            });
         });
     }
 
@@ -235,6 +243,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     block: 'start'
                 });
             }
+        });
+
+        studyAgainBtn.addEventListener('click', function() {
+            // Remove blur to allow studying again
+            const textSection = document.querySelector('.text-section');
+            const videoSection = document.getElementById('videoSection');
+            const flashcardsContainer = document.querySelector('.flashcards-container');
+            [textSection, videoSection, flashcardsContainer].forEach(el => {
+                if (el) el.classList.remove('blurred');
+            });
         });
     }
 
