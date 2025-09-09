@@ -439,8 +439,8 @@ nav .menu li:hover ul {
 /* Desktop adjustments */
 @media (min-width: 769px) {
     .video-container {
-        max-width: 240px;
-        padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio */
+        max-width: 400px;
+        padding-bottom: 40%; /* More horizontal aspect ratio */
     }
 }
 
