@@ -1,4 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Shuffle flashcards to avoid positional guessing
+    const flashcardsGrid = document.querySelector('.flashcards-grid');
+    if (flashcardsGrid) {
+        const cards = Array.from(flashcardsGrid.children);
+        for (let i = cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [cards[i], cards[j]] = [cards[j], cards[i]];
+        }
+        // Re-append in shuffled order
+        cards.forEach(card => flashcardsGrid.appendChild(card));
+    }
+
+    // Randomize quiz option order where data-correct is present
+    const quizSelects = document.querySelectorAll('#quizContainer select');
+    quizSelects.forEach(select => {
+        const correct = select.getAttribute('data-correct');
+        if (!correct) return; // skip pages without data-correct (fallback remains)
+
+        // Preserve the first empty option
+        const options = Array.from(select.options).filter(opt => opt.value !== '');
+        // Shuffle options using Fisher-Yates
+        for (let i = options.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [options[i], options[j]] = [options[j], options[i]];
+        }
+        // Clear and re-add empty option + shuffled
+        select.innerHTML = '';
+        const empty = document.createElement('option');
+        empty.value = '';
+        select.appendChild(empty);
+        options.forEach(opt => select.appendChild(opt));
+    });
     // Handle flashcard flipping
     const flashcards = document.querySelectorAll('.flashcard');
     flashcards.forEach(flashcard => {
@@ -210,6 +242,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkAnswersBtn = document.getElementById('checkAnswers');
     if (checkAnswersBtn) {
         checkAnswersBtn.addEventListener('click', function() {
+            // If data-correct attributes exist, derive answers dynamically
+            const selects = document.querySelectorAll('#quizContainer select[data-correct]');
+            if (selects.length > 0) {
+                const correctAnswers = {};
+                selects.forEach(sel => {
+                    const id = sel.id;
+                    const correct = sel.getAttribute('data-correct');
+                    if (id) correctAnswers[id] = correct;
+                });
+                calculateQuizResult(correctAnswers);
+                return;
+            }
+
+            // Fallback for existing Italian pages
             const correctAnswers = {
                 q1: 'nata',
                 q2: 'felice',
