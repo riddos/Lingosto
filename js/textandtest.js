@@ -136,6 +136,83 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Inject word-by-word clickable translations inside `.text-section` using a page-provided dictionary
+    try {
+        const dictionary = (window.WORD_DICTIONARY && typeof window.WORD_DICTIONARY === 'object') ? window.WORD_DICTIONARY : null;
+        const textSection = document.querySelector('.text-section');
+        if (dictionary && textSection) {
+            const normalizedDict = new Map();
+            Object.keys(dictionary).forEach(key => {
+                // Store as lowercase keys for case-insensitive matching
+                normalizedDict.set(key.toLowerCase(), dictionary[key]);
+            });
+
+            // Walk the DOM and wrap matching word tokens in spans
+            const walker = document.createTreeWalker(textSection, NodeFilter.SHOW_TEXT, {
+                acceptNode: (node) => {
+                    if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+                    // Skip text nodes inside existing interactive elements
+                    const parentEl = node.parentElement;
+                    if (!parentEl) return NodeFilter.FILTER_REJECT;
+                    if (parentEl.closest('.translate-trigger, .word-translate, select, option, .quiz-instruction, .test-section, .flashcards-container')) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            });
+
+            const textNodes = [];
+            while (walker.nextNode()) {
+                textNodes.push(walker.currentNode);
+            }
+
+            const wordRegex = /(\p{L}+[\p{L}\-']*)/gu; // Letter sequences, keep hyphenated/apostrophes
+
+            textNodes.forEach(node => {
+                const original = node.nodeValue;
+                const parts = [];
+                let lastIndex = 0;
+                for (let match; (match = wordRegex.exec(original)); ) {
+                    const wordStart = match.index;
+                    const wordEnd = wordRegex.lastIndex;
+                    const token = match[0];
+                    const normalized = token.toLowerCase();
+
+                    // Push preceding non-word chunk
+                    if (wordStart > lastIndex) {
+                        parts.push(document.createTextNode(original.slice(lastIndex, wordStart)));
+                    }
+
+                    const translation = normalizedDict.get(normalized);
+                    if (translation) {
+                        const span = document.createElement('span');
+                        span.className = 'word-translate';
+                        span.setAttribute('data-translation', translation);
+                        span.textContent = token;
+                        span.style.cursor = 'pointer';
+                        parts.push(span);
+                    } else {
+                        parts.push(document.createTextNode(token));
+                    }
+                    lastIndex = wordEnd;
+                }
+                // Trailing non-word chunk
+                if (lastIndex < original.length) {
+                    parts.push(document.createTextNode(original.slice(lastIndex)));
+                }
+
+                if (parts.length > 0) {
+                    const parent = node.parentNode;
+                    parts.forEach(part => parent.insertBefore(part, node));
+                    parent.removeChild(node);
+                }
+            });
+        }
+    } catch (err) {
+        // Fail silently to avoid breaking the page if anything goes wrong
+        // console.error('Word translation injection failed', err);
+    }
+
     // Handle individual word translations
     const words = document.querySelectorAll('.word-translate');
     words.forEach(word => {
@@ -260,38 +337,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const checkAnswersBtn = document.getElementById('checkAnswers');
     if (checkAnswersBtn) {
         checkAnswersBtn.addEventListener('click', function() {
-            // If data-correct attributes exist, derive answers dynamically
+            // Derive answers dynamically from data-correct attributes
             const selects = document.querySelectorAll('#quizContainer select[data-correct]');
-            if (selects.length > 0) {
-                const correctAnswers = {};
-                selects.forEach(sel => {
-                    const id = sel.id;
-                    const correct = sel.getAttribute('data-correct');
-                    if (id) correctAnswers[id] = correct;
-                });
-                calculateQuizResult(correctAnswers);
+            const correctAnswers = {};
+            selects.forEach(sel => {
+                const id = sel.id;
+                const correct = sel.getAttribute('data-correct');
+                if (id) correctAnswers[id] = correct;
+            });
+
+            if (Object.keys(correctAnswers).length === 0) {
+                const result = document.getElementById('result');
+                if (result) {
+                    result.innerHTML = 'Answers are not configured for this page.';
+                    result.style.textAlign = 'center';
+                }
                 return;
             }
 
-            // Fallback for existing Italian pages
-            const correctAnswers = {
-                q1: 'nata',
-                q2: 'felice',
-                q3: 'pagare',
-                q4: 'sconosciuto',
-                q5: 'sospeso',
-                q6: 'pagato',
-                q7: 'difficoltà',
-                q8: 'chiederlo',
-                q9: 'gratuitamente',
-                q10: 'solidarietà',
-                q11: 'diffusa',
-                q12: 'paesi',
-                q13: 'speranza',
-                q14: 'sorriso',
-                q15: 'provare',
-                q16: 'lasciare'
-            };
             calculateQuizResult(correctAnswers);
         });
     }
