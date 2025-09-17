@@ -23,22 +23,6 @@
         <ul class="menu">
             <li>
                 <a href="pages/languages.html">Get started</a>
-                <ul>
-                    <li><a href="../../pages/turkish/turkish.html">Turkish</a></li>
-                    <li><a href="../pages/english.html">English</a></li>
-                    <li><a href="../pages/german.html">German</a></li>
-                    <li><a href="../../pages/french.html">French</a></li>
-                    <li><a href="../pages/portuguese.html">Portuguese</a></li>
-                    <li><a href="../pages/italian.html">Italian</a></li>
-                    <li><a href="../pages/spanish.html">Spanish</a></li>
-                    <li><a href="../pages/czech.html">Czech</a></li>
-                    <li><a href="../pages/russian.html">Russian</a></li>
-                    <li><a href="../pages/dutch.html">Dutch</a></li>
-                    <li><a href="../pages/swedish.html">Swedish</a></li>
-                    <li><a href="../pages/norwegian.html">Norwegian</a></li>
-                    <li><a href="../pages/croatian.html">Croatian</a></li>
-                    <li><a href="../pages/polish.html">Polish</a></li>
-                </ul>
             </li>
             <li><a href="../../index.html#how-to-read">How to read?</a></li>
             <li><a href="../../pages/generate.html">Generate a text</a></li>
@@ -49,61 +33,40 @@
         <p>Choose a story in Czech</p>
     </header>
     <div class="container">
-        <div class="stories">
-            <div class="category">
-                <h3>Level A1</h3>
-                <ul class="story-list">
-                    <li><a href="dobryvojaksvejk.html">Osudy dobrého vojáka Švejka za světové války (The Good Soldier Švejk)</a></li>
-                </ul>
+        <div class="story-grid">
+            <div class="story-box">
+                <a href="dobryvojaksvejk.html">Dobrý voják Švejk</a>
             </div>
-            <div class="category">
-                <h3>Level A2</h3>
-                <ul class="story-list">
-                    <li><a href="tyvole.html">Ty vole (Example Story)</a></li>
-                </ul>
-            </div>
-            <div class="category">
-                <h3>Level B1</h3>
-                <ul class="story-list">
-                    <li>Hrabě Monte Christo (The Count of Monte Cristo) – Alexandr Dumas (Czech adaptation)</li>
-                    <li>Obrazy z dějin národa českého (Pictures from the History of the Czech Nation) – Vladislav Vančura</li>
-                    <li>Krakatit (Krakatit) – Karel Čapek</li>
-                    <li>Psohlavci (The Dogheads) – Alois Jirásek</li>
-                    <li>Fimfárum (Fimfárum) – Jan Werich</li>
-                </ul>
-            </div>
-            <div class="category">
-                <h3>Level B2</h3>
-                <ul class="story-list">
-                    <li>Spalovač mrtvol (The Cremator) – Ladislav Fuks</li>
-                    <li>Občanský průkaz (The Identity Card) – Petr Šabach</li>
-                    <li>Smrt krásných srnců (The Death of the Beautiful Deer) – Ota Pavel</li>
-                    <li>Noc s Hamletem (A Night with Hamlet) – Vladimír Holan</li>
-                    <li>Modlitba pro Kateřinu Horovitzovou (A Prayer for Kateřina Horovitzová) – Arnošt Lustig</li>
-                </ul>
-            </div>
-            <div class="category">
-                <h3>Level C1</h3>
-                <ul class="story-list">
-                    <li>Dita Saxová (Dita Saxová) – Arnošt Lustig</li>
-                    <li>Něžný barbar (The Tender Barbarian) – Bohumil Hrabal</li>
-                    <li>Obsluhoval jsem anglického krále (I Served the King of England) – Bohumil Hrabal</li>
-                    <li>Ostře sledované vlaky (Closely Watched Trains) – Bohumil Hrabal</li>
-                    <li>Postřižiny (Cutting It Short) – Bohumil Hrabal</li>
-                </ul>
-            </div>
-            <div class="category">
-                <h3>Level C2</h3>
-                <ul class="story-list">
-                    <li>Šakalí léta (The Years of the Jackal) – Petr Šabach</li>
-                    <li>Zbabělci (The Cowards) – Josef Škvorecký</li>
-                    <li>Tankový prapor (The Tank Battalion) – Josef Škvorecký</li>
-                    <li>Příliš hlučná samota (Too Loud a Solitude) – Bohumil Hrabal</li>
-                    <li>Utrpení knížete Sternenhocha (The Sufferings of Prince Sternenhoch) – Ladislav Klíma</li>
-                </ul>
-            </div>
+            <div class="story-box">Rossum's Universal Robot</div>
+            <div class="story-box">České Pivo</div>
+            <div class="story-box">Franz Kafka</div>
+            <div class="story-box">Pravda vítězí</div>
+            <div class="story-box">Praha, město pohádek</div>
+            <div class="story-box">Československo</div>
+            <div class="story-box">Karlovy Vary</div>
+            <div class="story-box">Hokej</div>
         </div>
     </div>
+    <style>
+        .story-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .story-box {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .story-box:hover {
+            background-color: #e9e9e9;
+            cursor: pointer;
+        }
+    </style>
     <script>
     document.addEventListener("DOMContentLoaded", () => {
         const menuToggle = document.querySelector(".menu-toggle");
