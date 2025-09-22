@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dutch - Choose a story</title>
+    <title>Dutch Stories</title>
     <link rel="icon" sizes="16x16" href="images/logo.png" type="image/png">
     <link rel="icon" sizes="32x32" href="images/logo.png" type="image/png">
     <link rel="icon" sizes="48x48" href="images/logo.png" type="image/png">
-    <link rel="icon" href="../../images/icon.png" type="image/x-icon">
+    <link rel="icon" href="/images/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/stories.css">
 </head>
 <body>
@@ -21,64 +21,73 @@
                 ☰
             </button>
             <ul class="menu">
-                <li>
-                    <a href="/pages/languages.html">Get started</a>
-                    <ul>
-                        <li><a href="../pages/turkish/turkish.html">Turkish</a></li>
-                        <li><a href="../pages/english.html">English</a></li>
-                        <li><a href="../pages/german.html">German</a></li>
-                        <li><a href="../pages/spanish.html">Spanish</a></li>
-                        <li><a href="../../pages/french/french.html">French</a></li>
-                        <li><a href="../pages/italian.html">Italian</a></li>
-                        <li><a href="../pages/portuguese.html">Portuguese</a></li>
-                        <li><a href="../pages/czech.html">Czech</a></li>
-                        <li><a href="../pages/russian.html">Russian</a></li>
-                        <li><a href="../pages/polish.html">Polish</a></li>
-                        <li><a href="../pages/norwegian.html">Norwegian</a></li>
-                        <li><a href="../pages/swedish.html">Swedish</a></li>
-                        <li><a href="../pages/dutch.html">Dutch</a></li>
-                        <li><a href="../pages/croatian.html">Croatian</a></li>
-                    </ul>
-                </li>
-                <li><a href="index.html#how-to-read">How to read?</a></li>
-                <li><a href="../../pages/generate.html">Generate a text</a></li>
-                <li><a href="../../pages/login.html">Log In / Register</a></li>
-                <li><a href="../../pages/contact.html">Contact</a></li>
+                <li><a href="/pages/languages.html">Languages</a></li>
+                <li><a href="/index.html#how-to-read">How to read?</a></li>
+                <li><a href="/pages/generate.html">Generate a text</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
             </ul>
         </nav>
-        <h1>Dutch</h1>
-        <p>Choose a story in Dutch</p>
+        <h1>Dutch Stories</h1>
+        <p>Explore these engaging stories in Dutch:</p>
     </header>
     <div class="container">
-        <h2>Available Story</h2>
-        <div class="stories">
-            <div class="category">
-                <h3>Story</h3>
-                <ul class="story-list">
-                    <li><a href="carnavalskraker.html">Carnavalskraker</a></li>
-                </ul>
+        <div class="story-grid">
+            <div class="story-box">
+                <a href="carnavalskraker.html">
+                    <h3>Carnavalskraker</h3>
+                    <p>Een vrolijk verhaal over de traditie van carnavalsmuziek.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="samengestelde-woorden.html">
+                    <h3>Waarom heeft het Nederlands zoveel samengestelde woorden?</h3>
+                    <p>Ontdek de charme van woorden zoals zandkastelenwedstrijd en arbeidsongeschiktheidsverzekering.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="fietsen.html">
+                    <h3>Waarom fietsen Nederlanders overal naartoe?</h3>
+                    <p>Fietsen is goedkoop, gezond en een essentieel onderdeel van de Nederlandse cultuur.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="g-klank.html">
+                    <h3>De G-klank: waarom klinkt het Nederlands zo hard?</h3>
+                    <p>De unieke keelklank g en hoe deze verschilt tussen Nederland en Vlaanderen.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="kaas.html">
+                    <h3>Waarom eten Nederlanders zoveel kaas?</h3>
+                    <p>Een kijkje in de rijke traditie van Gouda, Edam en andere kazen.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="gezellig-lekker.html">
+                    <h3>Wat betekenen typisch Nederlandse woorden als gezellig en lekker?</h3>
+                    <p>De onmisbare woorden die de Nederlandse cultuur beschrijven.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="koningsdag.html">
+                    <h3>Waarom is Koningsdag zo’n groot feest in Nederland?</h3>
+                    <p>Een nationale viering met oranje outfits, vrijmarkten en muziek.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="verkleinwoorden.html">
+                    <h3>Waarom gebruiken Nederlanders zoveel verkleinwoorden?</h3>
+                    <p>Boekje, kopje, biertje... Hoe verkleinwoorden warmte aan gesprekken toevoegen.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="engels.html">
+                    <h3>Waarom spreken Nederlanders zo goed Engels?</h3>
+                    <p>De invloed van films, muziek, onderwijs en internationale communicatie.</p>
+                </a>
             </div>
         </div>
     </div>
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const menuToggle = document.querySelector(".menu-toggle");
-        const menu = document.querySelector(".menu");
-
-        if (menuToggle && menu) {
-            menuToggle.addEventListener("click", (e) => {
-                e.stopPropagation();
-                menu.classList.toggle("visible");
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener("click", (e) => {
-                if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
-                    menu.classList.remove("visible");
-                }
-            });
-        }
-    });
-    </script>
+    <script src="/js/stories.js"></script>
 </body>
 </html>

@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Norwegian - Choose a story</title>
+    <title>Norwegian Stories</title>
     <link rel="icon" sizes="16x16" href="images/logo.png" type="image/png">
     <link rel="icon" sizes="32x32" href="images/logo.png" type="image/png">
     <link rel="icon" sizes="48x48" href="images/logo.png" type="image/png">
-    <link rel="icon" href="../../images/icon.png" type="image/x-icon">
+    <link rel="icon" href="/images/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/stories.css">
 </head>
 <body>
@@ -21,61 +21,73 @@
                 ☰
             </button>
             <ul class="menu">
-                <li>
-                    <a href="/pages/languages.html">Get started</a>
-                    <ul>
-                        <li><a href="../pages/turkish/turkish.html">Turkish</a></li>
-                        <li><a href="../pages/english.html">English</a></li>
-                        <li><a href="../pages/german.html">German</a></li>
-                        <li><a href="../pages/spanish.html">Spanish</a></li>
-                        <li><a href="../../pages/french/french.html">French</a></li>
-                        <li><a href="../pages/italian.html">Italian</a></li>
-                        <li><a href="../pages/portuguese.html">Portuguese</a></li>
-                        <li><a href="../pages/czech.html">Czech</a></li>
-                        <li><a href="../pages/russian.html">Russian</a></li>
-                        <li><a href="../pages/polish.html">Polish</a></li>
-                        <li><a href="../pages/norwegian.html">Norwegian</a></li>
-                        <li><a href="../pages/swedish.html">Swedish</a></li>
-                        <li><a href="../pages/dutch.html">Dutch</a></li>
-                        <li><a href="../pages/croatian.html">Croatian</a></li>
-                    </ul>
-                </li>
-                <li><a href="index.html#how-to-read">How to read?</a></li>
-                <li><a href="../../pages/generate.html">Generate a text</a></li>
-                <li><a href="../../pages/login.html">Log In / Register</a></li>
-                <li><a href="../../pages/contact.html">Contact</a></li>
+                <li><a href="/pages/languages.html">Languages</a></li>
+                <li><a href="/index.html#how-to-read">How to read?</a></li>
+                <li><a href="/pages/generate.html">Generate a text</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
             </ul>
         </nav>
-        <h1>Norwegian</h1>
-        <p>Choose a story in Norwegian</p>
+        <h1>Norwegian Stories</h1>
+        <p>Explore these engaging stories in Norwegian:</p>
     </header>
     <div class="container">
-        <h2>Stories</h2>
-        <div class="stories">
-            <ul class="story-list">
-                <li><a href="vikingene.html">Vikingene</a></li>
-            </ul>
+        <div class="story-grid">
+            <div class="story-box">
+                <a href="vikingene.html">
+                    <h3>Vikingene</h3>
+                    <p>Historien om vikingenes liv og kultur.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="bokmal-nynorsk.html">
+                    <h3>Hvorfor finnes det to offisielle skriftspråk i Norge?</h3>
+                    <p>Om bokmål, nynorsk og deres historiske røtter.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="ski.html">
+                    <h3>Hvorfor er nordmenn så glade i ski?</h3>
+                    <p>Ski som en del av norsk identitet og kultur.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="vokaler.html">
+                    <h3>Hva er spesielt med de norske vokalene æ, ø og å?</h3>
+                    <p>Unike vokaler som gir norsk språk sin egen klang.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="hytter.html">
+                    <h3>Hvorfor elsker nordmenn hytter?</h3>
+                    <p>Hyttekulturen og dens betydning for nordmenn.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="koselig.html">
+                    <h3>Hva betyr egentlig ordet koselig?</h3>
+                    <p>Mer enn «cozy» – et ord som definerer norsk kultur.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="dialekter.html">
+                    <h3>Hvorfor er dialektene så viktige i Norge?</h3>
+                    <p>Dialekter som en del av norsk stolthet og identitet.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="brunost.html">
+                    <h3>Hvorfor spiser nordmenn brunost?</h3>
+                    <p>Den søte osten som er unik for Norge.</p>
+                </a>
+            </div>
+            <div class="story-box">
+                <a href="dugnad.html">
+                    <h3>Hva er greia med det norske ordet dugnad?</h3>
+                    <p>Frivillig arbeid som skaper fellesskap og samhold.</p>
+                </a>
+            </div>
         </div>
     </div>
-    <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const menuToggle = document.querySelector(".menu-toggle");
-        const menu = document.querySelector(".menu");
-
-        if (menuToggle && menu) {
-            menuToggle.addEventListener("click", (e) => {
-                e.stopPropagation();
-                menu.classList.toggle("visible");
-            });
-
-            // Close menu when clicking outside
-            document.addEventListener("click", (e) => {
-                if (!menu.contains(e.target) && !menuToggle.contains(e.target)) {
-                    menu.classList.remove("visible");
-                }
-            });
-        }
-    });
-    </script>
+    <script src="/js/stories.js"></script>
 </body>
 </html>
