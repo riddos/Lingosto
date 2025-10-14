@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hokej</title>
+    <link rel="icon" sizes="16x16" href="images/logo.png" type="image/png">
+    <link rel="icon" sizes="32x32" href="images/logo.png" type="image/png">
+    <link rel="icon" sizes="48x48" href="images/logo.png" type="image/png">
+    <link rel="icon" href="/images/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/textandtest.css">
+    <script>
+        window.WORD_DICTIONARY = {
+            "hokej": "hockey",
+            "je": "is",
+            "nejoblíbenější": "most popular",
+            "sport": "sport",
+            "v": "in",
+            "české": "Czech",
+            "republice": "Republic",
+            "hráči": "players",
+            "hrají": "play",
+            "na": "on",
+            "ledě": "ice",
+            "s": "with",
+            "pukem": "puck",
+            "a": "and",
+            "hokejkami": "hockey sticks",
+            "cílem": "goal",
+            "je": "is",
+            "dát": "to score",
+            "gól": "goal",
+            "do": "into",
+            "soupeřovy": "opponent's",
+            "branky": "goal",
+            "historie": "history",
+            "českého": "Czech",
+            "hokeje": "hockey",
+            "začíná": "begins",
+            "roce": "year",
+            "1908": "1908",
+            "kdy": "when",
+            "se": "",
+            "hrála": "was played",
+            "první": "first",
+            "utkání": "match",
+            "v": "in",
+            "praze": "Prague",
+            "od": "from",
+            "té": "that",
+            "doby": "time",
+            "se": "",
+            "hokej": "hockey",
+            "stal": "became",
+            "národním": "national",
+            "sportem": "sport",
+            "češi": "Czechs",
+            "mají": "have",
+            "dlouhou": "long",
+            "tradici": "tradition",
+            "v": "in",
+            "hokeji": "hockey",
+            "vyhráli": "won",
+            "mnoho": "many",
+            "mistrovství": "championships",
+            "světa": "world",
+            "a": "and",
+            "olympijských": "Olympic",
+            "her": "games",
+            "nejslavnější": "most famous",
+            "hráči": "players",
+            "jsou": "are",
+            "jaromír": "Jaromír",
+            "jágr": "Jágr",
+            "dominik": "Dominik",
+            "hašek": "Hašek",
+            "patrik": "Patrik",
+            "elias": "Elias",
+            "a": "and",
+            "david": "David",
+            "pastrňák": "Pastrňák",
+            "tito": "these",
+            "hráči": "players",
+            "hrají": "play",
+            "v": "in",
+            "nhl": "NHL",
+            "nejlepší": "best",
+            "hokejové": "hockey",
+            "ligy": "league",
+            "světa": "world",
+            "český": "Czech",
+            "hokej": "hockey",
+            "má": "has",
+            "svou": "its",
+            "vlastní": "own",
+            "charakteristiku": "characteristic",
+            "hráči": "players",
+            "jsou": "are",
+            "známí": "known",
+            "pro": "for",
+            "techniku": "technique",
+            "kreativitu": "creativity",
+            "a": "and",
+            "týmovou": "team",
+            "práci": "work",
+            "české": "Czech",
+            "reprezentace": "national team",
+            "vždy": "always",
+            "bojuje": "fights",
+            "o": "for",
+            "medaile": "medals",
+            "na": "at",
+            "mistrovstvích": "championships",
+            "světa": "world",
+            "a": "and",
+            "olympijských": "Olympic",
+            "hrách": "games",
+            "fanoušci": "fans",
+            "jsou": "are",
+            "velmi": "very",
+            "vášniví": "passionate",
+            "když": "when",
+            "hraje": "plays",
+            "reprezentace": "national team",
+            "celá": "entire",
+            "země": "country",
+            "se": "",
+            "dívá": "watches",
+            "na": "at",
+            "televizi": "television",
+            "hokej": "hockey",
+            "spojuje": "connects",
+            "lidi": "people",
+            "všech": "all",
+            "věků": "ages",
+            "děti": "children",
+            "se": "",
+            "učí": "learn",
+            "hrát": "play",
+            "hokej": "hockey",
+            "od": "from",
+            "mladého": "young",
+            "věku": "age",
+            "rodiče": "parents",
+            "je": "them",
+            "vodí": "take",
+            "na": "to",
+            "tréninky": "training",
+            "a": "and",
+            "zápasy": "matches",
+            "hokej": "hockey",
+            "je": "is",
+            "více": "more",
+            "než": "than",
+            "jen": "just",
+            "sport": "sport",
+            "je": "it is",
+            "způsob": "way",
+            "života": "of life",
+            "pro": "for",
+            "mnoho": "many",
+            "čechů": "Czechs",
+            "proto": "therefore",
+            "je": "it is",
+            "tak": "so",
+            "důležitý": "important",
+            "v": "in",
+            "české": "Czech",
+            "kultuře": "culture"
+        };
+    </script>
+    <script src="/js/textandtest.js" defer></script>
+    <meta name="description" content="Jednoduchý český text o českém hokeji s překlady, glosářem a kvízem.">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/index.html" class="logo">
+                <img src="/images/icon.png" alt="Home Icon">
+                Home
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                ☰
+            </button>
+            <ul class="menu">
+                <li>
+                    <a href="/pages/languages.html">Languages</a>
+                </li>
+                <li><a href="/index.html#how-to-read">How to read?</a></li>
+                <li><a href="/pages/contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <h1>Hokej</h1>
+    </header>
+    <div class="spacer"></div>
+    <div id="videoSection" class="video-section">
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/8Z9iBz8Vh1s" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen 
+                class="video-iframe">
+            </iframe>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="helper-instruction">Click to see the meaning of each word.</div>
+        <div class="text-section">
+            <p>
+                Hokej je nejoblíbenější sport v České republice. <span class="translate-trigger" data-translation="Hockey is the most popular sport in the Czech Republic.">?</span> Hráči hrají na ledě s pukem a hokejkami. <span class="translate-trigger" data-translation="Players play on ice with a puck and hockey sticks.">?</span> Cílem je dát gól do soupeřovy branky. <span class="translate-trigger" data-translation="The goal is to score a goal into the opponent's goal.">?</span> Historie českého hokeje začíná v roce 1908. <span class="translate-trigger" data-translation="The history of Czech hockey begins in 1908.">?</span>
+
+                Kdy se hrála první utkání v Praze. <span class="translate-trigger" data-translation="When the first matches were played in Prague.">?</span> Od té doby se hokej stal národním sportem. <span class="translate-trigger" data-translation="Since that time, hockey became the national sport.">?</span> Češi mají dlouhou tradici v hokeji. <span class="translate-trigger" data-translation="Czechs have a long tradition in hockey.">?</span> Vyhráli mnoho mistrovství světa a olympijských her. <span class="translate-trigger" data-translation="They won many world championships and Olympic games.">?</span>
+
+                Nejslavnější hráči jsou Jaromír Jágr, Dominik Hašek, Patrik Elias a David Pastrňák. <span class="translate-trigger" data-translation="The most famous players are Jaromír Jágr, Dominik Hašek, Patrik Elias, and David Pastrňák.">?</span> Tito hráči hrají v NHL, nejlepší hokejové lize světa. <span class="translate-trigger" data-translation="These players play in the NHL, the best hockey league in the world.">?</span> Český hokej má svou vlastní charakteristiku. <span class="translate-trigger" data-translation="Czech hockey has its own characteristic.">?</span> Hráči jsou známí pro techniku, kreativitu a týmovou práci. <span class="translate-trigger" data-translation="Players are known for technique, creativity, and team work.">?</span>
+
+                České reprezentace vždy bojuje o medaile na mistrovstvích světa a olympijských hrách. <span class="translate-trigger" data-translation="The Czech national team always fights for medals at world championships and Olympic games.">?</span> Fanoušci jsou velmi vášniví. <span class="translate-trigger" data-translation="Fans are very passionate.">?</span> Když hraje reprezentace, celá země se dívá na televizi. <span class="translate-trigger" data-translation="When the national team plays, the entire country watches on television.">?</span> Hokej spojuje lidi všech věků. <span class="translate-trigger" data-translation="Hockey connects people of all ages.">?</span>
+
+                Děti se učí hrát hokej od mladého věku. <span class="translate-trigger" data-translation="Children learn to play hockey from a young age.">?</span> Rodiče je vodí na tréninky a zápasy. <span class="translate-trigger" data-translation="Parents take them to training and matches.">?</span> Hokej je více než jen sport - je to způsob života pro mnoho Čechů. <span class="translate-trigger" data-translation="Hockey is more than just a sport - it's a way of life for many Czechs.">?</span> Proto je tak důležitý v české kultuře. <span class="translate-trigger" data-translation="That is why it is so important in Czech culture.">?</span>
+            </p>
+        </div>
+    </div>
+    <div class="flashcards-container">
+        <div class="flashcards-grid">
+            <div class="flashcard">
+                <div class="front">hokej</div>
+                <div class="back">hockey</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">nejoblíbenější</div>
+                <div class="back">most popular</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">sport</div>
+                <div class="back">sport</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">hráči</div>
+                <div class="back">players</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">led</div>
+                <div class="back">ice</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">puk</div>
+                <div class="back">puck</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">hokejka</div>
+                <div class="back">hockey stick</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">gól</div>
+                <div class="back">goal</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">soupeř</div>
+                <div class="back">opponent</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">branka</div>
+                <div class="back">goal</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">historie</div>
+                <div class="back">history</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">utkání</div>
+                <div class="back">match</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">národní</div>
+                <div class="back">national</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">tradice</div>
+                <div class="back">tradition</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">mistrovství</div>
+                <div class="back">championship</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">olympijské hry</div>
+                <div class="back">Olympic games</div>
+            </div>
+            <div class="flashcard">
+                <div class="front">reprezentace</div>
+                <div class="back">national team</div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button id="startTest" class="test-button">✎ Test</button>
+    </div>
+    <div id="quizContainer" class="text-center">
+        <div class="test-section">
+            <div class="quiz-instruction">Select the correct word to complete the text!</div>
+            <p>
+                <select id="q1" data-correct="Hokej"><option value=""></option><option value="Hokej">Hokej</option><option value="Sport">Sport</option><option value="Hráči">Hráči</option><option value="Historie">Historie</option></select> je <select id="q2" data-correct="nejoblíbenější"><option value=""></option><option value="nejoblíbenější">nejoblíbenější</option><option value="nejhorší">nejhorší</option><option value="nejdražší">nejdražší</option><option value="nejlevnější">nejlevnější</option></select> <select id="q3" data-correct="sport"><option value=""></option><option value="sport">sport</option><option value="hokej">hokej</option><option value="hráči">hráči</option><option value="historie">historie</option></select> v České republice. <select id="q4" data-correct="Hráči"><option value=""></option><option value="Hráči">Hráči</option><option value="Hokej">Hokej</option><option value="Sport">Sport</option><option value="Historie">Historie</option></select> hrají na <select id="q5" data-correct="ledě"><option value=""></option><option value="ledě">ledě</option><option value="trávě">trávě</option><option value="písku">písku</option><option value="vodě">vodě</option></select> s <select id="q6" data-correct="pukem"><option value=""></option><option value="pukem">pukem</option><option value="míčem">míčem</option><option value="hokejkou">hokejkou</option><option value="branku">branku</option></select> a <select id="q7" data-correct="hokejkami"><option value=""></option><option value="hokejkami">hokejkami</option><option value="pukem">pukem</option><option value="branku">branku</option><option value="gólem">gólem</option></select>.
+                Cílem je dát <select id="q8" data-correct="gól"><option value=""></option><option value="gól">gól</option><option value="puk">puk</option><option value="hokejka">hokejka</option><option value="branka">branka</option></select> do soupeřovy <select id="q9" data-correct="branky"><option value=""></option><option value="branky">branky</option><option value="gólu">gólu</option><option value="puku">puku</option><option value="hokejky">hokejky</option></select>. <select id="q10" data-correct="Historie"><option value=""></option><option value="Historie">Historie</option><option value="Hokej">Hokej</option><option value="Sport">Sport</option><option value="Hráči">Hráči</option></select> českého hokeje začíná v roce 1908. Kdy se hrála první <select id="q11" data-correct="utkání"><option value=""></option><option value="utkání">utkání</option><option value="hokej">hokej</option><option value="sport">sport</option><option value="hráči">hráči</option></select> v Praze. Od té doby se hokej stal <select id="q12" data-correct="národním"><option value=""></option><option value="národním">národním</option><option value="mezinárodním">mezinárodním</option><option value="místním">místním</option><option value="soukromým">soukromým</option></select> sportem.
+                Češi mají dlouhou <select id="q13" data-correct="tradici"><option value=""></option><option value="tradici">tradici</option><option value="historie">historie</option><option value="hokej">hokej</option><option value="sport">sport</option></select> v hokeji. Vyhráli mnoho <select id="q14" data-correct="mistrovství"><option value=""></option><option value="mistrovství">mistrovství</option><option value="hokej">hokej</option><option value="sport">sport</option><option value="hráči">hráči</option></select> světa a <select id="q15" data-correct="olympijských"><option value=""></option><option value="olympijských">olympijských</option><option value="hokejových">hokejových</option><option value="sportovních">sportovních</option><option value="místních">místních</option></select> her. Nejslavnější hráči jsou Jaromír Jágr, Dominik Hašek, Patrik Elias a David Pastrňák. Tito hráči hrají v NHL, nejlepší hokejové lize světa. Český hokej má svou vlastní charakteristiku. Hráči jsou známí pro techniku, kreativitu a týmovou práci. České <select id="q16" data-correct="reprezentace"><option value=""></option><option value="reprezentace">reprezentace</option><option value="hokej">hokej</option><option value="sport">sport</option><option value="hráči">hráči</option></select> vždy bojuje o medaile na mistrovstvích světa a olympijských hrách.
+                Fanoušci jsou velmi vášniví. Když hraje reprezentace, celá země se dívá na televizi. Hokej spojuje lidi všech věků. Děti se učí hrát hokej od mladého věku. Rodiče je vodí na tréninky a zápasy. Hokej je více než jen sport - je to způsob života pro mnoho Čechů. Proto je tak důležitý v české kultuře.
+            </p>
+            <div class="text-center">
+                <button id="studyAgain" class="back-button">Study Again</button>
+                <button id="checkAnswers" class="test-button">Answers</button>
+            </div>
+            <div id="result"></div>
+        </div>
+    </div>
+</body>
+</html>
