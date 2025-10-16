@@ -315,6 +315,7 @@ nav .menu li ul li a {
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid #ccc; /* Add thin frame line */
 }
 
 .story-box .story-content {
@@ -328,14 +329,16 @@ nav .menu li ul li a {
     text-align: center;
 }
 
-.story-box h3 {
+.story-box .story-content h3 {
     margin: 0;
     font-size: 1.2rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Black edge for title */
 }
 
-.story-box p {
+.story-box .story-content p {
     margin: 5px 0 0;
-    font-size: 1rem;
+    font-size: 0.7rem; /* Further reduce description font size */
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Black edge for description */
 }
 
 .svejk-box {
@@ -343,6 +346,14 @@ nav .menu li ul li a {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    border: 1px solid #ccc; /* Add thin frame line */
+}
+
+.svejk-box .story-content {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+    color: white;
+    padding: 10px;
+    border-radius: 0 0 5px 5px; /* Rounded corners only on the bottom */
 }
 
 .story-box h3 {
