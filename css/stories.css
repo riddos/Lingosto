@@ -363,6 +363,13 @@ nav .menu li ul li a {
     border-radius: 0 0 5px 5px; /* Rounded corners only on the bottom */
 }
 
+.pivo-box .story-content {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+    color: white;
+    padding: 10px;
+    border-radius: 0 0 5px 5px; /* Rounded corners only on the bottom */
+}
+
 .story-box h3 {
     font-size: 1.2rem; /* Default font size for titles */
 }
