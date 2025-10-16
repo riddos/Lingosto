@@ -307,13 +307,42 @@ nav .menu li ul li a {
 }
 
 .story-box {
-    text-align: center;
-    background-color: white;
-    border: 1px solid #ccc;
+    position: relative;
+    aspect-ratio: 1 / 1; /* Maintain 1:1 aspect ratio */
+    background-size: cover;
+    background-position: center;
     border-radius: 10px;
-    padding: 10px;
+    overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.story-box .story-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for text */
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.story-box h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.story-box p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+}
+
+.svejk-box {
+    background-image: url('../images/svejk.png'); /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .story-box h3 {
@@ -346,7 +375,8 @@ nav .menu li ul li a {
     }
 
     .story-box {
-        padding: 8px; /* Reduce padding for smaller screens */
+        width: 100%; /* Adjust width for smaller screens */
+        height: auto; /* Maintain aspect ratio */
     }
 
     .story-box h3 {
@@ -365,6 +395,7 @@ nav .menu li ul li a {
     }
 
     .story-box {
+        width: 100%; /* Full width for very small screens */
         padding: 5px; /* Further reduce padding for very small screens */
     }
 
